@@ -22,7 +22,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-        persist-credentials: false
+        with:
+          persist-credentials: false
       - uses: ./.github/actions/build-tools
         with:
           native: 'true'
