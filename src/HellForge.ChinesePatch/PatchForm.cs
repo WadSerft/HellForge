@@ -137,7 +137,7 @@ public sealed class PatchForm : Form
             }
         }
         var patchVersion = VersionOf(Path.Combine(staged, "HellForge.Core.dll"));
-        if (installed == null || patchVersion == null || !installed.StartsWith(patchVersion, StringComparison.OrdinalIgnoreCase))
+        if (installed == null || patchVersion == null || !installed.Split('+')[0].Equals(patchVersion.Split('+')[0], StringComparison.OrdinalIgnoreCase))
             return $"版本不符：安装的是 {installed ?? "未知版本"}，补丁构建自 {patchVersion ?? "未知版本"}。请先升级 HellForge（或用对应版本的补丁）。";
 
         foreach (var name in PatchedFiles)

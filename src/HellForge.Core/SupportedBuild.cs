@@ -18,6 +18,16 @@ public sealed record SupportedBuild(int SchemaVersion, string AppId, string Buil
 
     public long TotalBytes => Files.Sum(f => f.Size);
 
+    // This fork's verified-copy path: the game's own executable matches the build's pinned SHA-256. That alone is the
+    // version check - the file list cannot always be trusted (an interrupted session of an older HellForge may have
+    // left its Steam Cloud stand-in as bin/steam_api64.dll, a file a session places there anyway), so the startup gate
+    // and setup's verified-copy branch accept the copy on the executable alone.
+    public bool GameExeMatches(string gameRoot)
+    {
+        var exe = Path.Combine(gameRoot, "bin", "helldivers2.exe");
+        return File.Exists(exe) && LocalInstall.Hash(exe).Equals(ExeSha256, StringComparison.OrdinalIgnoreCase);
+    }
+
     // Depot files HellForge's copy never uses: modules that never run there (they update themselves, so Steam's
     // validation on 2026-10-14 found one changed) and their installers. The list leaves them out, so setup does not copy
     // them and sessions do not look for them.

@@ -658,7 +658,7 @@
     <value>可以游玩</value>
   </data>
   <data name="ready._steam_must_be_running_and_signed_in." xml:space="preserve">
-    <value>就绪。Steam 必须在运行并已登录。</value>
+    <value>就绪。无需 Steam：按“开始”即可启动游戏。</value>
   </data>
   <data name="removing_the_account_sync_helper_through_the_desktop's_password_dialog..." xml:space="preserve">
     <value>正在通过桌面的密码对话框移除账号同步辅助程序...</value>
