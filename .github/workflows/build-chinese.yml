@@ -1,6 +1,6 @@
-# The fork's own package build (this branch l10n/zh-cn: the launcher's Chinese localization): the same package the
-# upstream nightly builds (scripts/Package-HellForge.ps1, its checks included), kept as this run's artifact. Run it
-# from the Actions page (Build the Chinese package > Run workflow) or by a push to this branch.
+# The fork's own builds (branch l10n/zh-cn: the launcher's Chinese localization and the verified-copy setup):
+# a small reversible patch for an installed HellForge, and the complete HellForge-Setup.exe carrying it already
+# applied. Run from the Actions page (Run workflow) or by a push to this branch.
 name: Build the Chinese package
 
 on:
@@ -16,7 +16,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  # The patch alone: a few minutes, no native toolchain (the launcher publishes plain .NET).
+  launcher-patch:
+    name: Build the reversible launcher patch
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Publish the launcher
+        run: dotnet publish src/HellForge.Launcher/HellForge.Launcher.csproj -c Release --nologo -v q -o artifacts/patch
+      - name: Assemble the patch zip
+        shell: pwsh
+        run: |
+          $out = 'artifacts/HellForge-Chinese-Patch'
+          New-Item -ItemType Directory -Force $out | Out-Null
+          foreach ($name in @(
+              'HellForge.Launcher.dll', 'HellForge.Core.dll', 'HellForge.SteamDownload.dll',
+              'HellForge.Launcher.exe', 'HellForge.Launcher.deps.json', 'HellForge.Launcher.runtimeconfig.json')) {
+            Copy-Item (Join-Path 'artifacts/patch' $name) $out -Force
+          }
+          Copy-Item 'artifacts/patch/zh-CN' (Join-Path $out 'zh-CN') -Recurse -Force
+          Copy-Item chinese-patch\apply.ps1, chinese-patch\README.md $out -Force
+          Compress-Archive -Path $out -DestinationPath artifacts/HellForge-Chinese-Patch.zip -Force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hellforge-chinese-patch
+          path: artifacts/HellForge-Chinese-Patch.zip
+          if-no-files-found: error
+
+  # The complete installer, as the upstream nightly builds it (the native toolchain included).
+  full-setup:
     name: Build HellForge-Setup.exe
     runs-on: windows-latest
     timeout-minutes: 60
