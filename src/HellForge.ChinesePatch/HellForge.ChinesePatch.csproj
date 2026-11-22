@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>HellForge-Chinese-Patch</AssemblyName>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <!-- The launcher's icon, as HellForge-Setup carries it. -->
+    <ApplicationIcon>../HellForge.Launcher/Assets/hellforge.ico</ApplicationIcon>
+    <!-- Without .NET's CET mark, for the same reason as HellForge-Setup's (its csproj): start on an older Windows 10. -->
+    <CetCompat>false</CetCompat>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <!-- The CI zips the localized launcher's published files and passes the zip, as Package-HellForge.ps1 does for
+       HellForge-Setup; a plain build has no payload and says so when run. -->
+  <ItemGroup Condition="'$(PayloadZip)' != ''"><EmbeddedResource Include="$(PayloadZip)" LogicalName="payload.zip" /></ItemGroup>
+</Project>

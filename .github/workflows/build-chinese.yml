@@ -1,6 +1,10 @@
-# The fork's own builds (branch l10n/zh-cn: the launcher's Chinese localization and the verified-copy setup):
-# a small reversible patch for an installed HellForge, and the complete HellForge-Setup.exe carrying it already
-# applied. Run from the Actions page (Run workflow) or by a push to this branch.
+# The fork's two setups (branch l10n/zh-cn):
+# - hellforge-setup-verified-copy: the complete HellForge-Setup.exe from the verified-copy-setup branch (upstream main
+#   plus "keep this installation's verified game copy": setup never asks Steam to download when the installed copy
+#   already matches the supported build), the English UI as upstream;
+# - hellforge-chinese-patch-setup: the small Chinese patch installer (src/HellForge.ChinesePatch), one exe that
+#   applies the localization (keeping the launcher's files as ".pre-chinese") and, run again, puts them back.
+# Run from the Actions page (Run workflow) or by a push to this branch.
 name: Build the Chinese package
 
 on:
@@ -16,9 +20,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # The patch alone: a few minutes, no native toolchain (the launcher publishes plain .NET).
-  launcher-patch:
-    name: Build the reversible launcher patch
+  # The patch setup: a few minutes, no native toolchain.
+  chinese-patch-setup:
+    name: Build the Chinese patch setup
     runs-on: windows-latest
     timeout-minutes: 20
     steps:
@@ -28,35 +32,35 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
-      - name: Publish the launcher
+      - name: Publish the launcher (the patch's payload)
         run: dotnet publish src/HellForge.Launcher/HellForge.Launcher.csproj -c Release --nologo -v q -o artifacts/patch
-      - name: Assemble the patch zip
+      - name: Zip the payload and build the patch setup around it
         shell: pwsh
         run: |
-          $out = 'artifacts/HellForge-Chinese-Patch'
-          New-Item -ItemType Directory -Force $out | Out-Null
-          foreach ($name in @(
-              'HellForge.Launcher.dll', 'HellForge.Core.dll', 'HellForge.SteamDownload.dll',
-              'HellForge.Launcher.exe', 'HellForge.Launcher.deps.json', 'HellForge.Launcher.runtimeconfig.json')) {
-            Copy-Item (Join-Path 'artifacts/patch' $name) $out -Force
-          }
-          Copy-Item 'artifacts/patch/zh-CN' (Join-Path $out 'zh-CN') -Recurse -Force
-          Copy-Item chinese-patch\apply.ps1, chinese-patch\README.md $out -Force
-          Compress-Archive -Path $out -DestinationPath artifacts/HellForge-Chinese-Patch.zip -Force
+          $payload = 'artifacts/payload.zip'
+          Compress-Archive -Path @(
+              'artifacts/patch/HellForge.Launcher.dll', 'artifacts/patch/HellForge.Core.dll', 'artifacts/patch/HellForge.SteamDownload.dll',
+              'artifacts/patch/HellForge.Launcher.exe', 'artifacts/patch/HellForge.Launcher.deps.json', 'artifacts/patch/HellForge.Launcher.runtimeconfig.json',
+              'artifacts/patch/zh-CN') -DestinationPath $payload -Force
+          dotnet publish src/HellForge.ChinesePatch/HellForge.ChinesePatch.csproj -c Release -r win-x64 --self-contained true `
+            -p:PublishSingleFile=true "-p:PayloadZip=$payload" --nologo -v q -o artifacts/patch-setup
+          if ($LASTEXITCODE) { throw 'Building the patch setup failed.' }
+          Copy-Item artifacts/patch-setup/HellForge-Chinese-Patch.exe artifacts/HellForge-Chinese-Patch-Setup.exe
       - uses: actions/upload-artifact@v4
         with:
-          name: hellforge-chinese-patch
-          path: artifacts/HellForge-Chinese-Patch.zip
+          name: hellforge-chinese-patch-setup
+          path: artifacts/HellForge-Chinese-Patch-Setup.exe
           if-no-files-found: error
 
-  # The complete installer, as the upstream nightly builds it (the native toolchain included).
-  full-setup:
-    name: Build HellForge-Setup.exe
+  # The complete installer from the verified-copy-setup branch, as the upstream nightly builds it.
+  verified-copy-setup:
+    name: Build HellForge-Setup.exe (verified copy)
     runs-on: windows-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: verified-copy-setup
           persist-credentials: false
       - uses: ./.github/actions/build-tools
         with:
@@ -73,7 +77,7 @@ jobs:
       - name: Keep the package
         uses: actions/upload-artifact@v4
         with:
-          name: hellforge-setup-chinese
+          name: hellforge-setup-verified-copy
           path: |
             artifacts/package/HellForge-Setup.exe
             artifacts/package/HellForge-Linux-scripts.zip
