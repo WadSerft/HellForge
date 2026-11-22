@@ -1,0 +1,45 @@
+# The fork's own package build (this branch l10n/zh-cn: the launcher's Chinese localization): the same package the
+# upstream nightly builds (scripts/Package-HellForge.ps1, its checks included), kept as this run's artifact. Run it
+# from the Actions page (Build the Chinese package > Run workflow) or by a push to this branch.
+name: Build the Chinese package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [l10n/zh-cn]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-chinese-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build HellForge-Setup.exe
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        persist-credentials: false
+      - uses: ./.github/actions/build-tools
+        with:
+          native: 'true'
+      # A runner has no game files: the engine's steam_api64.dll stand-in is built from the text-only export list,
+      # as the upstream nightly does.
+      - name: scripts/Package-HellForge.ps1 (the release's package)
+        shell: pwsh
+        run: |
+          $env:TEMP = $env:TMP = (New-Item -ItemType Directory -Force (Join-Path $env:GITHUB_WORKSPACE 'artifacts/tmp')).FullName
+          ./scripts/Package-HellForge.ps1 -SteamExports data/steam-export-manifest.json
+          # it throws on any failure; the last exit code of a program it ran must not decide
+          exit 0
+      - name: Keep the package
+        uses: actions/upload-artifact@v4
+        with:
+          name: hellforge-setup-chinese
+          path: |
+            artifacts/package/HellForge-Setup.exe
+            artifacts/package/HellForge-Linux-scripts.zip
+          if-no-files-found: error
