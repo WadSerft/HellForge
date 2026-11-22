@@ -1,4 +1,5 @@
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -24,7 +25,7 @@ public partial class MainWindow
                 Append("Could not write the stop signal: " + error.Message, Red);
                 return;
             }
-            SetStatus("Stopping: closing the game...", Phase.Busy);
+            SetStatus(Loc.S("Stopping: closing the game..."), Phase.Busy);
             // Linux only: there a session stuck before or after Observe has nothing else to end it (H.6). Windows keeps
             // its own STOP and cleanup, including the sandbox's teardown, unchanged.
             if (OperatingSystem.IsLinux()) _ = EscalateStopAsync(attempt);
@@ -35,7 +36,7 @@ public partial class MainWindow
             catch (Exception error) when (error is InvalidOperationException or System.ComponentModel.Win32Exception) { Append("Could not stop the session runner: " + error.Message, Red); }
             stopRequested = false;
             RenderSteps(-1, false);
-            SetStatus("Cancelled before launch.", Phase.Idle, "Nothing was started.");
+            SetStatus(Loc.S("Cancelled before launch."), Phase.Idle, Loc.S("Nothing was started."));
         }
         UpdateButton();
     }
@@ -51,13 +52,13 @@ public partial class MainWindow
             runner.Kill();
             stopKilled = true;
             Append("The session did not stop; HellForge ended it.", Orange);
-            SetStatus("The session did not stop; HellForge ended it.", Phase.Ended,
-                "Its own cleanup may not have finished. Check the session logs before playing again.");
+            SetStatus(Loc.S("The session did not stop; HellForge ended it."), Phase.Ended,
+                Loc.S("Its own cleanup may not have finished. Check the session logs before playing again."));
         }
         catch (Exception error) when (error is InvalidOperationException or System.ComponentModel.Win32Exception or NotSupportedException)
         {
             Append("The session did not stop and could not be ended: " + error.Message, Red);
-            SetStatus("The session did not stop and could not be ended.", Phase.Failed, failure: error.Message);
+            SetStatus(Loc.S("The session did not stop and could not be ended."), Phase.Failed, failure: error.Message);
         }
         finally
         {
@@ -99,7 +100,7 @@ public partial class MainWindow
                 LeftoverProcessesCard.IsVisible = false;
                 return false;
             }
-            LeftoverProcessesText.Text = "Still running: " + string.Join(", ", names) +
+            LeftoverProcessesText.Text = Loc.S("Still running: ") + string.Join(", ", names) +
                 ". End them before starting the next session.";
             LeftoverProcessesCard.IsVisible = true;
             return true;

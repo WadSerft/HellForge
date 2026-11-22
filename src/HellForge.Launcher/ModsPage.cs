@@ -6,6 +6,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -146,7 +147,7 @@ public partial class MainWindow
         modNumbers.Clear();
         if (paths.ModsFolder == null)
         {
-            ModsSummary.Text = "Mods load in installations made with HellForge-Setup, from the installation's mods folder.";
+            ModsSummary.Text = Loc.S("Mods load in installations made with HellForge-Setup, from the installation's mods folder.");
             ModsDigestText.Text = "";
             return;
         }
@@ -157,7 +158,7 @@ public partial class MainWindow
         try { (mods, problems) = ModCatalog.Load(paths.ModsFolder); problems.InsertRange(0, dropped); }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException)
         {
-            ModsSummary.Text = "Could not read the mods folder: " + Privacy.Scrub(error.Message);
+            ModsSummary.Text = Loc.S("Could not read the mods folder: ") + Privacy.Scrub(error.Message);
             return;
         }
         // Local Stats is the in-game editor's (its saved changes, always on, never compared): not listed, so nobody thinks

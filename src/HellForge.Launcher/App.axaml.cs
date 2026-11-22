@@ -4,6 +4,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -16,6 +17,7 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var paths = LauncherPaths.Find();
+            Loc.Initialize(paths?.HostRoot);  // the window's language choice (Settings > Language)
             var installerPayload = OperatingSystem.IsLinux()
                 ? Environment.GetEnvironmentVariable("HELLFORGE_INSTALLER_PAYLOAD") ??
                     (File.Exists(Path.Combine(AppContext.BaseDirectory, "HellForge-Linux.zip"))
@@ -34,7 +36,7 @@ public partial class App : Application
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 Content = new TextBlock
                 {
-                    Text = "Run the launcher from a HellForge installation or the HellForge repository.",
+                    Text = Loc.S("Run the launcher from a HellForge installation or the HellForge repository."),
                     Margin = new Thickness(24),
                     TextWrapping = TextWrapping.Wrap,
                     VerticalAlignment = VerticalAlignment.Center

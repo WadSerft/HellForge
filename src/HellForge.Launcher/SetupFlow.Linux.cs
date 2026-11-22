@@ -1,5 +1,6 @@
 using Avalonia.Platform.Storage;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -18,10 +19,10 @@ public partial class MainWindow
             ? $"{Privacy.Scrub(install.Root)}  ·  HELLDIVERS 2 build {SupportedBuild.Current.BuildId}. Native setup and repair are available."
             : $"{Privacy.Scrub(install.Root)}  ·  Complete setup natively with Steam for Linux.";
         UninstallButton.IsVisible = true;
-        UninstallConfirmButton.Content = "Uninstall this installation";
-        UninstallDescription.Text = "Uninstall removes this HellForge installation, its desktop shortcut and the removed shell installer's leftovers when they are found, after the launcher closes. The Proton prefix is left unless this installer made it, in which case the confirmation also offers to delete it. Steam's depot download is a separate choice, off by default. Steam, your game and your Proton versions are left intact.";
+        UninstallConfirmButton.Content = Loc.S("Uninstall this installation");
+        UninstallDescription.Text = Loc.S("Uninstall removes this HellForge installation, its desktop shortcut and the removed shell installer's leftovers when they are found, after the launcher closes. The Proton prefix is left unless this installer made it, in which case the confirmation also offers to delete it. Steam's depot download is a separate choice, off by default. Steam, your game and your Proton versions are left intact.");
         DesktopShortcutBox.IsVisible = StartMenuShortcutBox.IsVisible = ImportBox.IsVisible = false;
-        SetupIntro.Text = "Choose a Proton version first. Setup finds the supported game files, confirms Steam ownership, then copies the game if needed and checks the Linux network namespace.";
+        SetupIntro.Text = Loc.S("Choose a Proton version first. Setup finds the supported game files, confirms Steam ownership, then copies the game if needed and checks the Linux network namespace.");
         if (complete) return;
         if (SetupReceipt.Read(install) is { } receipt)
             EnterSetup(repair: true, reason: $"Setup finished {receipt.FinishedUtc.ToLocalTime():g}, but {problem}. " +
@@ -80,9 +81,9 @@ public partial class MainWindow
     void ReadyToPlay(InstallLayout install)
     {
         if (OperatingSystem.IsLinux()) SetupReceipt.Write(install);
-        SetupTitle.Text = "Ready to play";
+        SetupTitle.Text = Loc.S("Ready to play");
         SetupStartButton.IsVisible = false;
-        SetupBackButton.Content = "Continue";
+        SetupBackButton.Content = Loc.S("Continue");
         SetBackButtonPrimary(true);
         SetupBackButton.IsVisible = true;
         Nav.IsVisible = true;

@@ -9,6 +9,7 @@ using Avalonia.Media;
 using Avalonia.Threading;
 using HellForge.Core;
 using HellForge.SteamDownload;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -75,7 +76,7 @@ public partial class MainWindow
         {
             var commands = string.Join(Environment.NewLine, linuxUninstallPlan?.AppArmorCommands ?? []);
             if (commands.Length > 0 && TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard) await clipboard.SetTextAsync(commands);
-            UninstallCopyCommandsButton.Content = "Copied";
+            UninstallCopyCommandsButton.Content = Loc.S("Copied");
         };
         if (OperatingSystem.IsLinux())
         {
@@ -101,7 +102,7 @@ public partial class MainWindow
             ProtonChoiceCard.IsVisible = true;
             ProtonCombo.ItemsSource = Array.Empty<ProtonVersion>();
             ProtonCombo.SelectedItem = null;
-            ProtonChoiceHint.Text = "Looking for installed Proton versions...";
+            ProtonChoiceHint.Text = Loc.S("Looking for installed Proton versions...");
             SetupStartButton.IsEnabled = false;
         }
         foreach (var page in new Control[] { PlayPage, ProfilePage, ModsPage, ConsolePage, SettingsPage }) page.IsVisible = false;
@@ -109,7 +110,7 @@ public partial class MainWindow
         // A first setup has nowhere to go back to; a repair can be left.
         Nav.IsVisible = repair;
         SetupBackButton.IsVisible = repair;
-        SetupBackButton.Content = "Back";
+        SetupBackButton.Content = Loc.S("Back");
         SetBackButtonPrimary(false);
         SetupStartButton.IsVisible = true;
         SetupTitle.Text = repair ? "Check and repair" : "Set up HellForge";
@@ -186,12 +187,12 @@ public partial class MainWindow
         catch (OperationCanceledException)
         {
             SetRow(step, null, "Paused. Start setup again to continue where it stopped.");
-            SetupStartButton.Content = "Continue setup";
+            SetupStartButton.Content = Loc.S("Continue setup");
         }
         catch (SetupWaiting waiting)
         {
             SetRow(step, null, waiting.Message);
-            SetupStartButton.Content = "Check again";
+            SetupStartButton.Content = Loc.S("Check again");
             SetupBackButton.IsVisible = Nav.IsVisible;
         }
         catch (Exception error) when (error is SetupStopped or IOException or InvalidDataException or UnauthorizedAccessException or Win32Exception
@@ -200,7 +201,7 @@ public partial class MainWindow
             SetRow(step, false, error is Win32Exception { NativeErrorCode: 1223 }
                 ? "Windows permission was declined. The network block is required; start setup again and allow it."
                 : Describe(error));
-            SetupStartButton.Content = "Try again";
+            SetupStartButton.Content = Loc.S("Try again");
             SetupBackButton.IsVisible = Nav.IsVisible;
         }
         finally
@@ -279,11 +280,11 @@ public partial class MainWindow
         setupCancel = new();
         var token = setupCancel.Token;
         SetRow(step, true, "Steam confirmed ownership. Preparing the pinned mod tools...");
-        SetupPauseButton.Content = "Cancel preparation";
+        SetupPauseButton.Content = Loc.S("Cancel preparation");
         SetupPauseButton.IsVisible = true;
         var modToolsReady = await PrepareLinuxModTools(wrapper, proton, install, steamRoot, token);
         SetupPauseButton.IsVisible = false;
-        SetupPauseButton.Content = "Pause copying";
+        SetupPauseButton.Content = Loc.S("Pause copying");
         SetRow(step, true, modToolsReady
             ? "Steam confirmed ownership; pinned mod tools are ready."
             : "Steam confirmed ownership. Optional mod tools could not be downloaded; see logs/linux-session-wrapper.log.");
@@ -563,7 +564,7 @@ public partial class MainWindow
         SetRow(SetupStep.Copy, null, $"Choose below how to get build {build.BuildId} from Steam.", running: true);
         setupCancel = new();
         var token = setupCancel.Token;
-        SetupPauseButton.Content = "Cancel";
+        SetupPauseButton.Content = Loc.S("Cancel");
         SetupPauseButton.IsVisible = true;
         try
         {
@@ -685,7 +686,7 @@ public partial class MainWindow
     async Task CopyGame(string? source, string steamRoot, InstallLayout install)
     {
         CopyCard.IsVisible = true;
-        SetupPauseButton.Content = "Pause copying";
+        SetupPauseButton.Content = Loc.S("Pause copying");
         SetupPauseButton.IsVisible = true;
         setupCancel = new();
         var token = setupCancel.Token;
@@ -727,7 +728,7 @@ public partial class MainWindow
     async Task<(long Downloaded, long Copied)> DownloadFromSteam(SteamDepotSession steam, InstallLayout install, SetupSource found, CancellationToken token)
     {
         CopyCard.IsVisible = true;
-        SetupPauseButton.Content = "Pause download";
+        SetupPauseButton.Content = Loc.S("Pause download");
         SetupPauseButton.IsVisible = true;
         var clock = Stopwatch.StartNew();
         var lastUpdate = TimeSpan.Zero;
@@ -783,7 +784,7 @@ public partial class MainWindow
             copy.Click += async (_, _) =>
             {
                 if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard) await clipboard.SetTextAsync(command);
-                copy.Content = "Copied";
+                copy.Content = Loc.S("Copied");
             };
             var row = new DockPanel();
             DockPanel.SetDock(copy, Dock.Right);
@@ -810,11 +811,11 @@ public partial class MainWindow
             if (states.All(s => s.Complete))
             {
                 downloadTimer?.Stop();
-                CopyText.Text = "Download complete. Copying it into this installation...";
+                CopyText.Text = Loc.S("Download complete. Copying it into this installation...");
                 if (!setupRunning) await RunSetup();
             }
         }
-        catch (Exception error) when (error is IOException or UnauthorizedAccessException) { CopyText.Text = "Could not check the download: " + Privacy.Scrub(error.Message); }
+        catch (Exception error) when (error is IOException or UnauthorizedAccessException) { CopyText.Text = Loc.S("Could not check the download: ") + Privacy.Scrub(error.Message); }
         finally { checkingDownload = false; }
     }
 
@@ -905,7 +906,7 @@ public partial class MainWindow
                 UninstallPrefixBox.IsVisible = true;
             }
             else UninstallPrefixBox.Content = "";
-            UninstallCopyCommandsButton.Content = "Copy sudo commands";
+            UninstallCopyCommandsButton.Content = Loc.S("Copy sudo commands");
             UninstallCopyCommandsButton.IsVisible = linuxUninstallPlan.AppArmorCommands.Count > 0;
         }
         else
@@ -922,20 +923,20 @@ public partial class MainWindow
     async Task Uninstall(InstallLayout install)
     {
         UninstallConfirm.IsVisible = false;
-        if (runner.IsRunning || setupRunning) { UninstallText.Text = "Stop the session (or setup) first."; return; }
+        if (runner.IsRunning || setupRunning) { UninstallText.Text = Loc.S("Stop the session (or setup) first."); return; }
         if (OperatingSystem.IsLinux())
         {
             await UninstallLinux(install, UninstallPrefixBox.IsChecked == true, UninstallSteamBox.IsChecked == true);
             return;
         }
         // Under Wine, Windows PowerShell is a stub that does nothing.
-        if (LinuxNetworkBlock.UnderWine) { UninstallText.Text = "On Linux, use the native launcher to uninstall HellForge."; return; }
+        if (LinuxNetworkBlock.UnderWine) { UninstallText.Text = Loc.S("On Linux, use the native launcher to uninstall HellForge."); return; }
         var running = Process.GetProcesses().Where(p => p.Id != Environment.ProcessId && IsFrom(p, install.Root)).Select(p => p.ProcessName).Distinct().ToList();
-        if (running.Count > 0) { UninstallText.Text = "Close these first: " + string.Join(", ", running) + "."; return; }
+        if (running.Count > 0) { UninstallText.Text = Loc.S("Close these first: ") + string.Join(", ", running) + "."; return; }
         try { UninstallSafety(install.Root); }
         catch (InvalidDataException refused) { UninstallText.Text = Privacy.Scrub(refused.Message); return; }
         UninstallButton.IsEnabled = false;
-        UninstallText.Text = "Removing the network block: Windows asks for permission...";
+        UninstallText.Text = Loc.S("Removing the network block: Windows asks for permission...");
         try { await InstallNetworkBlock(install, uninstall: true); }
         catch (Exception error) when (error is SetupStopped or IOException or Win32Exception or InvalidOperationException or JsonException)
         {

@@ -1,5 +1,6 @@
 using System.Globalization;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -31,7 +32,7 @@ public partial class MainWindow
     bool ShowCrashEnding()
     {
         if (crashRun == null || crashRun != runDirectory) return false;
-        SetStatus("The game crashed.", Phase.Failed, (crashEnding != null ? "It ended with " + crashEnding + ". " : "") +
+        SetStatus(Loc.S("The game crashed."), Phase.Failed, (crashEnding != null ? "It ended with " + crashEnding + ". " : "") +
             "Save logs or a crash report below, then press PLAY to start another session.");
         return true;
     }
@@ -63,8 +64,8 @@ public partial class MainWindow
     async Task<bool> AskAboutDump()
     {
         if (ConfirmOverlay.IsVisible) return false;
-        ConfirmTitle.Text = "Add the crash dump?";
-        ConfirmText.Text = "This session wrote a crash dump. A dump is the game's memory as it crashed: HellForge " +
+        ConfirmTitle.Text = Loc.S("Add the crash dump?");
+        ConfirmText.Text = Loc.S("This session wrote a crash dump. A dump is the game's memory as it crashed: HellForge ") +
             "cannot scrub it, and it can hold your Steam account name and your friends' names. Add it only if you are fine with " +
             "whoever reads the issue seeing that. The rest of the report is scrubbed either way.";
         (ConfirmCancel.Content, ConfirmStop.Content) = ("Without the dump", "Add the dump");

@@ -1,0 +1,813 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="01___play" xml:space="preserve">
+    <value>01   PLAY</value>
+  </data>
+  <data name="02___profile" xml:space="preserve">
+    <value>02   PROFILE</value>
+  </data>
+  <data name="03___mods" xml:space="preserve">
+    <value>03   MODS</value>
+  </data>
+  <data name="04___console" xml:space="preserve">
+    <value>04   CONSOLE</value>
+  </data>
+  <data name="05___settings" xml:space="preserve">
+    <value>05   SETTINGS</value>
+  </data>
+  <data name="a_steam_ownership_check_runs_before_every_launch,_so_steam_must_be_running_and_signed_in_to_an_account_that_owns_the_game_or_has_it_through_steam_family_sharing." xml:space="preserve">
+    <value>A Steam ownership check runs before every launch, so Steam must be running and signed in to an account that owns the game or has it through Steam Family Sharing.</value>
+  </data>
+  <data name="a_crash_always_leaves_a_small_dump_in_the_session's_logs_(the_game's_threads_and_the_memory_they_point_to,_not_all_of_it)._this_writes_a_full_memory_dump_instead_(about_1_gb),_for_a_bug_report_about_crashes_that_needs_it._a_dump_holds_what_the_game_had_in_memory_(your_steam_account_name,_for_one):_only_send_it_to_someone_you_trust._off_unless_you_need_it._applies_to_the_next_session." xml:space="preserve">
+    <value>A crash always leaves a small dump in the session's logs (the game's threads and the memory they point to, not all of it). This writes a full memory dump instead (about 1 GB), for a bug report about crashes that needs it. A dump holds what the game had in memory (your Steam account name, for one): only send it to someone you trust. Off unless you need it. Applies to the next session.</value>
+  </data>
+  <data name="a_network_block_keeps_the_copied_game_off_the_internet._it_covers_only_the_copy's_own_programs,_so_the_normal_game_and_steam_are_not_affected._settings_&gt;_installation_&gt;_uninstall_hellforge_removes_it_with_the_rest." xml:space="preserve">
+    <value>A network block keeps the copied game off the internet. It covers only the copy's own programs, so the normal game and Steam are not affected. Settings &gt; Installation &gt; Uninstall HellForge removes it with the rest.</value>
+  </data>
+  <data name="a_personal_research_project,_run_locally._not_affiliated_with_or_endorsed_by_arrowhead_game_studios_or_sony_interactive_entertainment." xml:space="preserve">
+    <value>A personal research project, run locally. Not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment.</value>
+  </data>
+  <data name="a_play_session_is_running._stop_it_and_close_the_game?" xml:space="preserve">
+    <value>A play session is running. Stop it and close the game?</value>
+  </data>
+  <data name="a_snapshot_of_the_real_war_from_14_october_2026,_built_into_hellforge:_the_same_planets_and_campaigns_every_session,_with_no_internet_needed." xml:space="preserve">
+    <value>A snapshot of the real war from 14 October 2026, built into HellForge: the same planets and campaigns every session, with no internet needed.</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>ABOUT</value>
+  </data>
+  <data name="account_sync" xml:space="preserve">
+    <value>ACCOUNT SYNC</value>
+  </data>
+  <data name="armory" xml:space="preserve">
+    <value>ARMORY</value>
+  </data>
+  <data name="about_one_planet_in_eight_gets_seaf_troops_fighting_beside_you,_from_the_seed._off,_they_stay_on_the_frozen_war's_planets." xml:space="preserve">
+    <value>About one planet in eight gets SEAF troops fighting beside you, from the seed. Off, they stay on the frozen war's planets.</value>
+  </data>
+  <data name="add_mods..." xml:space="preserve">
+    <value>Add mods...</value>
+  </data>
+  <data name="all_planets_open" xml:space="preserve">
+    <value>All planets open</value>
+  </data>
+  <data name="apply_future_syncs_automatically_with_these_choices" xml:space="preserve">
+    <value>Apply future syncs automatically with these choices</value>
+  </data>
+  <data name="apply_import" xml:space="preserve">
+    <value>Apply import</value>
+  </data>
+  <data name="asking_steam_for_a_code..." xml:space="preserve">
+    <value>Asking Steam for a code...</value>
+  </data>
+  <data name="auto-scroll" xml:space="preserve">
+    <value>Auto-scroll</value>
+  </data>
+  <data name="backend" xml:space="preserve">
+    <value>BACKEND</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="back_up_prefix" xml:space="preserve">
+    <value>Back up prefix</value>
+  </data>
+  <data name="before_the_game_starts_and_every_5_minutes_while_you_play,_the_backend_reads_the_current_war_(planets,_campaigns,_liberation)_from_the_community_api_mirror_api.helldivers2.dev,_read-only._neither_hellforge_nor_the_game_ever_contacts_arrowhead's_servers._without_a_connection_the_last_fetched_war_is_used." xml:space="preserve">
+    <value>Before the game starts and every 5 minutes while you play, the backend reads the current war (planets, campaigns, liberation) from the community API mirror api.helldivers2.dev, read-only. Neither HellForge nor the game ever contacts Arrowhead's servers. Without a connection the last fetched war is used.</value>
+  </data>
+  <data name="brings_your_own_helldivers_2_account_into_this_profile._warbonds,_superstore_items_and_dlc_gear_you_bought_always_follow_your_latest_sync;_everything_else_is_imported_only_as_you_choose,_and_the_profile_is_backed_up_first._super_credits_are_never_imported_or_usable._sync_opens_the_normal_game_through_steam;_log_in_and_pass_the_title_screen._each_sync_asks_for_administrator_access:_until_the_normal_game_exits,_the_game's_server_name_points_at_this_pc_and_a_temporary_certificate_is_trusted._both_are_removed_when_it_exits." xml:space="preserve">
+    <value>Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. Each sync asks for administrator access: until the normal game exits, the game's server name points at this PC and a temporary certificate is trusted. Both are removed when it exits.</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="cancel_backup" xml:space="preserve">
+    <value>Cancel backup</value>
+  </data>
+  <data name="change_mods_without_restarting" xml:space="preserve">
+    <value>Change mods without restarting</value>
+  </data>
+  <data name="check_and_repair" xml:space="preserve">
+    <value>Check and repair</value>
+  </data>
+  <data name="check_and_repair_compares_the_game_files_with_the_supported_build,_copies_any_that_are_missing_or_damaged_from_steam,_and_places_the_network_block_and_shortcuts_again." xml:space="preserve">
+    <value>Check and repair compares the game files with the supported build, copies any that are missing or damaged from Steam, and places the network block and shortcuts again.</value>
+  </data>
+  <data name="choose_another_way" xml:space="preserve">
+    <value>Choose another way</value>
+  </data>
+  <data name="choose_folder" xml:space="preserve">
+    <value>Choose folder</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="co-op_over_steam_relays_(udp_to_valve's_relays_only)" xml:space="preserve">
+    <value>Co-op over Steam relays (UDP to Valve's relays only)</value>
+  </data>
+  <data name="console" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="copies_the_options_you_set_in_the_normal_helldivers_2_(graphics,_audio,_display,_gameplay)_into_this_profile,_and_your_key_bindings_from_steam_if_you_like._a_new_profile_gets_them_once,_when_it_is_first_played;_import_again_after_changing_them_in_the_normal_game._the_profile's_own_settings_are_kept,_so_undo_import_takes_them_back._progress,_saves_and_loadouts_are_not_touched." xml:space="preserve">
+    <value>Copies the options you set in the normal HELLDIVERS 2 (graphics, audio, display, gameplay) into this profile, and your key bindings from Steam if you like. A new profile gets them once, when it is first played; import again after changing them in the normal game. The profile's own settings are kept, so Undo import takes them back. Progress, saves and loadouts are not touched.</value>
+  </data>
+  <data name="copy_sudo_commands" xml:space="preserve">
+    <value>Copy sudo commands</value>
+  </data>
+  <data name="crash_dump" xml:space="preserve">
+    <value>Crash dump</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="deployment" xml:space="preserve">
+    <value>DEPLOYMENT</value>
+  </data>
+  <data name="deal_seaf_allies_across_the_planets" xml:space="preserve">
+    <value>Deal SEAF allies across the planets</value>
+  </data>
+  <data name="deal_subfactions_across_the_planets" xml:space="preserve">
+    <value>Deal subfactions across the planets</value>
+  </data>
+  <data name="discord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="experience" xml:space="preserve">
+    <value>EXPERIENCE</value>
+  </data>
+  <data name="experimental" xml:space="preserve">
+    <value>EXPERIMENTAL</value>
+  </data>
+  <data name="each_planet_gets_one_of_its_enemy's_subfactions_or_none,_from_the_seed:_half_of_each_enemy's_planets_have_none._off,_planets_keep_the_frozen_war's._illuminate_planets_always_have_one_(their_squads_need_it)." xml:space="preserve">
+    <value>Each planet gets one of its enemy's subfactions or none, from the seed: half of each enemy's planets have none. Off, planets keep the frozen war's. Illuminate planets always have one (their squads need it).</value>
+  </data>
+  <data name="each_weapon's_mastery_level_(0_=_never_used)._level_1_gives_its_default_attachments_and_every_level_up_to_the_one_set_gives_what_it_unlocks._weapons_added_by_mods_follow_the_weapon_they_copy._saved_into_the_profile_for_the_next_session." xml:space="preserve">
+    <value>Each weapon's mastery level (0 = never used). Level 1 gives its default attachments and every level up to the one set gives what it unlocks. Weapons added by mods follow the weapon they copy. Saved into the profile for the next session.</value>
+  </data>
+  <data name="end_these_processes" xml:space="preserve">
+    <value>End these processes</value>
+  </data>
+  <data name="engine_log" xml:space="preserve">
+    <value>Engine log</value>
+  </data>
+  <data name="every_planet_but_super_earth_is_a_liberation_campaign_you_can_drop_on._planets_super_earth_holds_in_the_frozen_war_go_to_the_enemy_whose_front_lies_that_way_from_super_earth,_so_each_faction_holds_about_a_third_of_the_galaxy._planets_get_their_enemy's_subfactions_(predator_strain,_jet_brigade...)_and_seaf_allies,_and_cyberstan's_megafactories_can_be_attacked._built_from_the_frozen_war,_so_it_is_the_same_on_every_pc_and_needs_no_internet._applies_to_the_next_session." xml:space="preserve">
+    <value>Every planet but Super Earth is a liberation campaign you can drop on. Planets Super Earth holds in the frozen war go to the enemy whose front lies that way from Super Earth, so each faction holds about a third of the galaxy. Planets get their enemy's subfactions (Predator Strain, Jet Brigade...) and SEAF allies, and Cyberstan's Megafactories can be attacked. Built from the frozen war, so it is the same on every PC and needs no internet. Applies to the next session.</value>
+  </data>
+  <data name="every_weapon_to_level" xml:space="preserve">
+    <value>Every weapon to level</value>
+  </data>
+  <data name="follow_the_live_galactic_war" xml:space="preserve">
+    <value>Follow the live galactic war</value>
+  </data>
+  <data name="friends_always_reach_your_backend._on:_your_public_lobby_is_listed_on_the_galactic_map_for_hellforge_players_who_are_not_your_friends,_and_you_can_join_theirs._off:_friends_only." xml:space="preserve">
+    <value>Friends always reach your backend. On: your public lobby is listed on the Galactic Map for HellForge players who are not your friends, and you can join theirs. Off: friends only.</value>
+  </data>
+  <data name="galactic_war" xml:space="preserve">
+    <value>GALACTIC WAR</value>
+  </data>
+  <data name="game_files" xml:space="preserve">
+    <value>GAME FILES</value>
+  </data>
+  <data name="game_settings" xml:space="preserve">
+    <value>GAME SETTINGS</value>
+  </data>
+  <data name="get_the_supported_build_from_steam" xml:space="preserve">
+    <value>GET THE SUPPORTED BUILD FROM STEAM</value>
+  </data>
+  <data name="helldiver" xml:space="preserve">
+    <value>HELLDIVER</value>
+  </data>
+  <data name="hellforge_is_an_independent_fan_project,_not_affiliated_with_or_endorsed_by_arrowhead_game_studios_or_sony_interactive_entertainment._helldivers_is_a_trademark_of_sony_interactive_entertainment." xml:space="preserve">
+    <value>HellForge is an independent fan project, not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment. HELLDIVERS is a trademark of Sony Interactive Entertainment.</value>
+  </data>
+  <data name="hellforge_runs_helldivers_2_against_a_local_backend_on_this_computer_instead_of_the_official_servers." xml:space="preserve">
+    <value>HellForge runs HELLDIVERS 2 against a local backend on this computer instead of the official servers.</value>
+  </data>
+  <data name="hellforge's_frozen_war" xml:space="preserve">
+    <value>HellForge's frozen war</value>
+  </data>
+  <data name="import_from_the_last_sync" xml:space="preserve">
+    <value>IMPORT FROM THE LAST SYNC</value>
+  </data>
+  <data name="installation" xml:space="preserve">
+    <value>INSTALLATION</value>
+  </data>
+  <data name="inventory" xml:space="preserve">
+    <value>INVENTORY</value>
+  </data>
+  <data name="idle" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+  <data name="import_from_helldivers_2" xml:space="preserve">
+    <value>Import from HELLDIVERS 2</value>
+  </data>
+  <data name="import_game_settings_and_saves_from_an_earlier_hellforge_setup_on_this_pc" xml:space="preserve">
+    <value>Import game settings and saves from an earlier HellForge setup on this PC</value>
+  </data>
+  <data name="items_in_the_profile" xml:space="preserve">
+    <value>Items in the profile</value>
+  </data>
+  <data name="keep_playing" xml:space="preserve">
+    <value>Keep playing</value>
+  </data>
+  <data name="key_bindings_too" xml:space="preserve">
+    <value>Key bindings too</value>
+  </data>
+  <data name="launch_options" xml:space="preserve">
+    <value>LAUNCH OPTIONS</value>
+  </data>
+  <data name="live_backend_requests_for_the_current_session._2xx_in_green,_501_(not_implemented_yet)_in_red." xml:space="preserve">
+    <value>Live backend requests for the current session. 2xx in green, 501 (not implemented yet) in red.</value>
+  </data>
+  <data name="lobby_and_session_through_steam_friends" xml:space="preserve">
+    <value>Lobby and session through Steam friends</value>
+  </data>
+  <data name="local_helldivers_2" xml:space="preserve">
+    <value>Local HELLDIVERS 2</value>
+  </data>
+  <data name="local_playfab" xml:space="preserve">
+    <value>Local PlayFab</value>
+  </data>
+  <data name="local_session" xml:space="preserve">
+    <value>Local session</value>
+  </data>
+  <data name="multiplayer" xml:space="preserve">
+    <value>MULTIPLAYER</value>
+  </data>
+  <data name="mods" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="new_profile" xml:space="preserve">
+    <value>NEW PROFILE</value>
+  </data>
+  <data name="name,_e.g._my-run" xml:space="preserve">
+    <value>Name, e.g. my-run</value>
+  </data>
+  <data name="new_profile_2" xml:space="preserve">
+    <value>New profile</value>
+  </data>
+  <data name="new-player_intro_progress" xml:space="preserve">
+    <value>New-player intro progress</value>
+  </data>
+  <data name="not_now" xml:space="preserve">
+    <value>Not now</value>
+  </data>
+  <data name="onboarding_flags" xml:space="preserve">
+    <value>ONBOARDING FLAGS</value>
+  </data>
+  <data name="onboarding_state" xml:space="preserve">
+    <value>ONBOARDING STATE</value>
+  </data>
+  <data name="options" xml:space="preserve">
+    <value>OPTIONS</value>
+  </data>
+  <data name="off:_the_session_has_no_route_out._on:_it_opens_udp_to_valve's_steam_relay_servers_only,_from_the_list_valve_publishes_for_helldivers_2,_so_steam_networking_can_carry_co-op;_tcp_and_every_other_destination_stay_refused._needs_passt_(the_pasta_command)_and_python3._applies_to_the_next_session." xml:space="preserve">
+    <value>Off: the session has no route out. On: it opens UDP to Valve's Steam relay servers only, from the list Valve publishes for HELLDIVERS 2, so Steam networking can carry co-op; TCP and every other destination stay refused. Needs passt (the pasta command) and python3. Applies to the next session.</value>
+  </data>
+  <data name="one_number_deals_both:_the_same_seed_gives_the_same_planets_every_time,_so_if_you_dislike_the_layout,_roll_another._in_co-op_the_host's_war_decides." xml:space="preserve">
+    <value>One number deals both: the same seed gives the same planets every time, so if you dislike the layout, roll another. In co-op the host's war decides.</value>
+  </data>
+  <data name="open_a_github_issue" xml:space="preserve">
+    <value>Open a GitHub issue</value>
+  </data>
+  <data name="open_mods_folder" xml:space="preserve">
+    <value>Open mods folder</value>
+  </data>
+  <data name="open_profile_folder" xml:space="preserve">
+    <value>Open profile folder</value>
+  </data>
+  <data name="open_project_folder" xml:space="preserve">
+    <value>Open project folder</value>
+  </data>
+  <data name="open_session_logs" xml:space="preserve">
+    <value>Open session logs</value>
+  </data>
+  <data name="open_the_steam_console" xml:space="preserve">
+    <value>Open the Steam console</value>
+  </data>
+  <data name="paths" xml:space="preserve">
+    <value>PATHS</value>
+  </data>
+  <data name="play" xml:space="preserve">
+    <value>PLAY</value>
+  </data>
+  <data name="play_with_strangers" xml:space="preserve">
+    <value>PLAY WITH STRANGERS</value>
+  </data>
+  <data name="prefix_backup" xml:space="preserve">
+    <value>PREFIX BACKUP</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>PROFILE</value>
+  </data>
+  <data name="proton_version" xml:space="preserve">
+    <value>PROTON VERSION</value>
+  </data>
+  <data name="pause_copying" xml:space="preserve">
+    <value>Pause copying</value>
+  </data>
+  <data name="play_with_steam_friends_who_also_run_hellforge:_your_backend_hosts_your_game's_lobby_and_session_and_talks_to_theirs_through_steam_(friends_only)._friends_need_the_same_gameplay_mods_(see_mods)._both_switches_are_needed_and_apply_to_the_next_session." xml:space="preserve">
+    <value>Play with Steam friends who also run HellForge: your backend hosts your game's lobby and session and talks to theirs through Steam (friends only). Friends need the same gameplay mods (see Mods). Both switches are needed and apply to the next session.</value>
+  </data>
+  <data name="play_with_strangers_2" xml:space="preserve">
+    <value>Play with strangers</value>
+  </data>
+  <data name="points_the_game's_playfab_login_and_profile_calls_at_the_local_backend_instead_of_playfabapi.com._the_copied_game_stays_blocked_from_the_internet_either_way." xml:space="preserve">
+    <value>Points the game's PlayFab login and profile calls at the local backend instead of playfabapi.com. The copied game stays blocked from the internet either way.</value>
+  </data>
+  <data name="randomise" xml:space="preserve">
+    <value>Randomise</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="replaces_the_copy's_playfab_party_and_lobby_dlls_with_hellforge_stand-ins_for_the_session;_they_never_reach_playfab_and_talk_to_friends'_backends_through_steam_networking._every_call_is_logged_to_the_session_folder." xml:space="preserve">
+    <value>Replaces the copy's PlayFab Party and Lobby DLLs with HellForge stand-ins for the session; they never reach PlayFab and talk to friends' backends through Steam networking. Every call is logged to the session folder.</value>
+  </data>
+  <data name="restore_and_replace_the_prefix" xml:space="preserve">
+    <value>Restore and replace the prefix</value>
+  </data>
+  <data name="restore_backup" xml:space="preserve">
+    <value>Restore backup</value>
+  </data>
+  <data name="restore_prefix..." xml:space="preserve">
+    <value>Restore prefix...</value>
+  </data>
+  <data name="review_import" xml:space="preserve">
+    <value>Review import</value>
+  </data>
+  <data name="run_the_game_sandboxed" xml:space="preserve">
+    <value>Run the game sandboxed</value>
+  </data>
+  <data name="sandbox" xml:space="preserve">
+    <value>SANDBOX</value>
+  </data>
+  <data name="session" xml:space="preserve">
+    <value>SESSION</value>
+  </data>
+  <data name="ship_name" xml:space="preserve">
+    <value>SHIP NAME</value>
+  </data>
+  <data name="system" xml:space="preserve">
+    <value>SYSTEM</value>
+  </data>
+  <data name="save_crash_report" xml:space="preserve">
+    <value>Save crash report</value>
+  </data>
+  <data name="save_levels" xml:space="preserve">
+    <value>Save levels</value>
+  </data>
+  <data name="save_logs_to_desktop" xml:space="preserve">
+    <value>Save logs to Desktop</value>
+  </data>
+  <data name="save_the_whole_proton_prefix_(hellforge,_its_profiles_and_mods,_the_game_copy_and_steam's_depots)_to_one_archive,_or_put_a_saved_one_back._archives_are_standard_tar_files:_.tar.zst_when_zstd_is_installed,_otherwise_.tar.gz._hellforge_refuses_while_a_session_or_another_launcher_is_running." xml:space="preserve">
+    <value>Save the whole Proton prefix (HellForge, its profiles and mods, the game copy and Steam's depots) to one archive, or put a saved one back. Archives are standard tar files: .tar.zst when zstd is installed, otherwise .tar.gz. HellForge refuses while a session or another launcher is running.</value>
+  </data>
+  <data name="seed" xml:space="preserve">
+    <value>Seed</value>
+  </data>
+  <data name="session_running" xml:space="preserve">
+    <value>Session running</value>
+  </data>
+  <data name="set_all" xml:space="preserve">
+    <value>Set all</value>
+  </data>
+  <data name="set_up_hellforge" xml:space="preserve">
+    <value>Set up HellForge</value>
+  </data>
+  <data name="settings_and_about" xml:space="preserve">
+    <value>Settings and about</value>
+  </data>
+  <data name="setup_copies_helldivers_2_from_your_own_steam_library_into_this_folder_(about_24_gb)_and_blocks_that_copy_from_the_internet._your_normal_game_and_steam_stay_as_they_are._keep_steam_running_and_signed_in." xml:space="preserve">
+    <value>Setup copies HELLDIVERS 2 from your own Steam library into this folder (about 24 GB) and blocks that copy from the internet. Your normal game and Steam stay as they are. Keep Steam running and signed in.</value>
+  </data>
+  <data name="ship_name_word_indices" xml:space="preserve">
+    <value>Ship name word indices</value>
+  </data>
+  <data name="shortcut_in_the_start_menu" xml:space="preserve">
+    <value>Shortcut in the Start menu</value>
+  </data>
+  <data name="shortcut_on_the_desktop" xml:space="preserve">
+    <value>Shortcut on the desktop</value>
+  </data>
+  <data name="start_steamcmd" xml:space="preserve">
+    <value>Start SteamCMD</value>
+  </data>
+  <data name="start_setup" xml:space="preserve">
+    <value>Start setup</value>
+  </data>
+  <data name="steam_account_name_(the_name_you_sign_in_with)" xml:space="preserve">
+    <value>Steam account name (the name you sign in with)</value>
+  </data>
+  <data name="stop_and_close" xml:space="preserve">
+    <value>Stop and close</value>
+  </data>
+  <data name="strangers'_games_send_yours_data_you_cannot_check:_a_modified_game_can_lie_about_its_mods,_and_a_flaw_in_the_game's_network_code_could_let_it_run_code_on_your_pc._turn_this_on_only_if_you_accept_that_risk._it_applies_within_a_few_seconds,_also_during_a_session." xml:space="preserve">
+    <value>Strangers' games send yours data you cannot check: a modified game can lie about its mods, and a flaw in the game's network code could let it run code on your PC. Turn this on only if you accept that risk. It applies within a few seconds, also during a session.</value>
+  </data>
+  <data name="sync_inventory" xml:space="preserve">
+    <value>Sync Inventory</value>
+  </data>
+  <data name="template" xml:space="preserve">
+    <value>TEMPLATE</value>
+  </data>
+  <data name="troubleshooting" xml:space="preserve">
+    <value>TROUBLESHOOTING</value>
+  </data>
+  <data name="takes_effect_from_the_next_session._stats_mods,_data_mods_and_code_mods_that_declare_they_can_change_live_switch_while_the_game_runs,_on_the_mods_page_and_when_you_join_a_friend_with_other_mods._everything_else_still_restarts,_and_a_mod_that_adds_weapons_often_will._off:_every_change_waits_for_a_restart." xml:space="preserve">
+    <value>Takes effect from the next session. Stats mods, data mods and code mods that declare they can change live switch while the game runs, on the Mods page and when you join a friend with other mods. Everything else still restarts, and a mod that adds weapons often will. Off: every change waits for a restart.</value>
+  </data>
+  <data name="the_linux_sandbox_is_available_when_this_pc_passes_the_self-test_for_this_hellforge_build_and_kernel._a_sandboxed_session_runs_the_game_in_its_own_wine_prefix_and_a_read-only_filesystem_view,_and_stops_rather_than_running_unsandboxed." xml:space="preserve">
+    <value>The Linux sandbox is available when this PC passes the self-test for this HellForge build and kernel. A sandboxed session runs the game in its own Wine prefix and a read-only filesystem view, and stops rather than running unsandboxed.</value>
+  </data>
+  <data name="the_game_runs_at_windows'_low_integrity_level:_code_running_inside_it_(a_mod,_or_code_that_a_crafted_file_or_another_player's_game_got_it_to_run)_cannot_write_your_files,_change_other_programs_or_start_any._steam_reaches_the_game_through_hellforge's_steam_broker,_which_passes_only_the_calls_the_game_needs._the_game_has_no_steam_overlay_then_(chat,_steam's_invite_dialog,_screenshots);_invitations_from_the_game's_social_menu_still_work._without_the_overlay_there_is_no_steam_input_either:_a_steam_controller,_the_steam_deck's_controls_and_other_controllers_that_work_only_through_steam_input_do_not_work_sandboxed,_and_the_session_says_so._xbox_controllers_work._applies_to_the_next_session." xml:space="preserve">
+    <value>The game runs at Windows' low integrity level: code running inside it (a mod, or code that a crafted file or another player's game got it to run) cannot write your files, change other programs or start any. Steam reaches the game through HellForge's Steam broker, which passes only the calls the game needs. The game has no Steam overlay then (chat, Steam's invite dialog, screenshots); invitations from the game's social menu still work. Without the overlay there is no Steam Input either: a Steam Controller, the Steam Deck's controls and other controllers that work only through Steam Input do not work sandboxed, and the session says so. Xbox controllers work. Applies to the next session.</value>
+  </data>
+  <data name="this_hellforge_was_built_without_the_steam_bridge,_so_the_game_cannot_run_sandboxed." xml:space="preserve">
+    <value>This HellForge was built without the Steam bridge, so the game cannot run sandboxed.</value>
+  </data>
+  <data name="total_xp" xml:space="preserve">
+    <value>Total XP</value>
+  </data>
+  <data name="undo_import" xml:space="preserve">
+    <value>Undo import</value>
+  </data>
+  <data name="uninstall_hellforge..." xml:space="preserve">
+    <value>Uninstall HellForge...</value>
+  </data>
+  <data name="uninstall_and_delete_everything" xml:space="preserve">
+    <value>Uninstall and delete everything</value>
+  </data>
+  <data name="uninstall_removes_hellforge's_network_block_(windows_asks_for_permission)_and_its_shortcuts,_then_deletes_this_installation's_folder_once_the_launcher_has_closed._your_normal_helldivers_2_and_steam_are_not_touched." xml:space="preserve">
+    <value>Uninstall removes HellForge's network block (Windows asks for permission) and its shortcuts, then deletes this installation's folder once the launcher has closed. Your normal HELLDIVERS 2 and Steam are not touched.</value>
+  </data>
+  <data name="use_default" xml:space="preserve">
+    <value>Use default</value>
+  </data>
+  <data name="weapon_levels" xml:space="preserve">
+    <value>WEAPON LEVELS</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>default</value>
+  </data>
+  <data name="e.g._--use-d3d11" xml:space="preserve">
+    <value>e.g. --use-d3d11</value>
+  </data>
+  <data name="a_microsoft_runtime_the_game_needs_is_missing." xml:space="preserve">
+    <value>A Microsoft runtime the game needs is missing.</value>
+  </data>
+  <data name="a_game,_anti-cheat_or_session_process_is_still_running." xml:space="preserve">
+    <value>A game, anti-cheat or session process is still running.</value>
+  </data>
+  <data name="account_sync_is_finishing:_it_keeps_the_normal_helldivers_2_connected_until_you_close_it." xml:space="preserve">
+    <value>Account Sync is finishing: it keeps the normal HELLDIVERS 2 connected until you close it.</value>
+  </data>
+  <data name="add_the_crash_dump?" xml:space="preserve">
+    <value>Add the crash dump?</value>
+  </data>
+  <data name="always_synced:_" xml:space="preserve">
+    <value>Always synced: </value>
+  </data>
+  <data name="applied_when_the_profile_is_first_created" xml:space="preserve">
+    <value>Applied when the profile is first created</value>
+  </data>
+  <data name="approve_the_windows_prompt_to_install_the_network_block." xml:space="preserve">
+    <value>Approve the Windows prompt to install the network block.</value>
+  </data>
+  <data name="approve_the_windows_prompt_to_place_a_network_block_for_this_session." xml:space="preserve">
+    <value>Approve the Windows prompt to place a network block for this session.</value>
+  </data>
+  <data name="asked_once:_the_network_block_keeps_the_copied_game_off_the_internet._later_sessions_need_no_prompt." xml:space="preserve">
+    <value>Asked once: the network block keeps the copied game off the internet. Later sessions need no prompt.</value>
+  </data>
+  <data name="backup_cancelled;_the_partial_archive_was_deleted." xml:space="preserve">
+    <value>Backup cancelled; the partial archive was deleted.</value>
+  </data>
+  <data name="block_the_copy_from_the_internet" xml:space="preserve">
+    <value>Block the copy from the internet</value>
+  </data>
+  <data name="brings_your_own_helldivers_2_account_into_this_profile._warbonds,_superstore_items_and_dlc_gear_you_bought_always_follow_your_latest_sync;_everything_else_is_imported_only_as_you_choose,_and_the_profile_is_backed_up_first._super_credits_are_never_imported_or_usable._sync_opens_the_normal_game_through_steam;_log_in_and_pass_the_title_screen._on_linux_the_first_sync_asks_once_to_install_a_small_root-owned_helper,_through_the_desktop's_password_dialog;_until_the_normal_game_exits,_two_marked_/etc/hosts_lines_point_its_server_name_at_this_pc_and_a_one-day_certificate_is_trusted_only_in_helldivers_2's_proton_prefix._both_are_removed_when_it_exits." xml:space="preserve">
+    <value>Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. On Linux the first sync asks once to install a small root-owned helper, through the desktop's password dialog; until the normal game exits, two marked /etc/hosts lines point its server name at this PC and a one-day certificate is trusted only in HELLDIVERS 2's Proton prefix. Both are removed when it exits.</value>
+  </data>
+  <data name="build_mods" xml:space="preserve">
+    <value>Build mods</value>
+  </data>
+  <data name="building_mods_that_ship_their_sources,_then_checking_the_copied_game." xml:space="preserve">
+    <value>Building mods that ship their sources, then checking the copied game.</value>
+  </data>
+  <data name="building_the_shader_cache_(first_start_only,_this_can_take_a_few_minutes)..." xml:space="preserve">
+    <value>Building the shader cache (first start only, this can take a few minutes)...</value>
+  </data>
+  <data name="cancel_preparation" xml:space="preserve">
+    <value>Cancel preparation</value>
+  </data>
+  <data name="cancelled_before_launch." xml:space="preserve">
+    <value>Cancelled before launch.</value>
+  </data>
+  <data name="check_again" xml:space="preserve">
+    <value>Check again</value>
+  </data>
+  <data name="checking_the_backup_and_unpacking_it_beside_the_prefix..." xml:space="preserve">
+    <value>Checking the backup and unpacking it beside the prefix...</value>
+  </data>
+  <data name="checking_the_copied_game_against_its_pinned_hashes." xml:space="preserve">
+    <value>Checking the copied game against its pinned hashes.</value>
+  </data>
+  <data name="choose_a_proton_version_first._setup_finds_the_supported_game_files,_confirms_steam_ownership,_then_copies_the_game_if_needed_and_checks_the_linux_network_namespace." xml:space="preserve">
+    <value>Choose a Proton version first. Setup finds the supported game files, confirms Steam ownership, then copies the game if needed and checks the Linux network namespace.</value>
+  </data>
+  <data name="choose_a_folder_for_the_backup." xml:space="preserve">
+    <value>Choose a folder for the backup.</value>
+  </data>
+  <data name="clean_up" xml:space="preserve">
+    <value>Clean up</value>
+  </data>
+  <data name="cleanup_failed." xml:space="preserve">
+    <value>Cleanup failed.</value>
+  </data>
+  <data name="close_helldivers_2,_then_press_play_again." xml:space="preserve">
+    <value>Close HELLDIVERS 2, then press PLAY again.</value>
+  </data>
+  <data name="close_these_first:_" xml:space="preserve">
+    <value>Close these first: </value>
+  </data>
+  <data name="closing_the_game_and_the_local_backend..." xml:space="preserve">
+    <value>Closing the game and the local backend...</value>
+  </data>
+  <data name="compiling_mods_(3_of_5)..." xml:space="preserve">
+    <value>Compiling mods (3 of 5)...</value>
+  </data>
+  <data name="confirm_you_own_the_game" xml:space="preserve">
+    <value>Confirm you own the game</value>
+  </data>
+  <data name="continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="continue_setup" xml:space="preserve">
+    <value>Continue setup</value>
+  </data>
+  <data name="copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="copy_the_game_into_this_folder" xml:space="preserve">
+    <value>Copy the game into this folder</value>
+  </data>
+  <data name="could_not_check_the_download:_" xml:space="preserve">
+    <value>Could not check the download: </value>
+  </data>
+  <data name="could_not_read_the_mods_folder:_" xml:space="preserve">
+    <value>Could not read the mods folder: </value>
+  </data>
+  <data name="could_not_start_the_session_runner." xml:space="preserve">
+    <value>Could not start the session runner.</value>
+  </data>
+  <data name="create_shortcuts" xml:space="preserve">
+    <value>Create shortcuts</value>
+  </data>
+  <data name="download_complete._copying_it_into_this_installation..." xml:space="preserve">
+    <value>Download complete. Copying it into this installation...</value>
+  </data>
+  <data name="end_it_on_the_play_page,_then_press_play_again." xml:space="preserve">
+    <value>End it on the play page, then press PLAY again.</value>
+  </data>
+  <data name="ending_the_session..." xml:space="preserve">
+    <value>Ending the session...</value>
+  </data>
+  <data name="enter_your_steam_account_name:_the_name_you_sign_in_with_(letters,_digits_and_underscores),_not_your_" xml:space="preserve">
+    <value>Enter your Steam account name: the name you sign in with (letters, digits and underscores), not your </value>
+  </data>
+  <data name="find_helldivers_2_in_steam" xml:space="preserve">
+    <value>Find HELLDIVERS 2 in Steam</value>
+  </data>
+  <data name="getting_steamcmd_from_valve_and_checking_its_signature..." xml:space="preserve">
+    <value>Getting SteamCMD from Valve and checking its signature...</value>
+  </data>
+  <data name="getting_steamcmd_from_valve..." xml:space="preserve">
+    <value>Getting SteamCMD from Valve...</value>
+  </data>
+  <data name="hellforge_cannot_start_inside_this_container." xml:space="preserve">
+    <value>HellForge cannot start inside this container.</value>
+  </data>
+  <data name="import_earlier_game_data" xml:space="preserve">
+    <value>Import earlier game data</value>
+  </data>
+  <data name="install_account_sync_helper?" xml:space="preserve">
+    <value>Install Account Sync helper?</value>
+  </data>
+  <data name="inventory_sync_is_running._play_once_it_finishes." xml:space="preserve">
+    <value>Inventory sync is running. Play once it finishes.</value>
+  </data>
+  <data name="it_keeps_the_copied_game_off_the_internet_until_the_session_ends." xml:space="preserve">
+    <value>It keeps the copied game off the internet until the session ends.</value>
+  </data>
+  <data name="its_own_cleanup_may_not_have_finished._check_the_session_logs_before_playing_again." xml:space="preserve">
+    <value>Its own cleanup may not have finished. Check the session logs before playing again.</value>
+  </data>
+  <data name="launching" xml:space="preserve">
+    <value>Launching</value>
+  </data>
+  <data name="launching_the_game..." xml:space="preserve">
+    <value>Launching the game...</value>
+  </data>
+  <data name="looking_for_installed_proton_versions..." xml:space="preserve">
+    <value>Looking for installed Proton versions...</value>
+  </data>
+  <data name="mods_load_in_installations_made_with_hellforge-setup,_from_the_installation's_mods_folder." xml:space="preserve">
+    <value>Mods load in installations made with HellForge-Setup, from the installation's mods folder.</value>
+  </data>
+  <data name="multiplayer_needs_local_playfab." xml:space="preserve">
+    <value>Multiplayer needs Local PlayFab.</value>
+  </data>
+  <data name="network_block" xml:space="preserve">
+    <value>Network block</value>
+  </data>
+  <data name="nothing_was_started." xml:space="preserve">
+    <value>Nothing was started.</value>
+  </data>
+  <data name="on_linux,_use_the_native_launcher_to_uninstall_hellforge." xml:space="preserve">
+    <value>On Linux, use the native launcher to uninstall HellForge.</value>
+  </data>
+  <data name="pause_download" xml:space="preserve">
+    <value>Pause download</value>
+  </data>
+  <data name="preparing_the_session..." xml:space="preserve">
+    <value>Preparing the session...</value>
+  </data>
+  <data name="press_play_to_verify_the_game_files_and_launch_the_game." xml:space="preserve">
+    <value>Press PLAY to verify the game files and launch the game.</value>
+  </data>
+  <data name="press_stop_or_close_the_game_to_end_the_session." xml:space="preserve">
+    <value>Press STOP or close the game to end the session.</value>
+  </data>
+  <data name="profile,_console_and_settings_still_work_on_this_system." xml:space="preserve">
+    <value>Profile, console and settings still work on this system.</value>
+  </data>
+  <data name="ready_to_play" xml:space="preserve">
+    <value>Ready to play</value>
+  </data>
+  <data name="ready._steam_must_be_running_and_signed_in." xml:space="preserve">
+    <value>Ready. Steam must be running and signed in.</value>
+  </data>
+  <data name="removing_the_account_sync_helper_through_the_desktop's_password_dialog..." xml:space="preserve">
+    <value>Removing the Account Sync helper through the desktop's password dialog...</value>
+  </data>
+  <data name="removing_the_network_block:_windows_asks_for_permission..." xml:space="preserve">
+    <value>Removing the network block: Windows asks for permission...</value>
+  </data>
+  <data name="running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="running._steam_input_can't_reach_the_sandboxed_game." xml:space="preserve">
+    <value>Running. Steam Input can't reach the sandboxed game.</value>
+  </data>
+  <data name="session_did_not_stop" xml:space="preserve">
+    <value>Session did not stop</value>
+  </data>
+  <data name="session_ended." xml:space="preserve">
+    <value>Session ended.</value>
+  </data>
+  <data name="session_stopped" xml:space="preserve">
+    <value>Session stopped</value>
+  </data>
+  <data name="signed_in._the_download's_progress_shows_under_game_files." xml:space="preserve">
+    <value>Signed in. The download's progress shows under Game files.</value>
+  </data>
+  <data name="start_steamcmd_again" xml:space="preserve">
+    <value>Start SteamCMD again</value>
+  </data>
+  <data name="starting_the_copied_game_against_the_local_backend." xml:space="preserve">
+    <value>Starting the copied game against the local backend.</value>
+  </data>
+  <data name="steamcmd_has_downloaded_the_build._checking_it_and_moving_it_into_this_folder..." xml:space="preserve">
+    <value>SteamCMD has downloaded the build. Checking it and moving it into this folder...</value>
+  </data>
+  <data name="steamcmd_is_running..." xml:space="preserve">
+    <value>SteamCMD is running...</value>
+  </data>
+  <data name="steamcmd_is_updating_itself..." xml:space="preserve">
+    <value>SteamCMD is updating itself...</value>
+  </data>
+  <data name="steamcmd_updates_itself_from_valve_the_first_time;_this_takes_a_minute." xml:space="preserve">
+    <value>SteamCMD updates itself from Valve the first time; this takes a minute.</value>
+  </data>
+  <data name="steamcmd:_" xml:space="preserve">
+    <value>SteamCMD: </value>
+  </data>
+  <data name="still_running:_" xml:space="preserve">
+    <value>Still running: </value>
+  </data>
+  <data name="stop_steamcmd" xml:space="preserve">
+    <value>Stop SteamCMD</value>
+  </data>
+  <data name="stop_the_session_(or_setup)_first." xml:space="preserve">
+    <value>Stop the session (or setup) first.</value>
+  </data>
+  <data name="stopping_session" xml:space="preserve">
+    <value>Stopping session</value>
+  </data>
+  <data name="stopping:_closing_the_game..." xml:space="preserve">
+    <value>Stopping: closing the game...</value>
+  </data>
+  <data name="stored_on_this_computer_and_served_by_the_local_backend." xml:space="preserve">
+    <value>Stored on this computer and served by the local backend.</value>
+  </data>
+  <data name="the_proton_prefix_was_not_offered_for_deletion;_nothing_was_removed." xml:space="preserve">
+    <value>The Proton prefix was not offered for deletion; nothing was removed.</value>
+  </data>
+  <data name="the_game_cannot_start_without_it." xml:space="preserve">
+    <value>The game cannot start without it.</value>
+  </data>
+  <data name="the_game_crashed." xml:space="preserve">
+    <value>The game crashed.</value>
+  </data>
+  <data name="the_game_seems_stuck_in_the_cryo_pod." xml:space="preserve">
+    <value>The game seems stuck in the cryo pod.</value>
+  </data>
+  <data name="the_launch_options_cannot_be_used." xml:space="preserve">
+    <value>The launch options cannot be used.</value>
+  </data>
+  <data name="the_sandboxed_game_reaches_steam_through_hellforge's_steam_broker,_which_is_starting." xml:space="preserve">
+    <value>The sandboxed game reaches Steam through HellForge's Steam broker, which is starting.</value>
+  </data>
+  <data name="the_session_did_not_stop_and_could_not_be_ended." xml:space="preserve">
+    <value>The session did not stop and could not be ended.</value>
+  </data>
+  <data name="the_session_did_not_stop_in_time_and_could_not_be_ended:_" xml:space="preserve">
+    <value>The session did not stop in time and could not be ended: </value>
+  </data>
+  <data name="the_session_did_not_stop_in_time,_so_it_was_ended_before_closing." xml:space="preserve">
+    <value>The session did not stop in time, so it was ended before closing.</value>
+  </data>
+  <data name="the_session_did_not_stop;_hellforge_ended_it." xml:space="preserve">
+    <value>The session did not stop; HellForge ended it.</value>
+  </data>
+  <data name="the_session_ended_without_finishing_cleanup." xml:space="preserve">
+    <value>The session ended without finishing cleanup.</value>
+  </data>
+  <data name="the_session_runner_exited_before_starting." xml:space="preserve">
+    <value>The session runner exited before starting.</value>
+  </data>
+  <data name="this_can_happen_on_the_first_launch_of_a_new_installation._press_stop,_then_play_again:_the_next_launch_goes_through." xml:space="preserve">
+    <value>This can happen on the first launch of a new installation. Press STOP, then PLAY again: the next launch goes through.</value>
+  </data>
+  <data name="this_session_wrote_a_crash_dump._a_dump_is_the_game's_memory_as_it_crashed:_hellforge_" xml:space="preserve">
+    <value>This session wrote a crash dump. A dump is the game's memory as it crashed: HellForge </value>
+  </data>
+  <data name="try_again" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="type_your_password_in_the_steamcmd_window;_it_goes_to_valve's_own_tool,_not_hellforge._if_steam_asks_for_" xml:space="preserve">
+    <value>Type your password in the SteamCMD window; it goes to Valve's own tool, not HellForge. If Steam asks for </value>
+  </data>
+  <data name="uninstall_removes_this_hellforge_installation,_its_desktop_shortcut_and_the_removed_shell_installer's_leftovers_when_they_are_found,_after_the_launcher_closes._the_proton_prefix_is_left_unless_this_installer_made_it,_in_which_case_the_confirmation_also_offers_to_delete_it._steam's_depot_download_is_a_separate_choice,_off_by_default._steam,_your_game_and_your_proton_versions_are_left_intact." xml:space="preserve">
+    <value>Uninstall removes this HellForge installation, its desktop shortcut and the removed shell installer's leftovers when they are found, after the launcher closes. The Proton prefix is left unless this installer made it, in which case the confirmation also offers to delete it. Steam's depot download is a separate choice, off by default. Steam, your game and your Proton versions are left intact.</value>
+  </data>
+  <data name="uninstall_stopped:_" xml:space="preserve">
+    <value>Uninstall stopped: </value>
+  </data>
+  <data name="uninstall_this_installation" xml:space="preserve">
+    <value>Uninstall this installation</value>
+  </data>
+  <data name="verify_files" xml:space="preserve">
+    <value>Verify files</value>
+  </data>
+  <data name="verifying_game_files..." xml:space="preserve">
+    <value>Verifying game files...</value>
+  </data>
+  <data name="waiting_for_steam..." xml:space="preserve">
+    <value>Waiting for Steam...</value>
+  </data>
+  <data name="windows_blocked_hellforge's_session_runner." xml:space="preserve">
+    <value>Windows blocked HellForge's session runner.</value>
+  </data>
+  <data name="building_stratagem_compendium_from_its_sources." xml:space="preserve">
+    <value>Building Stratagem Compendium from its sources.</value>
+  </data>
+  <data name="experimental._during_a_sync_the_normal_game_shows_&quot;could_not_connect_to_easy_anti_cheat_network&quot;_after_the_login_and_closes_itself._the_sync_is_finished_by_then,_so_this_does_not_stop_it;_close_the_game_if_it_stays_open._we_are_looking_into_the_cause." xml:space="preserve">
+    <value>Experimental. During a sync the normal game shows "Could not connect to Easy Anti Cheat network" after the login and closes itself. The sync is finished by then, so this does not stop it; close the game if it stays open. We are looking into the cause.</value>
+  </data>
+  <data name="options_for_the_game's_command_line,_as_in_steam's_launch_options:_--use-d3d11_starts_it_with_directx_11,_for_one._steam's_&quot;%command%_--use-d3d11&quot;_works_too._hellforge's_own_options_come_first._applies_to_the_next_session." xml:space="preserve">
+    <value>Options for the game's command line, as in Steam's Launch Options: --use-d3d11 starts it with DirectX 11, for one. Steam's "%command% --use-d3d11" works too. HellForge's own options come first. Applies to the next session.</value>
+  </data>
+  <data name="run_the_launcher_from_a_hellforge_installation_or_the_hellforge_repository." xml:space="preserve">
+    <value>Run the launcher from a HellForge installation or the HellForge repository.</value>
+  </data>
+  <data name="starts_the_game_with_its_own_log_switched_on_(--log-to-file)_and_copies_that_log_into_the_session's_logs,_so_&quot;save_logs_to_desktop&quot;_includes_it._helps_find_why_a_join_or_connection_fails._applies_to_the_next_session." xml:space="preserve">
+    <value>Starts the game with its own log switched on (--log-to-file) and copies that log into the session's logs, so "Save logs to Desktop" includes it. Helps find why a join or connection fails. Applies to the next session.</value>
+  </data>
+  <data name="the_game_window_stays_black_until_it_is_done._later_starts_are_quick._press_stop_or_close_the_game_to_end_the_session." xml:space="preserve">
+    <value>The game window stays black until it is done. Later starts are quick. Press STOP or close the game to end the session.</value>
+  </data>
+</root>

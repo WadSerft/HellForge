@@ -6,6 +6,7 @@ using Avalonia.Media;
 using Avalonia.Threading;
 using HellForge.Core;
 using HellForge.SteamDownload;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -130,7 +131,7 @@ public partial class MainWindow
         await using (session)
         {
             ChooseAnotherButton.IsEnabled = false; // Pause download stops it
-            SignInStatus.Text = "Signed in. The download's progress shows under Game files.";
+            SignInStatus.Text = Loc.S("Signed in. The download's progress shows under Game files.");
             SetRow(SetupStep.Copy, null, $"Downloading build {found.Build.BuildId} from Steam...", running: true);
             var (downloaded, copied) = await DownloadFromSteam(session, install, found, attempt);
             return $"{found.Build.Files.Count} files ({found.Build.TotalBytes / 1e9:0.0} GB) from Steam for your account: {downloaded / 1e9:0.0} GB " +
@@ -153,14 +154,14 @@ public partial class MainWindow
             DiskSpace.Require((install.Root, build.TotalBytes - present));
             using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) })
                 await steamCmd.InstallAsync(http, attempt);
-            SteamCmdButton.Content = "SteamCMD is updating itself...";
-            SignInStatus.Text = "SteamCMD updates itself from Valve the first time; this takes a minute.";
-            await steamCmd.UpdateAsync(line => Dispatcher.UIThread.Post(() => SignInStatus.Text = "SteamCMD: " + line), attempt);
+            SteamCmdButton.Content = Loc.S("SteamCMD is updating itself...");
+            SignInStatus.Text = Loc.S("SteamCMD updates itself from Valve the first time; this takes a minute.");
+            await steamCmd.UpdateAsync(line => Dispatcher.UIThread.Post(() => SignInStatus.Text = Loc.S("SteamCMD: ") + line), attempt);
             await Task.Run(steamCmd.ForgetSignIn, attempt);
-            SteamCmdButton.Content = "SteamCMD is running...";
-            SignInStatus.Text = "Type your password in the SteamCMD window; it goes to Valve's own tool, not HellForge. If Steam asks for " +
+            SteamCmdButton.Content = Loc.S("SteamCMD is running...");
+            SignInStatus.Text = Loc.S("Type your password in the SteamCMD window; it goes to Valve's own tool, not HellForge. If Steam asks for ") +
                 "a Steam Guard code, type that there too. The download's progress shows under Game files.";
-            SetupPauseButton.Content = "Stop SteamCMD";
+            SetupPauseButton.Content = Loc.S("Stop SteamCMD");
             SetRow(SetupStep.Copy, null, $"SteamCMD downloads build {build.BuildId} for your account...", running: true);
             using var watching = CancellationTokenSource.CreateLinkedTokenSource(attempt);
             var watch = WatchDepots(steamCmd.Folder, watching.Token);
@@ -184,8 +185,8 @@ public partial class MainWindow
         {
             await Task.Run(() => ForgetSteamCmdSignIn(steamCmd));
             SteamCmdButton.IsEnabled = true;
-            SteamCmdButton.Content = "Start SteamCMD again";
-            SetupPauseButton.Content = "Cancel";
+            SteamCmdButton.Content = Loc.S("Start SteamCMD again");
+            SetupPauseButton.Content = Loc.S("Cancel");
         }
         var depots = await Task.Run(() => SteamDepotDownload.Status(steamCmd.Folder, build));
         ShowDepotProgress(depots, "SteamCMD");
@@ -196,7 +197,7 @@ public partial class MainWindow
             return null;
         }
         ChooseAnotherButton.IsEnabled = false;
-        SignInStatus.Text = "SteamCMD has downloaded the build. Checking it and moving it into this folder...";
+        SignInStatus.Text = Loc.S("SteamCMD has downloaded the build. Checking it and moving it into this folder...");
         SetRow(SetupStep.Copy, null, "Checking SteamCMD's download and moving it into this folder...", running: true);
         await MoveSteamCmdDownload(steamCmd, install, attempt);
         return $"{build.Files.Count} files ({build.TotalBytes / 1e9:0.0} GB), downloaded by SteamCMD for your account, each verified against " +
@@ -231,7 +232,7 @@ public partial class MainWindow
                 await Task.Delay(TimeSpan.FromSeconds(2), stop);
             }
             catch (OperationCanceledException) { break; }
-            catch (Exception error) when (error is IOException or UnauthorizedAccessException) { CopyText.Text = "Could not check the download: " + Privacy.Scrub(error.Message); }
+            catch (Exception error) when (error is IOException or UnauthorizedAccessException) { CopyText.Text = Loc.S("Could not check the download: ") + Privacy.Scrub(error.Message); }
         }
     }
 
@@ -250,13 +251,13 @@ public partial class MainWindow
         if (steamCmdStarted == null || !SteamCmdButton.IsEnabled) return;
         if (!SteamCmd.IsAccountName(account))
         {
-            SignInStatus.Text = "Enter your Steam account name: the name you sign in with (letters, digits and underscores), not your " +
+            SignInStatus.Text = Loc.S("Enter your Steam account name: the name you sign in with (letters, digits and underscores), not your ") +
                 "profile name. Your password goes into the SteamCMD window, not here.";
             return;
         }
         SteamCmdButton.IsEnabled = false;
-        SteamCmdButton.Content = "Getting SteamCMD from Valve...";
-        SignInStatus.Text = "Getting SteamCMD from Valve and checking its signature...";
+        SteamCmdButton.Content = Loc.S("Getting SteamCMD from Valve...");
+        SignInStatus.Text = Loc.S("Getting SteamCMD from Valve and checking its signature...");
         steamCmdStarted.TrySetResult(account);
     }
 
@@ -275,7 +276,7 @@ public partial class MainWindow
         ChooseAnotherButton.IsVisible = !choosing && offered.Count > 1;
         ChooseAnotherButton.IsEnabled = true;
         SteamCmdButton.IsEnabled = true;
-        SteamCmdButton.Content = "Start SteamCMD";
+        SteamCmdButton.Content = Loc.S("Start SteamCMD");
         SignInQr.Data = null;
         SignInQrWait.IsVisible = true;
         SignInStatus.Text = "";

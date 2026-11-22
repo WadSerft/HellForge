@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:HellForge.Launcher"
         xmlns:core="clr-namespace:HellForge.Core;assembly=HellForge.Core"
+        xmlns:loc="clr-namespace:HellForge.Launcher.Localization"
         x:Class="HellForge.Launcher.MainWindow"
         Title="HellForge"
         Icon="/Assets/hellforge.ico"
@@ -9,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BackgroundBrush}"
         Foreground="{StaticResource TextBrush}"
-        FontFamily="fonts:Inter#Inter, $Default">
+        FontFamily="fonts:Inter#Inter, Microsoft YaHei UI, SimHei, $Default">
   <Grid>
     <Grid ColumnDefinitions="236,*">
 
@@ -23,7 +24,7 @@
                 <TextBlock FontSize="21" FontWeight="Black" LetterSpacing="1.5">
                   <Run Text="HELL" /><Run Text="FORGE" Foreground="{StaticResource AccentBrush}" />
                 </TextBlock>
-                <TextBlock Text="Local HELLDIVERS 2" Classes="muted" FontSize="11" Margin="0,2,0,0" />
+                <TextBlock Text="{loc:Tr 'Local HELLDIVERS 2'}" Classes="muted" FontSize="11" Margin="0,2,0,0" />
               </StackPanel>
             </StackPanel>
             <Border Height="2" Background="{StaticResource AccentBrush}" Margin="0,20,0,0" Opacity="0.85" />
@@ -35,23 +36,23 @@
               <StackPanel Orientation="Horizontal" Spacing="8">
                 <PathIcon Width="15" Height="15"
                           Data="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
-                <TextBlock Text="Discord" FontSize="13" VerticalAlignment="Center" />
+                <TextBlock Text="{loc:Tr 'Discord'}" FontSize="13" VerticalAlignment="Center" />
               </StackPanel>
             </Button>
-            <TextBlock Text="SESSION" Classes="h2" Margin="0" />
+            <TextBlock Text="{loc:Tr 'SESSION'}" Classes="h2" Margin="0" />
             <StackPanel Orientation="Horizontal" Spacing="10">
               <Border x:Name="SidebarDot" Classes="dot" Background="{StaticResource MutedBrush}" VerticalAlignment="Center" />
-              <TextBlock x:Name="SidebarState" Text="Idle" FontWeight="SemiBold" VerticalAlignment="Center" />
+              <TextBlock x:Name="SidebarState" Text="{loc:Tr 'Idle'}" FontWeight="SemiBold" VerticalAlignment="Center" />
             </StackPanel>
             <TextBlock x:Name="VersionText" Classes="muted" FontSize="11" Margin="0,10,0,0" TextWrapping="Wrap" />
           </StackPanel>
 
           <ListBox x:Name="Nav" Classes="nav" SelectedIndex="0">
-            <ListBoxItem Content="01   PLAY" />
-            <ListBoxItem Content="02   PROFILE" />
-            <ListBoxItem Content="03   MODS" />
-            <ListBoxItem Content="04   CONSOLE" />
-            <ListBoxItem Content="05   SETTINGS" />
+            <ListBoxItem Content="{loc:Tr '01   PLAY'}" />
+            <ListBoxItem Content="{loc:Tr '02   PROFILE'}" />
+            <ListBoxItem Content="{loc:Tr '03   MODS'}" />
+            <ListBoxItem Content="{loc:Tr '04   CONSOLE'}" />
+            <ListBoxItem Content="{loc:Tr '05   SETTINGS'}" />
           </ListBox>
         </DockPanel>
       </Border>
@@ -61,8 +62,8 @@
         <!-- PLAY -->
         <Grid x:Name="PlayPage" RowDefinitions="Auto,Auto,Auto,*,Auto">
           <StackPanel>
-            <TextBlock Text="DEPLOYMENT" Classes="eyebrow" />
-            <TextBlock Text="Local session" Classes="h1" />
+            <TextBlock Text="{loc:Tr 'DEPLOYMENT'}" Classes="eyebrow" />
+            <TextBlock Text="{loc:Tr 'Local session'}" Classes="h1" />
           </StackPanel>
 
           <Border Grid.Row="1" Classes="card" Margin="0,24,0,0">
@@ -72,15 +73,15 @@
               <StackPanel Grid.Column="1" Spacing="6">
                 <TextBlock x:Name="StatusText" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap" />
                 <SelectableTextBlock x:Name="FailureText" Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" IsVisible="False" />
-                <Button x:Name="GameRepairButton" Classes="ghost" Content="Check and repair" HorizontalAlignment="Left" IsVisible="False" />
+                <Button x:Name="GameRepairButton" Classes="ghost" Content="{loc:Tr 'Check and repair'}" HorizontalAlignment="Left" IsVisible="False" />
                 <TextBlock x:Name="HintText" Classes="muted" TextWrapping="Wrap" />
                 <ProgressBar x:Name="BootProgress" Classes="detail" Minimum="0" Maximum="1000" IsVisible="False" Margin="0,6,0,0" />
                 <!-- After a session that ended in a crash (CrashReportOffer.cs): its logs for whoever helps, and one zip for a GitHub issue,
                      both saved to the Desktop -->
                 <StackPanel x:Name="CrashReportPanel" Orientation="Horizontal" Spacing="10" Margin="0,8,0,0" IsVisible="False">
-                  <Button x:Name="CrashLogsButton" Classes="ghost" Content="Save logs to Desktop" />
-                  <Button x:Name="CrashReportButton" Classes="ghost" Content="Save crash report" />
-                  <Button x:Name="CrashIssueButton" Classes="ghost" Content="Open a GitHub issue" IsVisible="False" />
+                  <Button x:Name="CrashLogsButton" Classes="ghost" Content="{loc:Tr 'Save logs to Desktop'}" />
+                  <Button x:Name="CrashReportButton" Classes="ghost" Content="{loc:Tr 'Save crash report'}" />
+                  <Button x:Name="CrashIssueButton" Classes="ghost" Content="{loc:Tr 'Open a GitHub issue'}" IsVisible="False" />
                 </StackPanel>
               </StackPanel>
             </Grid>
@@ -93,9 +94,9 @@
           <!-- Inline "new profile" form; takes the place of the steps while open -->
           <Border x:Name="NewProfileForm" Grid.Row="2" Classes="card" Margin="0,16,0,0" Padding="24,18" IsVisible="False">
             <StackPanel Spacing="10">
-              <TextBlock Text="NEW PROFILE" Classes="h2" Margin="0" />
+              <TextBlock Text="{loc:Tr 'NEW PROFILE'}" Classes="h2" Margin="0" />
               <Grid ColumnDefinitions="*,12,*,12,Auto,8,Auto">
-                <TextBox x:Name="NewProfileName" Watermark="Name, e.g. my-run" MaxLength="32" VerticalContentAlignment="Center" />
+                <TextBox x:Name="NewProfileName" Watermark="{loc:Tr 'Name, e.g. my-run'}" MaxLength="32" VerticalContentAlignment="Center" />
                 <ComboBox x:Name="TemplateCombo" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                   <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="core:ProfileTemplate">
@@ -108,8 +109,8 @@
                     </DataTemplate>
                   </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button x:Name="CancelProfileButton" Grid.Column="4" Classes="ghost" Content="Cancel" />
-                <Button x:Name="CreateProfileButton" Grid.Column="6" Classes="primary" Content="Create" />
+                <Button x:Name="CancelProfileButton" Grid.Column="4" Classes="ghost" Content="{loc:Tr 'Cancel'}" />
+                <Button x:Name="CreateProfileButton" Grid.Column="6" Classes="primary" Content="{loc:Tr 'Create'}" />
               </Grid>
               <TextBlock x:Name="TemplateDescription" Classes="muted" FontSize="12" TextWrapping="Wrap" />
               <TextBlock x:Name="NewProfileError" Foreground="{StaticResource DangerBrush}" FontSize="12" TextWrapping="Wrap" IsVisible="False" />
@@ -122,8 +123,8 @@
               <StackPanel Spacing="8">
                 <TextBlock x:Name="LeftoverProcessesText" TextWrapping="Wrap" />
                 <StackPanel Orientation="Horizontal" Spacing="10">
-                  <Button x:Name="EndLeftoverProcessesButton" Classes="danger" Content="End these processes" />
-                  <Button x:Name="DismissLeftoverProcessesButton" Classes="ghost" Content="Not now" />
+                  <Button x:Name="EndLeftoverProcessesButton" Classes="danger" Content="{loc:Tr 'End these processes'}" />
+                  <Button x:Name="DismissLeftoverProcessesButton" Classes="ghost" Content="{loc:Tr 'Not now'}" />
                 </StackPanel>
               </StackPanel>
             </Border>
@@ -131,7 +132,7 @@
             <!-- the stranger warning, once, when the first sandboxed session runs with strangers on by default -->
             <Border x:Name="StrangersNoticeCard" Classes="card" Margin="0,16,0,0" Padding="24,18" VerticalAlignment="Top" IsVisible="False">
               <StackPanel Spacing="6">
-                <TextBlock Text="PLAY WITH STRANGERS" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'PLAY WITH STRANGERS'}" Classes="h2" Margin="0" />
                 <SelectableTextBlock x:Name="StrangersNoticeText" Foreground="#FFA235" TextWrapping="Wrap" />
               </StackPanel>
             </Border>
@@ -151,7 +152,7 @@
                   <TextBlock x:Name="PlaySyncText" Classes="muted" FontSize="12" TextWrapping="Wrap" />
                   <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,2,0,0">
                     <Button x:Name="PlaySyncButton" Classes="primary" IsEnabled="{Binding #SyncButton.IsEnabled}" />
-                    <Button x:Name="PlayReviewButton" Classes="ghost" Content="Review import" IsVisible="{Binding #ImportPanel.IsVisible}" />
+                    <Button x:Name="PlayReviewButton" Classes="ghost" Content="{loc:Tr 'Review import'}" IsVisible="{Binding #ImportPanel.IsVisible}" />
                   </StackPanel>
                   <TextBlock x:Name="PlaySyncStatus" FontSize="12" TextWrapping="Wrap" IsVisible="False" />
                 </StackPanel>
@@ -159,7 +160,7 @@
               <TextBlock x:Name="PlatformNote" Foreground="{StaticResource DangerBrush}" FontWeight="SemiBold" TextWrapping="Wrap" IsVisible="False" />
             </StackPanel>
             <StackPanel Grid.Column="1" Width="340" Spacing="10" VerticalAlignment="Bottom">
-              <TextBlock Text="PROFILE" Classes="h2" Margin="0" />
+              <TextBlock Text="{loc:Tr 'PROFILE'}" Classes="h2" Margin="0" />
               <Grid ColumnDefinitions="*,8,Auto">
                 <ComboBox x:Name="ProfileCombo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                   <ComboBox.ItemTemplate>
@@ -174,10 +175,10 @@
                     </DataTemplate>
                   </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button x:Name="NewProfileButton" Grid.Column="2" Classes="ghost" Content="New profile" />
+                <Button x:Name="NewProfileButton" Grid.Column="2" Classes="ghost" Content="{loc:Tr 'New profile'}" />
               </Grid>
               <Button x:Name="PlayButton" Classes="play" Width="340" Margin="0,6,0,0">
-                <TextBlock x:Name="PlayLabel" Text="PLAY" LetterSpacing="6" />
+                <TextBlock x:Name="PlayLabel" Text="{loc:Tr 'PLAY'}" LetterSpacing="6" />
               </Button>
             </StackPanel>
           </Grid>
@@ -186,12 +187,12 @@
         <!-- PROFILE -->
         <DockPanel x:Name="ProfilePage" IsVisible="False">
           <StackPanel DockPanel.Dock="Top" Margin="0,0,0,24">
-            <TextBlock Text="HELLDIVER" Classes="eyebrow" />
-            <TextBlock x:Name="ProfileTitle" Text="default" Classes="h1" />
+            <TextBlock Text="{loc:Tr 'HELLDIVER'}" Classes="eyebrow" />
+            <TextBlock x:Name="ProfileTitle" Text="{loc:Tr 'default'}" Classes="h1" />
             <TextBlock x:Name="ProfileNote" Classes="muted" Margin="0,8,0,0" TextWrapping="Wrap" />
           </StackPanel>
           <Grid DockPanel.Dock="Bottom" ColumnDefinitions="Auto,*">
-            <Button x:Name="OpenProfileButton" Classes="ghost" Content="Open profile folder" />
+            <Button x:Name="OpenProfileButton" Classes="ghost" Content="{loc:Tr 'Open profile folder'}" />
             <SelectableTextBlock x:Name="ProfilePathText" Grid.Column="1" Classes="muted" VerticalAlignment="Center"
                                  FontSize="12" TextWrapping="Wrap" Margin="16,0,0,0" />
           </Grid>
@@ -205,42 +206,42 @@
             </UniformGrid.Styles>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="EXPERIENCE" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'EXPERIENCE'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="XpText" Classes="stat" Text="-" />
-                <TextBlock Text="Total XP" Classes="muted" FontSize="12" />
+                <TextBlock Text="{loc:Tr 'Total XP'}" Classes="muted" FontSize="12" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="SHIP NAME" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'SHIP NAME'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="ShipText" Classes="stat" Text="-" />
-                <TextBlock Text="Ship name word indices" Classes="muted" FontSize="12" />
+                <TextBlock Text="{loc:Tr 'Ship name word indices'}" Classes="muted" FontSize="12" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="INVENTORY" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'INVENTORY'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="InventoryText" Classes="stat" Text="-" />
-                <TextBlock Text="Items in the profile" Classes="muted" FontSize="12" />
+                <TextBlock Text="{loc:Tr 'Items in the profile'}" Classes="muted" FontSize="12" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="ONBOARDING STATE" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'ONBOARDING STATE'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="OnboardingStateText" Classes="stat" Text="-" />
-                <TextBlock Text="New-player intro progress" Classes="muted" FontSize="12" />
+                <TextBlock Text="{loc:Tr 'New-player intro progress'}" Classes="muted" FontSize="12" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="ONBOARDING FLAGS" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'ONBOARDING FLAGS'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="OnboardingFlagsText" Classes="stat" Text="-" />
                 <TextBlock x:Name="OnboardingFlagsHex" Classes="muted" FontSize="12" FontFamily="{StaticResource MonoFont}" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="TEMPLATE" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'TEMPLATE'}" Classes="h2" Margin="0" />
                 <StackPanel Orientation="Horizontal" Spacing="10">
                   <TextBlock x:Name="TemplateText" Classes="stat" FontSize="24" Text="-" />
                   <Border x:Name="TemplateBadge" Classes="badge" VerticalAlignment="Center" IsVisible="False">
@@ -253,58 +254,58 @@
           </UniformGrid>
           <Border x:Name="SyncCard" Classes="card" Margin="0,0,0,16">
             <StackPanel Spacing="10">
-              <TextBlock Text="ACCOUNT SYNC" Classes="h2" Margin="0" />
+              <TextBlock Text="{loc:Tr 'ACCOUNT SYNC'}" Classes="h2" Margin="0" />
               <TextBlock x:Name="SyncDescription" Classes="muted" FontSize="12" TextWrapping="Wrap"
-                         Text="Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. Each sync asks for administrator access: until the normal game exits, the game's server name points at this PC and a temporary certificate is trusted. Both are removed when it exits." />
+                         Text="{loc:Tr &quot;Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. Each sync asks for administrator access: until the normal game exits, the game's server name points at this PC and a temporary certificate is trusted. Both are removed when it exits.&quot;}" />
               <TextBlock x:Name="SyncWarning" Foreground="#FFA235" FontSize="12" TextWrapping="Wrap"
                          Text="Experimental. During a sync the normal game shows &quot;Could not connect to Easy Anti Cheat network&quot; after the login and closes itself. The sync is finished by then, so this does not stop it; close the game if it stays open. We are looking into the cause." />
               <StackPanel Orientation="Horizontal" Spacing="10">
-                <Button x:Name="SyncButton" Classes="primary" Content="Sync Inventory" />
+                <Button x:Name="SyncButton" Classes="primary" Content="{loc:Tr 'Sync Inventory'}" />
                 <TextBlock x:Name="SyncStatusText" VerticalAlignment="Center" FontSize="12" TextWrapping="Wrap" />
               </StackPanel>
               <TextBlock x:Name="SyncDetailText" Classes="muted" FontSize="12" TextWrapping="Wrap" />
               <Border x:Name="ImportPanel" IsVisible="False" BorderBrush="#3A3E46" BorderThickness="1" CornerRadius="4" Padding="12">
                 <StackPanel Spacing="8">
-                  <TextBlock Text="IMPORT FROM THE LAST SYNC" FontSize="12" FontWeight="SemiBold" />
+                  <TextBlock Text="{loc:Tr 'IMPORT FROM THE LAST SYNC'}" FontSize="12" FontWeight="SemiBold" />
                   <TextBlock x:Name="ImportPremiumText" Classes="muted" FontSize="12" TextWrapping="Wrap" />
                   <StackPanel x:Name="ImportRows" Spacing="6" />
-                  <CheckBox x:Name="ImportAutoBox" Content="Apply future syncs automatically with these choices" />
+                  <CheckBox x:Name="ImportAutoBox" Content="{loc:Tr 'Apply future syncs automatically with these choices'}" />
                   <StackPanel Orientation="Horizontal" Spacing="10">
-                    <Button x:Name="ImportApplyButton" Classes="primary" Content="Apply import" />
-                    <Button x:Name="ImportCancelButton" Classes="ghost" Content="Not now" />
+                    <Button x:Name="ImportApplyButton" Classes="primary" Content="{loc:Tr 'Apply import'}" />
+                    <Button x:Name="ImportCancelButton" Classes="ghost" Content="{loc:Tr 'Not now'}" />
                   </StackPanel>
                 </StackPanel>
               </Border>
               <StackPanel Orientation="Horizontal" Spacing="10">
-                <Button x:Name="ReviewImportButton" Classes="ghost" Content="Review import" IsVisible="False" />
+                <Button x:Name="ReviewImportButton" Classes="ghost" Content="{loc:Tr 'Review import'}" IsVisible="False" />
                 <ComboBox x:Name="BackupCombo" MinWidth="300" PlaceholderText="Profile backups" IsVisible="False" />
-                <Button x:Name="RestoreBackupButton" Classes="ghost" Content="Restore backup" IsVisible="False" />
+                <Button x:Name="RestoreBackupButton" Classes="ghost" Content="{loc:Tr 'Restore backup'}" IsVisible="False" />
               </StackPanel>
             </StackPanel>
           </Border>
           <Border Classes="card" Margin="0,0,0,16">
             <StackPanel Spacing="10">
-              <TextBlock Text="GAME SETTINGS" Classes="h2" Margin="0" />
+              <TextBlock Text="{loc:Tr 'GAME SETTINGS'}" Classes="h2" Margin="0" />
               <TextBlock Classes="muted" FontSize="12" TextWrapping="Wrap"
-                         Text="Copies the options you set in the normal HELLDIVERS 2 (graphics, audio, display, gameplay) into this profile, and your key bindings from Steam if you like. A new profile gets them once, when it is first played; import again after changing them in the normal game. The profile's own settings are kept, so Undo import takes them back. Progress, saves and loadouts are not touched." />
+                         Text="{loc:Tr &quot;Copies the options you set in the normal HELLDIVERS 2 (graphics, audio, display, gameplay) into this profile, and your key bindings from Steam if you like. A new profile gets them once, when it is first played; import again after changing them in the normal game. The profile's own settings are kept, so Undo import takes them back. Progress, saves and loadouts are not touched.&quot;}" />
               <StackPanel Orientation="Horizontal" Spacing="10">
-                <CheckBox x:Name="ImportControlsBox" Content="Key bindings too" IsChecked="True" VerticalAlignment="Center" />
-                <Button x:Name="ImportSettingsButton" Classes="primary" Content="Import from HELLDIVERS 2" />
-                <Button x:Name="UndoImportButton" Classes="ghost" Content="Undo import" />
+                <CheckBox x:Name="ImportControlsBox" Content="{loc:Tr 'Key bindings too'}" IsChecked="True" VerticalAlignment="Center" />
+                <Button x:Name="ImportSettingsButton" Classes="primary" Content="{loc:Tr 'Import from HELLDIVERS 2'}" />
+                <Button x:Name="UndoImportButton" Classes="ghost" Content="{loc:Tr 'Undo import'}" />
               </StackPanel>
               <TextBlock x:Name="ImportSettingsStatus" FontSize="12" TextWrapping="Wrap" />
             </StackPanel>
           </Border>
           <Border x:Name="WeaponLevelsCard" Classes="card" IsVisible="False">
             <StackPanel Spacing="10">
-              <TextBlock Text="WEAPON LEVELS" Classes="h2" Margin="0" />
+              <TextBlock Text="{loc:Tr 'WEAPON LEVELS'}" Classes="h2" Margin="0" />
               <TextBlock Classes="muted" FontSize="12" TextWrapping="Wrap"
-                         Text="Each weapon's mastery level (0 = never used). Level 1 gives its default attachments and every level up to the one set gives what it unlocks. Weapons added by mods follow the weapon they copy. Saved into the profile for the next session." />
+                         Text="{loc:Tr &quot;Each weapon's mastery level (0 = never used). Level 1 gives its default attachments and every level up to the one set gives what it unlocks. Weapons added by mods follow the weapon they copy. Saved into the profile for the next session.&quot;}" />
               <StackPanel Orientation="Horizontal" Spacing="10">
-                <TextBlock Text="Every weapon to level" VerticalAlignment="Center" />
+                <TextBlock Text="{loc:Tr 'Every weapon to level'}" VerticalAlignment="Center" />
                 <NumericUpDown x:Name="AllLevelsInput" Minimum="0" Maximum="25" Increment="1" FormatString="0" Value="25" Width="120" />
-                <Button x:Name="SetAllLevelsButton" Classes="ghost" Content="Set all" />
-                <Button x:Name="SaveLevelsButton" Classes="primary" Content="Save levels" />
+                <Button x:Name="SetAllLevelsButton" Classes="ghost" Content="{loc:Tr 'Set all'}" />
+                <Button x:Name="SaveLevelsButton" Classes="primary" Content="{loc:Tr 'Save levels'}" />
               </StackPanel>
               <TextBlock x:Name="WeaponLevelsStatus" FontSize="12" TextWrapping="Wrap" />
               <UniformGrid x:Name="WeaponLevelsList" Columns="3" />
@@ -317,14 +318,14 @@
         <!-- MODS -->
         <DockPanel x:Name="ModsPage" IsVisible="False">
           <StackPanel DockPanel.Dock="Top" Margin="0,0,0,16">
-            <TextBlock Text="ARMORY" Classes="eyebrow" />
-            <TextBlock Text="Mods" Classes="h1" />
+            <TextBlock Text="{loc:Tr 'ARMORY'}" Classes="eyebrow" />
+            <TextBlock Text="{loc:Tr 'Mods'}" Classes="h1" />
             <TextBlock x:Name="ModsSummary" Classes="muted" TextWrapping="Wrap" Margin="0,8,0,0" />
           </StackPanel>
           <Grid DockPanel.Dock="Bottom" ColumnDefinitions="Auto,Auto,Auto,*" Margin="0,16,0,0">
-            <Button x:Name="OpenModsButton" Classes="ghost" Content="Open mods folder" />
-            <Button x:Name="RefreshModsButton" Grid.Column="1" Classes="ghost" Content="Refresh" Margin="10,0,0,0" />
-            <Button x:Name="AddModsButton" Grid.Column="2" Classes="ghost" Content="Add mods..." Margin="10,0,0,0" />
+            <Button x:Name="OpenModsButton" Classes="ghost" Content="{loc:Tr 'Open mods folder'}" />
+            <Button x:Name="RefreshModsButton" Grid.Column="1" Classes="ghost" Content="{loc:Tr 'Refresh'}" Margin="10,0,0,0" />
+            <Button x:Name="AddModsButton" Grid.Column="2" Classes="ghost" Content="{loc:Tr 'Add mods...'}" Margin="10,0,0,0" />
             <SelectableTextBlock x:Name="ModsDigestText" Grid.Column="3" Classes="muted" FontSize="12" TextWrapping="Wrap"
                                  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0" />
           </Grid>
@@ -337,18 +338,18 @@
         <DockPanel x:Name="ConsolePage" IsVisible="False">
           <Grid DockPanel.Dock="Top" ColumnDefinitions="*,Auto" Margin="0,0,0,20">
             <StackPanel>
-              <TextBlock Text="BACKEND" Classes="eyebrow" />
-              <TextBlock Text="Console" Classes="h1" />
+              <TextBlock Text="{loc:Tr 'BACKEND'}" Classes="eyebrow" />
+              <TextBlock Text="{loc:Tr 'Console'}" Classes="h1" />
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Bottom">
-              <CheckBox x:Name="AutoScroll" Content="Auto-scroll" IsChecked="True" />
-              <Button x:Name="ClearButton" Classes="ghost" Content="Clear" />
-              <Button x:Name="ConsoleLogsButton" Classes="ghost" Content="Open session logs" />
-              <Button x:Name="ShareLogsButton" Classes="ghost" Content="Save logs to Desktop" Margin="10,0,0,0" />
+              <CheckBox x:Name="AutoScroll" Content="{loc:Tr 'Auto-scroll'}" IsChecked="True" />
+              <Button x:Name="ClearButton" Classes="ghost" Content="{loc:Tr 'Clear'}" />
+              <Button x:Name="ConsoleLogsButton" Classes="ghost" Content="{loc:Tr 'Open session logs'}" />
+              <Button x:Name="ShareLogsButton" Classes="ghost" Content="{loc:Tr 'Save logs to Desktop'}" Margin="10,0,0,0" />
             </StackPanel>
           </Grid>
           <TextBlock DockPanel.Dock="Bottom" Classes="muted" FontSize="12" Margin="0,10,0,0"
-                     Text="Live backend requests for the current session. 2xx in green, 501 (not implemented yet) in red." />
+                     Text="{loc:Tr 'Live backend requests for the current session. 2xx in green, 501 (not implemented yet) in red.'}" />
           <Border Background="#0A0B0D" BorderBrush="{StaticResource CardBorderBrush}" BorderThickness="1" CornerRadius="4" Padding="0,8">
             <ListBox x:Name="ConsoleList" Classes="console" FontFamily="{StaticResource MonoFont}" FontSize="12.5">
               <ListBox.ItemTemplate>
@@ -364,21 +365,30 @@
         <ScrollViewer x:Name="SettingsPage" IsVisible="False">
           <StackPanel Spacing="16" Margin="0,0,18,0">
             <StackPanel Margin="0,0,0,8">
-              <TextBlock Text="SYSTEM" Classes="eyebrow" />
-              <TextBlock Text="Settings and about" Classes="h1" />
+              <TextBlock Text="{loc:Tr 'SYSTEM'}" Classes="eyebrow" />
+              <TextBlock Text="{loc:Tr 'Settings and about'}" Classes="h1" />
             </StackPanel>
+
+            <Border Classes="card">
+              <StackPanel Spacing="8">
+                <TextBlock Text="{loc:Tr 'LANGUAGE'}" Classes="h2" Margin="0" />
+                <TextBlock Classes="muted" TextWrapping="Wrap"
+                           Text="{loc:Tr 'The language of this window. Mods and the game keep their own languages.'}" />
+                <ComboBox x:Name="LanguageCombo" HorizontalAlignment="Left" MinWidth="180" />
+              </StackPanel>
+            </Border>
 
             <Border x:Name="InstallCard" Classes="card" IsVisible="False">
               <StackPanel Spacing="8">
-                <TextBlock Text="INSTALLATION" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'INSTALLATION'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="InstallText" TextWrapping="Wrap" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Check and repair compares the game files with the supported build, copies any that are missing or damaged from Steam, and places the network block and shortcuts again." />
-                <Button x:Name="RepairButton" Classes="ghost" Content="Check and repair" HorizontalAlignment="Left" Margin="0,6,0,0" />
+                           Text="{loc:Tr 'Check and repair compares the game files with the supported build, copies any that are missing or damaged from Steam, and places the network block and shortcuts again.'}" />
+                <Button x:Name="RepairButton" Classes="ghost" Content="{loc:Tr 'Check and repair'}" HorizontalAlignment="Left" Margin="0,6,0,0" />
                 <TextBlock x:Name="UninstallDescription" Classes="muted" TextWrapping="Wrap" Margin="0,10,0,0"
-                           Text="Uninstall removes HellForge's network block (Windows asks for permission) and its shortcuts, then deletes this installation's folder once the launcher has closed. Your normal HELLDIVERS 2 and Steam are not touched." />
+                           Text="{loc:Tr &quot;Uninstall removes HellForge's network block (Windows asks for permission) and its shortcuts, then deletes this installation's folder once the launcher has closed. Your normal HELLDIVERS 2 and Steam are not touched.&quot;}" />
                 <StackPanel Orientation="Horizontal" Spacing="10">
-                  <Button x:Name="UninstallButton" Classes="ghost" Content="Uninstall HellForge..." />
+                  <Button x:Name="UninstallButton" Classes="ghost" Content="{loc:Tr 'Uninstall HellForge...'}" />
                   <TextBlock x:Name="UninstallText" Classes="muted" VerticalAlignment="Center" TextWrapping="Wrap" />
                 </StackPanel>
                 <Border x:Name="UninstallConfirm" IsVisible="False" BorderBrush="{StaticResource DangerBrush}" BorderThickness="1" CornerRadius="4" Padding="14,12">
@@ -388,11 +398,11 @@
                     <SelectableTextBlock x:Name="UninstallSteamPaths" Classes="muted" FontSize="12" TextWrapping="Wrap"
                                          IsVisible="False" Margin="28,0,0,0" />
                     <CheckBox x:Name="UninstallPrefixBox" IsVisible="False" IsChecked="False" HorizontalAlignment="Left" />
-                    <Button x:Name="UninstallCopyCommandsButton" Classes="ghost" Content="Copy sudo commands"
+                    <Button x:Name="UninstallCopyCommandsButton" Classes="ghost" Content="{loc:Tr 'Copy sudo commands'}"
                             HorizontalAlignment="Left" IsVisible="False" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                      <Button x:Name="UninstallConfirmButton" Classes="danger" Content="Uninstall and delete everything" />
-                      <Button x:Name="UninstallCancelButton" Classes="ghost" Content="Cancel" />
+                      <Button x:Name="UninstallConfirmButton" Classes="danger" Content="{loc:Tr 'Uninstall and delete everything'}" />
+                      <Button x:Name="UninstallCancelButton" Classes="ghost" Content="{loc:Tr 'Cancel'}" />
                     </StackPanel>
                   </StackPanel>
                 </Border>
@@ -401,17 +411,17 @@
 
             <Border x:Name="LinuxBackupCard" Classes="card" IsVisible="False">
               <StackPanel Spacing="8">
-                <TextBlock Text="PREFIX BACKUP" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'PREFIX BACKUP'}" Classes="h2" Margin="0" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Save the whole Proton prefix (HellForge, its profiles and mods, the game copy and Steam's depots) to one archive, or put a saved one back. Archives are standard tar files: .tar.zst when zstd is installed, otherwise .tar.gz. HellForge refuses while a session or another launcher is running." />
+                           Text="{loc:Tr &quot;Save the whole Proton prefix (HellForge, its profiles and mods, the game copy and Steam's depots) to one archive, or put a saved one back. Archives are standard tar files: .tar.zst when zstd is installed, otherwise .tar.gz. HellForge refuses while a session or another launcher is running.&quot;}" />
                 <Grid ColumnDefinitions="*,10,Auto">
                   <TextBox x:Name="LinuxBackupFolder" VerticalContentAlignment="Center" />
-                  <Button x:Name="LinuxBackupFolderButton" Grid.Column="2" Classes="ghost" Content="Choose folder" />
+                  <Button x:Name="LinuxBackupFolderButton" Grid.Column="2" Classes="ghost" Content="{loc:Tr 'Choose folder'}" />
                 </Grid>
                 <StackPanel Orientation="Horizontal" Spacing="10">
-                  <Button x:Name="LinuxBackupButton" Classes="primary" Content="Back up prefix" />
-                  <Button x:Name="LinuxRestoreButton" Classes="ghost" Content="Restore prefix..." />
-                  <Button x:Name="LinuxBackupCancelButton" Classes="ghost" Content="Cancel backup" IsVisible="False" />
+                  <Button x:Name="LinuxBackupButton" Classes="primary" Content="{loc:Tr 'Back up prefix'}" />
+                  <Button x:Name="LinuxRestoreButton" Classes="ghost" Content="{loc:Tr 'Restore prefix...'}" />
+                  <Button x:Name="LinuxBackupCancelButton" Classes="ghost" Content="{loc:Tr 'Cancel backup'}" IsVisible="False" />
                 </StackPanel>
                 <ProgressBar x:Name="LinuxBackupProgress" IsVisible="False" />
                 <TextBlock x:Name="LinuxBackupText" Classes="muted" TextWrapping="Wrap" />
@@ -420,8 +430,8 @@
                   <StackPanel Spacing="10">
                     <SelectableTextBlock x:Name="LinuxRestoreWarning" TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                      <Button x:Name="LinuxRestoreConfirmButton" Classes="danger" Content="Restore and replace the prefix" />
-                      <Button x:Name="LinuxRestoreCancelButton" Classes="ghost" Content="Cancel" />
+                      <Button x:Name="LinuxRestoreConfirmButton" Classes="danger" Content="{loc:Tr 'Restore and replace the prefix'}" />
+                      <Button x:Name="LinuxRestoreCancelButton" Classes="ghost" Content="{loc:Tr 'Cancel'}" />
                     </StackPanel>
                   </StackPanel>
                 </Border>
@@ -430,125 +440,125 @@
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="MULTIPLAYER" Classes="h2" />
+                <TextBlock Text="{loc:Tr 'MULTIPLAYER'}" Classes="h2" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Play with Steam friends who also run HellForge: your backend hosts your game's lobby and session and talks to theirs through Steam (friends only). Friends need the same gameplay mods (see Mods). Both switches are needed and apply to the next session." />
-                <CheckBox x:Name="LocalPlayFabBox" Content="Local PlayFab" />
+                           Text="{loc:Tr &quot;Play with Steam friends who also run HellForge: your backend hosts your game's lobby and session and talks to theirs through Steam (friends only). Friends need the same gameplay mods (see Mods). Both switches are needed and apply to the next session.&quot;}" />
+                <CheckBox x:Name="LocalPlayFabBox" Content="{loc:Tr 'Local PlayFab'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Points the game's PlayFab login and profile calls at the local backend instead of playfabapi.com. The copied game stays blocked from the internet either way." />
-                <CheckBox x:Name="SdkShimsBox" Content="Lobby and session through Steam friends" />
+                           Text="{loc:Tr &quot;Points the game's PlayFab login and profile calls at the local backend instead of playfabapi.com. The copied game stays blocked from the internet either way.&quot;}" />
+                <CheckBox x:Name="SdkShimsBox" Content="{loc:Tr 'Lobby and session through Steam friends'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Replaces the copy's PlayFab Party and Lobby DLLs with HellForge stand-ins for the session; they never reach PlayFab and talk to friends' backends through Steam networking. Every call is logged to the session folder." />
+                           Text="{loc:Tr &quot;Replaces the copy's PlayFab Party and Lobby DLLs with HellForge stand-ins for the session; they never reach PlayFab and talk to friends' backends through Steam networking. Every call is logged to the session folder.&quot;}" />
                 <StackPanel x:Name="SteamUdpOptions" Spacing="8" IsVisible="False">
-                  <CheckBox x:Name="SteamUdpBox" Content="Co-op over Steam relays (UDP to Valve's relays only)" />
+                  <CheckBox x:Name="SteamUdpBox" Content="{loc:Tr &quot;Co-op over Steam relays (UDP to Valve's relays only)&quot;}" />
                   <TextBlock Classes="muted" TextWrapping="Wrap"
-                             Text="Off: the session has no route out. On: it opens UDP to Valve's Steam relay servers only, from the list Valve publishes for HELLDIVERS 2, so Steam networking can carry co-op; TCP and every other destination stay refused. Needs passt (the pasta command) and python3. Applies to the next session." />
+                             Text="{loc:Tr &quot;Off: the session has no route out. On: it opens UDP to Valve's Steam relay servers only, from the list Valve publishes for HELLDIVERS 2, so Steam networking can carry co-op; TCP and every other destination stay refused. Needs passt (the pasta command) and python3. Applies to the next session.&quot;}" />
                 </StackPanel>
-                <CheckBox x:Name="StrangersBox" Content="Play with strangers" />
+                <CheckBox x:Name="StrangersBox" Content="{loc:Tr 'Play with strangers'}" />
                 <TextBlock x:Name="StrangersEffectiveText" Classes="muted" TextWrapping="Wrap" />
-                <Button x:Name="StrangersDefaultButton" Classes="ghost" Content="Use default" HorizontalAlignment="Left" IsVisible="False" />
+                <Button x:Name="StrangersDefaultButton" Classes="ghost" Content="{loc:Tr 'Use default'}" HorizontalAlignment="Left" IsVisible="False" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Friends always reach your backend. On: your public lobby is listed on the Galactic Map for HellForge players who are not your friends, and you can join theirs. Off: friends only." />
+                           Text="{loc:Tr 'Friends always reach your backend. On: your public lobby is listed on the Galactic Map for HellForge players who are not your friends, and you can join theirs. Off: friends only.'}" />
                 <TextBlock x:Name="StrangersWarning" Foreground="#FFA235" TextWrapping="Wrap"
-                           Text="Strangers' games send yours data you cannot check: a modified game can lie about its mods, and a flaw in the game's network code could let it run code on your PC. Turn this on only if you accept that risk. It applies within a few seconds, also during a session." />
+                           Text="{loc:Tr &quot;Strangers' games send yours data you cannot check: a modified game can lie about its mods, and a flaw in the game's network code could let it run code on your PC. Turn this on only if you accept that risk. It applies within a few seconds, also during a session.&quot;}" />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="SANDBOX" Classes="h2" />
-                <CheckBox x:Name="SandboxBox" Content="Run the game sandboxed" />
+                <TextBlock Text="{loc:Tr 'SANDBOX'}" Classes="h2" />
+                <CheckBox x:Name="SandboxBox" Content="{loc:Tr 'Run the game sandboxed'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="The game runs at Windows' low integrity level: code running inside it (a mod, or code that a crafted file or another player's game got it to run) cannot write your files, change other programs or start any. Steam reaches the game through HellForge's Steam broker, which passes only the calls the game needs. The game has no Steam overlay then (chat, Steam's invite dialog, screenshots); invitations from the game's social menu still work. Without the overlay there is no Steam Input either: a Steam Controller, the Steam Deck's controls and other controllers that work only through Steam Input do not work sandboxed, and the session says so. Xbox controllers work. Applies to the next session." />
+                           Text="{loc:Tr &quot;The game runs at Windows' low integrity level: code running inside it (a mod, or code that a crafted file or another player's game got it to run) cannot write your files, change other programs or start any. Steam reaches the game through HellForge's Steam broker, which passes only the calls the game needs. The game has no Steam overlay then (chat, Steam's invite dialog, screenshots); invitations from the game's social menu still work. Without the overlay there is no Steam Input either: a Steam Controller, the Steam Deck's controls and other controllers that work only through Steam Input do not work sandboxed, and the session says so. Xbox controllers work. Applies to the next session.&quot;}" />
                 <TextBlock x:Name="SandboxUnavailable" Foreground="#FFA235" TextWrapping="Wrap" IsVisible="False"
-                           Text="This HellForge was built without the Steam bridge, so the game cannot run sandboxed." />
+                           Text="{loc:Tr 'This HellForge was built without the Steam bridge, so the game cannot run sandboxed.'}" />
                 <TextBlock x:Name="SandboxLinuxNote" Classes="muted" TextWrapping="Wrap" IsVisible="False"
-                           Text="The Linux sandbox is available when this PC passes the self-test for this HellForge build and kernel. A sandboxed session runs the game in its own Wine prefix and a read-only filesystem view, and stops rather than running unsandboxed." />
+                           Text="{loc:Tr 'The Linux sandbox is available when this PC passes the self-test for this HellForge build and kernel. A sandboxed session runs the game in its own Wine prefix and a read-only filesystem view, and stops rather than running unsandboxed.'}" />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="EXPERIMENTAL" Classes="h2" />
-                <CheckBox x:Name="LiveChangesBox" Content="Change mods without restarting" />
+                <TextBlock Text="{loc:Tr 'EXPERIMENTAL'}" Classes="h2" />
+                <CheckBox x:Name="LiveChangesBox" Content="{loc:Tr 'Change mods without restarting'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="Takes effect from the next session. Stats mods, data mods and code mods that declare they can change live switch while the game runs, on the Mods page and when you join a friend with other mods. Everything else still restarts, and a mod that adds weapons often will. Off: every change waits for a restart." />
+                           Text="{loc:Tr 'Takes effect from the next session. Stats mods, data mods and code mods that declare they can change live switch while the game runs, on the Mods page and when you join a friend with other mods. Everything else still restarts, and a mod that adds weapons often will. Off: every change waits for a restart.'}" />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="GALACTIC WAR" Classes="h2" />
-                <RadioButton x:Name="WarLiveRadio" GroupName="war" Content="Follow the live galactic war" />
+                <TextBlock Text="{loc:Tr 'GALACTIC WAR'}" Classes="h2" />
+                <RadioButton x:Name="WarLiveRadio" GroupName="war" Content="{loc:Tr 'Follow the live galactic war'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="28,0,0,0"
-                           Text="Before the game starts and every 5 minutes while you play, the backend reads the current war (planets, campaigns, liberation) from the community API mirror api.helldivers2.dev, read-only. Neither HellForge nor the game ever contacts Arrowhead's servers. Without a connection the last fetched war is used." />
-                <RadioButton x:Name="WarFrozenRadio" GroupName="war" Content="HellForge's frozen war" />
+                           Text="{loc:Tr &quot;Before the game starts and every 5 minutes while you play, the backend reads the current war (planets, campaigns, liberation) from the community API mirror api.helldivers2.dev, read-only. Neither HellForge nor the game ever contacts Arrowhead's servers. Without a connection the last fetched war is used.&quot;}" />
+                <RadioButton x:Name="WarFrozenRadio" GroupName="war" Content="{loc:Tr &quot;HellForge's frozen war&quot;}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="28,0,0,0"
-                           Text="A snapshot of the real war from 14 October 2026, built into HellForge: the same planets and campaigns every session, with no internet needed." />
-                <RadioButton x:Name="WarOpenRadio" GroupName="war" Content="All planets open" />
+                           Text="{loc:Tr 'A snapshot of the real war from 14 October 2026, built into HellForge: the same planets and campaigns every session, with no internet needed.'}" />
+                <RadioButton x:Name="WarOpenRadio" GroupName="war" Content="{loc:Tr 'All planets open'}" />
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="28,0,0,0"
-                           Text="Every planet but Super Earth is a liberation campaign you can drop on. Planets Super Earth holds in the frozen war go to the enemy whose front lies that way from Super Earth, so each faction holds about a third of the galaxy. Planets get their enemy's subfactions (Predator Strain, Jet Brigade...) and SEAF allies, and Cyberstan's Megafactories can be attacked. Built from the frozen war, so it is the same on every PC and needs no internet. Applies to the next session." />
-                <CheckBox x:Name="DealSubfactionsBox" Content="Deal subfactions across the planets" Margin="28,2,0,0" />
+                           Text="{loc:Tr &quot;Every planet but Super Earth is a liberation campaign you can drop on. Planets Super Earth holds in the frozen war go to the enemy whose front lies that way from Super Earth, so each faction holds about a third of the galaxy. Planets get their enemy's subfactions (Predator Strain, Jet Brigade...) and SEAF allies, and Cyberstan's Megafactories can be attacked. Built from the frozen war, so it is the same on every PC and needs no internet. Applies to the next session.&quot;}" />
+                <CheckBox x:Name="DealSubfactionsBox" Content="{loc:Tr 'Deal subfactions across the planets'}" Margin="28,2,0,0" />
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="56,0,0,0"
-                           Text="Each planet gets one of its enemy's subfactions or none, from the seed: half of each enemy's planets have none. Off, planets keep the frozen war's. Illuminate planets always have one (their squads need it)." />
-                <CheckBox x:Name="DealSeafBox" Content="Deal SEAF allies across the planets" Margin="28,2,0,0" />
+                           Text="{loc:Tr &quot;Each planet gets one of its enemy's subfactions or none, from the seed: half of each enemy's planets have none. Off, planets keep the frozen war's. Illuminate planets always have one (their squads need it).&quot;}" />
+                <CheckBox x:Name="DealSeafBox" Content="{loc:Tr 'Deal SEAF allies across the planets'}" Margin="28,2,0,0" />
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="56,0,0,0"
-                           Text="About one planet in eight gets SEAF troops fighting beside you, from the seed. Off, they stay on the frozen war's planets." />
+                           Text="{loc:Tr &quot;About one planet in eight gets SEAF troops fighting beside you, from the seed. Off, they stay on the frozen war's planets.&quot;}" />
                 <StackPanel Orientation="Horizontal" Spacing="8" Margin="28,2,0,0">
-                  <TextBlock Text="Seed" VerticalAlignment="Center" />
+                  <TextBlock Text="{loc:Tr 'Seed'}" VerticalAlignment="Center" />
                   <TextBox x:Name="SubfactionSeedBox" Width="130" MaxLength="10" />
-                  <Button x:Name="SubfactionRandomiseButton" Content="Randomise" />
+                  <Button x:Name="SubfactionRandomiseButton" Content="{loc:Tr 'Randomise'}" />
                 </StackPanel>
                 <TextBlock Classes="muted" TextWrapping="Wrap" Margin="28,0,0,0"
-                           Text="One number deals both: the same seed gives the same planets every time, so if you dislike the layout, roll another. In co-op the host's war decides." />
+                           Text="{loc:Tr &quot;One number deals both: the same seed gives the same planets every time, so if you dislike the layout, roll another. In co-op the host's war decides.&quot;}" />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="LAUNCH OPTIONS" Classes="h2" />
-                <TextBox x:Name="LaunchOptionsBox" Watermark="e.g. --use-d3d11" MaxLength="1024" VerticalContentAlignment="Center" />
+                <TextBlock Text="{loc:Tr 'LAUNCH OPTIONS'}" Classes="h2" />
+                <TextBox x:Name="LaunchOptionsBox" Watermark="{loc:Tr 'e.g. --use-d3d11'}" MaxLength="1024" VerticalContentAlignment="Center" />
                 <TextBlock x:Name="LaunchOptionsProblem" Classes="muted" Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" IsVisible="False" />
                 <TextBlock x:Name="LaunchOptionsWarning" Classes="muted" Foreground="#FFA235" TextWrapping="Wrap" IsVisible="False" />
-                <TextBlock Classes="muted" TextWrapping="Wrap"
+                <TextBlock x:Name="LaunchOptionsHint" Classes="muted" TextWrapping="Wrap"
                            Text="Options for the game's command line, as in Steam's Launch Options: --use-d3d11 starts it with DirectX 11, for one. Steam's &quot;%command% --use-d3d11&quot; works too. HellForge's own options come first. Applies to the next session." />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="TROUBLESHOOTING" Classes="h2" />
-                <CheckBox x:Name="EngineLogBox" Content="Engine log" />
-                <TextBlock Classes="muted" TextWrapping="Wrap"
+                <TextBlock Text="{loc:Tr 'TROUBLESHOOTING'}" Classes="h2" />
+                <CheckBox x:Name="EngineLogBox" Content="{loc:Tr 'Engine log'}" />
+                <TextBlock x:Name="EngineLogHint" Classes="muted" TextWrapping="Wrap"
                            Text="Starts the game with its own log switched on (--log-to-file) and copies that log into the session's logs, so &quot;Save logs to Desktop&quot; includes it. Helps find why a join or connection fails. Applies to the next session." />
-                <CheckBox x:Name="CrashDumpBox" Content="Crash dump" Margin="0,6,0,0" />
+                <CheckBox x:Name="CrashDumpBox" Content="{loc:Tr 'Crash dump'}" Margin="0,6,0,0" />
                 <TextBlock Classes="muted" TextWrapping="Wrap"
-                           Text="A crash always leaves a small dump in the session's logs (the game's threads and the memory they point to, not all of it). This writes a full memory dump instead (about 1 GB), for a bug report about crashes that needs it. A dump holds what the game had in memory (your Steam account name, for one): only send it to someone you trust. Off unless you need it. Applies to the next session." />
+                           Text="{loc:Tr &quot;A crash always leaves a small dump in the session's logs (the game's threads and the memory they point to, not all of it). This writes a full memory dump instead (about 1 GB), for a bug report about crashes that needs it. A dump holds what the game had in memory (your Steam account name, for one): only send it to someone you trust. Off unless you need it. Applies to the next session.&quot;}" />
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel>
-                <TextBlock Text="PATHS" Classes="h2" />
+                <TextBlock Text="{loc:Tr 'PATHS'}" Classes="h2" />
                 <Grid x:Name="PathsGrid" ColumnDefinitions="150,*" />
                 <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,18,0,0">
-                  <Button x:Name="SettingsLogsButton" Classes="ghost" Content="Open session logs" />
-                  <Button x:Name="OpenRootButton" Classes="ghost" Content="Open project folder" />
+                  <Button x:Name="SettingsLogsButton" Classes="ghost" Content="{loc:Tr 'Open session logs'}" />
+                  <Button x:Name="OpenRootButton" Classes="ghost" Content="{loc:Tr 'Open project folder'}" />
                 </StackPanel>
               </StackPanel>
             </Border>
 
             <Border Classes="card">
               <StackPanel Spacing="10">
-                <TextBlock Text="ABOUT" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'ABOUT'}" Classes="h2" Margin="0" />
                 <TextBlock TextWrapping="Wrap"
-                           Text="HellForge runs HELLDIVERS 2 against a local backend on this computer instead of the official servers." />
+                           Text="{loc:Tr 'HellForge runs HELLDIVERS 2 against a local backend on this computer instead of the official servers.'}" />
                 <TextBlock TextWrapping="Wrap" Classes="muted"
-                           Text="A network block keeps the copied game off the internet. It covers only the copy's own programs, so the normal game and Steam are not affected. Settings > Installation > Uninstall HellForge removes it with the rest." />
+                           Text="{loc:Tr &quot;A network block keeps the copied game off the internet. It covers only the copy's own programs, so the normal game and Steam are not affected. Settings > Installation > Uninstall HellForge removes it with the rest.&quot;}" />
                 <TextBlock TextWrapping="Wrap" Classes="muted"
-                           Text="A Steam ownership check runs before every launch, so Steam must be running and signed in to an account that owns the game or has it through Steam Family Sharing." />
+                           Text="{loc:Tr 'A Steam ownership check runs before every launch, so Steam must be running and signed in to an account that owns the game or has it through Steam Family Sharing.'}" />
                 <TextBlock TextWrapping="Wrap" Classes="muted"
-                           Text="A personal research project, run locally. Not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment." />
+                           Text="{loc:Tr 'A personal research project, run locally. Not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment.'}" />
                 <TextBlock x:Name="PlatformText" Classes="muted" FontSize="12" Margin="0,6,0,0" />
               </StackPanel>
             </Border>
@@ -558,24 +568,24 @@
         <!-- SETUP: replaces the other pages until the installation's game is copied; Settings opens it to repair -->
         <DockPanel x:Name="SetupPage" IsVisible="False">
           <StackPanel DockPanel.Dock="Top" Margin="0,0,0,16">
-            <TextBlock Text="INSTALLATION" Classes="eyebrow" />
-            <TextBlock x:Name="SetupTitle" Text="Set up HellForge" Classes="h1" />
+            <TextBlock Text="{loc:Tr 'INSTALLATION'}" Classes="eyebrow" />
+            <TextBlock x:Name="SetupTitle" Text="{loc:Tr 'Set up HellForge'}" Classes="h1" />
             <TextBlock x:Name="SetupIntro" Classes="muted" TextWrapping="Wrap" Margin="0,8,0,0"
-                       Text="Setup copies HELLDIVERS 2 from your own Steam library into this folder (about 24 GB) and blocks that copy from the internet. Your normal game and Steam stay as they are. Keep Steam running and signed in." />
+                       Text="{loc:Tr 'Setup copies HELLDIVERS 2 from your own Steam library into this folder (about 24 GB) and blocks that copy from the internet. Your normal game and Steam stay as they are. Keep Steam running and signed in.'}" />
             <TextBlock Classes="muted" FontSize="12" TextWrapping="Wrap" Margin="0,8,0,0"
-                       Text="HellForge is an independent fan project, not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment. HELLDIVERS is a trademark of Sony Interactive Entertainment." />
+                       Text="{loc:Tr 'HellForge is an independent fan project, not affiliated with or endorsed by Arrowhead Game Studios or Sony Interactive Entertainment. HELLDIVERS is a trademark of Sony Interactive Entertainment.'}" />
           </StackPanel>
           <!-- The buttons stay in view; only the steps and options scroll. -->
           <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right" Margin="0,16,0,0">
-            <Button x:Name="SetupPauseButton" Classes="ghost" Content="Pause copying" IsVisible="False" />
-            <Button x:Name="SetupBackButton" Classes="ghost" Content="Back" IsVisible="False" />
-            <Button x:Name="SetupStartButton" Classes="primary" Content="Start setup" />
+            <Button x:Name="SetupPauseButton" Classes="ghost" Content="{loc:Tr 'Pause copying'}" IsVisible="False" />
+            <Button x:Name="SetupBackButton" Classes="ghost" Content="{loc:Tr 'Back'}" IsVisible="False" />
+            <Button x:Name="SetupStartButton" Classes="primary" Content="{loc:Tr 'Start setup'}" />
           </StackPanel>
           <ScrollViewer>
           <StackPanel Spacing="16" Margin="0,0,18,0">
             <Border x:Name="ProtonChoiceCard" Classes="card" IsVisible="False">
               <StackPanel Spacing="8">
-                <TextBlock Text="PROTON VERSION" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'PROTON VERSION'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="ProtonChoiceHint" Classes="muted" TextWrapping="Wrap" />
                 <ComboBox x:Name="ProtonCombo" HorizontalAlignment="Stretch">
                   <ComboBox.ItemTemplate>
@@ -593,7 +603,7 @@
                  has a "Choose another way" back to the three; the progress of every way shows on the game files card below. -->
             <Border x:Name="SignInCard" Classes="card" IsVisible="False">
               <StackPanel Spacing="10">
-                <TextBlock Text="GET THE SUPPORTED BUILD FROM STEAM" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'GET THE SUPPORTED BUILD FROM STEAM'}" Classes="h2" Margin="0" />
                 <TextBlock x:Name="SignInIntro" Classes="muted" TextWrapping="Wrap" />
                 <StackPanel x:Name="ChoicesPanel" Spacing="12" IsVisible="False">
                   <StackPanel Spacing="4">
@@ -613,37 +623,37 @@
                 <Border x:Name="SignInQrPanel" Background="White" Padding="14" HorizontalAlignment="Left">
                   <Panel Width="200" Height="200">
                     <Path x:Name="SignInQr" Fill="Black" Stretch="Uniform" RenderOptions.EdgeMode="Aliased" />
-                    <TextBlock x:Name="SignInQrWait" Text="Asking Steam for a code..." Foreground="#606060" FontSize="12"
+                    <TextBlock x:Name="SignInQrWait" Text="{loc:Tr 'Asking Steam for a code...'}" Foreground="#606060" FontSize="12"
                                HorizontalAlignment="Center" VerticalAlignment="Center" />
                   </Panel>
                 </Border>
                 <StackPanel x:Name="SteamCmdPanel" Spacing="8" IsVisible="False" MaxWidth="420" HorizontalAlignment="Left">
-                  <TextBox x:Name="SteamCmdAccount" Watermark="Steam account name (the name you sign in with)" />
-                  <Button x:Name="SteamCmdButton" Content="Start SteamCMD" Classes="primary" HorizontalAlignment="Left" />
+                  <TextBox x:Name="SteamCmdAccount" Watermark="{loc:Tr 'Steam account name (the name you sign in with)'}" />
+                  <Button x:Name="SteamCmdButton" Content="{loc:Tr 'Start SteamCMD'}" Classes="primary" HorizontalAlignment="Left" />
                 </StackPanel>
                 <StackPanel x:Name="ClientPanel" Spacing="8" IsVisible="False">
                   <TextBlock x:Name="DownloadIntro" Classes="muted" TextWrapping="Wrap" />
-                  <Button x:Name="OpenConsoleButton" Content="Open the Steam console" Classes="primary" HorizontalAlignment="Left" />
+                  <Button x:Name="OpenConsoleButton" Content="{loc:Tr 'Open the Steam console'}" Classes="primary" HorizontalAlignment="Left" />
                   <StackPanel x:Name="DownloadCommands" Spacing="6" />
                   <CheckBox x:Name="DeleteDownloadBox" IsChecked="True" />
                 </StackPanel>
                 <TextBlock x:Name="SignInStatus" Classes="muted" FontSize="12" TextWrapping="Wrap" />
-                <Button x:Name="ChooseAnotherButton" Content="Choose another way" Classes="ghost" HorizontalAlignment="Left" IsVisible="False" />
+                <Button x:Name="ChooseAnotherButton" Content="{loc:Tr 'Choose another way'}" Classes="ghost" HorizontalAlignment="Left" IsVisible="False" />
               </StackPanel>
             </Border>
             <Border x:Name="CopyCard" Classes="card" IsVisible="False">
               <StackPanel Spacing="8">
-                <TextBlock Text="GAME FILES" Classes="h2" Margin="0" />
+                <TextBlock Text="{loc:Tr 'GAME FILES'}" Classes="h2" Margin="0" />
                 <ProgressBar x:Name="CopyProgress" Minimum="0" Maximum="1000" Height="8" />
                 <TextBlock x:Name="CopyText" Classes="muted" FontSize="12" TextWrapping="Wrap" />
               </StackPanel>
             </Border>
             <Border Classes="card">
               <StackPanel Spacing="8">
-                <TextBlock Text="OPTIONS" Classes="h2" Margin="0" />
-                <CheckBox x:Name="DesktopShortcutBox" Content="Shortcut on the desktop" IsChecked="True" />
-                <CheckBox x:Name="StartMenuShortcutBox" Content="Shortcut in the Start menu" IsChecked="True" />
-                <CheckBox x:Name="ImportBox" Content="Import game settings and saves from an earlier HellForge setup on this PC" IsChecked="True" IsVisible="False" />
+                <TextBlock Text="{loc:Tr 'OPTIONS'}" Classes="h2" Margin="0" />
+                <CheckBox x:Name="DesktopShortcutBox" Content="{loc:Tr 'Shortcut on the desktop'}" IsChecked="True" />
+                <CheckBox x:Name="StartMenuShortcutBox" Content="{loc:Tr 'Shortcut in the Start menu'}" IsChecked="True" />
+                <CheckBox x:Name="ImportBox" Content="{loc:Tr 'Import game settings and saves from an earlier HellForge setup on this PC'}" IsChecked="True" IsVisible="False" />
               </StackPanel>
             </Border>
           </StackPanel>
@@ -656,12 +666,12 @@
     <Grid x:Name="ConfirmOverlay" Background="#B0000000" IsVisible="False">
       <Border Classes="card" Width="440" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="28">
         <StackPanel Spacing="12">
-          <TextBlock x:Name="ConfirmTitle" Text="Session running" FontSize="19" FontWeight="Bold" />
+          <TextBlock x:Name="ConfirmTitle" Text="{loc:Tr 'Session running'}" FontSize="19" FontWeight="Bold" />
           <TextBlock x:Name="ConfirmText" TextWrapping="Wrap" Classes="muted"
-                     Text="A play session is running. Stop it and close the game?" />
+                     Text="{loc:Tr 'A play session is running. Stop it and close the game?'}" />
           <StackPanel x:Name="ConfirmButtons" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button x:Name="ConfirmCancel" Classes="ghost" Content="Keep playing" />
-            <Button x:Name="ConfirmStop" Classes="danger" Content="Stop and close" />
+            <Button x:Name="ConfirmCancel" Classes="ghost" Content="{loc:Tr 'Keep playing'}" />
+            <Button x:Name="ConfirmStop" Classes="danger" Content="{loc:Tr 'Stop and close'}" />
           </StackPanel>
         </StackPanel>
       </Border>

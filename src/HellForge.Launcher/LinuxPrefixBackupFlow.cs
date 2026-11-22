@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Platform.Storage;
 using Avalonia.Threading;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -58,11 +59,11 @@ public partial class MainWindow
     async Task BackupLinuxPrefix(InstallLayout install)
     {
         if (linuxArchiveBusy) return;
-        if (runner.IsRunning || setupRunning) { LinuxBackupText.Text = "Stop the session (or setup) first."; return; }
+        if (runner.IsRunning || setupRunning) { LinuxBackupText.Text = Loc.S("Stop the session (or setup) first."); return; }
         LinuxRestoreConfirm.IsVisible = false;
         linuxRestoreArchive = null;
         var text = LinuxBackupFolder.Text?.Trim() ?? "";
-        if (text.Length == 0) { LinuxBackupText.Text = "Choose a folder for the backup."; return; }
+        if (text.Length == 0) { LinuxBackupText.Text = Loc.S("Choose a folder for the backup."); return; }
         string prefix;
         try { prefix = WinePath.PrefixFromInstallRoot(install.Root); }
         catch (InvalidOperationException error) { LinuxBackupText.Text = error.Message; return; }
@@ -104,7 +105,7 @@ public partial class MainWindow
         }
         catch (OperationCanceledException)
         {
-            LinuxBackupText.Text = "Backup cancelled; the partial archive was deleted.";
+            LinuxBackupText.Text = Loc.S("Backup cancelled; the partial archive was deleted.");
         }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException or InvalidDataException or
                                           InvalidOperationException or Win32Exception)
@@ -164,7 +165,7 @@ public partial class MainWindow
     async Task RestoreLinuxPrefix(InstallLayout install)
     {
         if (linuxArchiveBusy || linuxRestoreArchive is not { } archive) return;
-        if (runner.IsRunning || setupRunning) { LinuxBackupText.Text = "Stop the session (or setup) first."; return; }
+        if (runner.IsRunning || setupRunning) { LinuxBackupText.Text = Loc.S("Stop the session (or setup) first."); return; }
         string prefix;
         try { prefix = WinePath.PrefixFromInstallRoot(install.Root); }
         catch (InvalidOperationException error) { LinuxBackupText.Text = error.Message; return; }
@@ -175,7 +176,7 @@ public partial class MainWindow
         LinuxRestoreConfirm.IsVisible = false;
         LinuxBackupProgress.IsVisible = true;
         LinuxBackupProgress.IsIndeterminate = true;
-        LinuxBackupText.Text = "Checking the backup and unpacking it beside the prefix...";
+        LinuxBackupText.Text = Loc.S("Checking the backup and unpacking it beside the prefix...");
         try
         {
             var plan = await Task.Run(() => LinuxPrefixBackup.PrepareRestore(archive, prefix, token, locations,

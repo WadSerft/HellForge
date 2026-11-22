@@ -1,0 +1,813 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="01___play" xml:space="preserve">
+    <value>01   开始</value>
+  </data>
+  <data name="02___profile" xml:space="preserve">
+    <value>02   档案</value>
+  </data>
+  <data name="03___mods" xml:space="preserve">
+    <value>03   模组</value>
+  </data>
+  <data name="04___console" xml:space="preserve">
+    <value>04   控制台</value>
+  </data>
+  <data name="05___settings" xml:space="preserve">
+    <value>05   设置</value>
+  </data>
+  <data name="a_steam_ownership_check_runs_before_every_launch,_so_steam_must_be_running_and_signed_in_to_an_account_that_owns_the_game_or_has_it_through_steam_family_sharing." xml:space="preserve">
+    <value>每次启动前都会执行 Steam 所有权校验，因此 Steam 必须在运行并登录了拥有该游戏（或通过 Steam 家庭共享获得）的账户。</value>
+  </data>
+  <data name="a_crash_always_leaves_a_small_dump_in_the_session's_logs_(the_game's_threads_and_the_memory_they_point_to,_not_all_of_it)._this_writes_a_full_memory_dump_instead_(about_1_gb),_for_a_bug_report_about_crashes_that_needs_it._a_dump_holds_what_the_game_had_in_memory_(your_steam_account_name,_for_one):_only_send_it_to_someone_you_trust._off_unless_you_need_it._applies_to_the_next_session." xml:space="preserve">
+    <value>崩溃时总会在会话日志留下小型转储（游戏线程及其指向的内存，而非全部）。此开关改为写完整内存转储（约 1 GB），供需要它的崩溃报告使用。转储包含游戏内存中的内容（比如你的 Steam 账户名）：只发给信得过的人。不需要时保持关闭。下次会话生效。</value>
+  </data>
+  <data name="a_network_block_keeps_the_copied_game_off_the_internet._it_covers_only_the_copy's_own_programs,_so_the_normal_game_and_steam_are_not_affected._settings_&gt;_installation_&gt;_uninstall_hellforge_removes_it_with_the_rest." xml:space="preserve">
+    <value>一道网络拦截让副本游戏断开外网。它只作用于副本自身的进程，正式版游戏和 Steam 不受影响。“设置 &gt; 安装 &gt; 卸载 HellForge”会连同其余部分一并移除。</value>
+  </data>
+  <data name="a_personal_research_project,_run_locally._not_affiliated_with_or_endorsed_by_arrowhead_game_studios_or_sony_interactive_entertainment." xml:space="preserve">
+    <value>个人研究项目，本地运行。与 Arrowhead Game Studios 或 Sony Interactive Entertainment 无从属或认可关系。</value>
+  </data>
+  <data name="a_play_session_is_running._stop_it_and_close_the_game?" xml:space="preserve">
+    <value>有游戏会话正在运行。停止并关闭游戏？</value>
+  </data>
+  <data name="a_snapshot_of_the_real_war_from_14_october_2026,_built_into_hellforge:_the_same_planets_and_campaigns_every_session,_with_no_internet_needed." xml:space="preserve">
+    <value>内置的 2026 年 10 月 14 日真实战况快照：每次会话的行星和战役都相同，无需联网。</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="account_sync" xml:space="preserve">
+    <value>账号同步</value>
+  </data>
+  <data name="armory" xml:space="preserve">
+    <value>军械库</value>
+  </data>
+  <data name="about_one_planet_in_eight_gets_seaf_troops_fighting_beside_you,_from_the_seed._off,_they_stay_on_the_frozen_war's_planets." xml:space="preserve">
+    <value>约八分之一的行星按种子获得与你并肩作战的 SEAF 部队。关：保持在冻结战况中原有的行星上。</value>
+  </data>
+  <data name="add_mods..." xml:space="preserve">
+    <value>添加模组...</value>
+  </data>
+  <data name="all_planets_open" xml:space="preserve">
+    <value>全行星开放</value>
+  </data>
+  <data name="apply_future_syncs_automatically_with_these_choices" xml:space="preserve">
+    <value>以后按这些选择自动应用同步</value>
+  </data>
+  <data name="apply_import" xml:space="preserve">
+    <value>应用导入</value>
+  </data>
+  <data name="asking_steam_for_a_code..." xml:space="preserve">
+    <value>正在向 Steam 请求代码...</value>
+  </data>
+  <data name="auto-scroll" xml:space="preserve">
+    <value>自动滚动</value>
+  </data>
+  <data name="backend" xml:space="preserve">
+    <value>后端</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="back_up_prefix" xml:space="preserve">
+    <value>备份前缀</value>
+  </data>
+  <data name="before_the_game_starts_and_every_5_minutes_while_you_play,_the_backend_reads_the_current_war_(planets,_campaigns,_liberation)_from_the_community_api_mirror_api.helldivers2.dev,_read-only._neither_hellforge_nor_the_game_ever_contacts_arrowhead's_servers._without_a_connection_the_last_fetched_war_is_used." xml:space="preserve">
+    <value>游戏启动前和游玩中每 5 分钟，后端会从社区 API 镜像 api.helldivers2.dev 读取当前战况（行星、战役、解放度），只读。HellForge 和游戏绝不联系 Arrowhead 服务器。断网时沿用上次获取的战况。</value>
+  </data>
+  <data name="brings_your_own_helldivers_2_account_into_this_profile._warbonds,_superstore_items_and_dlc_gear_you_bought_always_follow_your_latest_sync;_everything_else_is_imported_only_as_you_choose,_and_the_profile_is_backed_up_first._super_credits_are_never_imported_or_usable._sync_opens_the_normal_game_through_steam;_log_in_and_pass_the_title_screen._each_sync_asks_for_administrator_access:_until_the_normal_game_exits,_the_game's_server_name_points_at_this_pc_and_a_temporary_certificate_is_trusted._both_are_removed_when_it_exits." xml:space="preserve">
+    <value>把你自己的《绝地潜兵2》账号带入这份档案。你购买的战争债券、超商店商品和 DLC 装备始终跟随最近一次同步；其余内容只在勾选后导入，且导入前会先备份档案。超级货币永远不会被导入或使用。同步会通过 Steam 启动正式版游戏：登录并过一次标题画面即可。每次同步都需要管理员权限：在正式版游戏退出前，游戏的服务器名会指向本机，并信任一张临时证书；游戏退出后两者都会移除。</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="cancel_backup" xml:space="preserve">
+    <value>取消备份</value>
+  </data>
+  <data name="change_mods_without_restarting" xml:space="preserve">
+    <value>不重启更换模组</value>
+  </data>
+  <data name="check_and_repair" xml:space="preserve">
+    <value>检查并修复</value>
+  </data>
+  <data name="check_and_repair_compares_the_game_files_with_the_supported_build,_copies_any_that_are_missing_or_damaged_from_steam,_and_places_the_network_block_and_shortcuts_again." xml:space="preserve">
+    <value>检查并修复会把游戏文件与受支持的版本逐一比对，从 Steam 补上缺失或损坏的文件，并重新部署网络拦截和快捷方式。</value>
+  </data>
+  <data name="choose_another_way" xml:space="preserve">
+    <value>选择其他方式</value>
+  </data>
+  <data name="choose_folder" xml:space="preserve">
+    <value>选择文件夹</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="co-op_over_steam_relays_(udp_to_valve's_relays_only)" xml:space="preserve">
+    <value>通过 Steam 中继联机（仅 UDP 连 Valve 中继）</value>
+  </data>
+  <data name="console" xml:space="preserve">
+    <value>控制台</value>
+  </data>
+  <data name="copies_the_options_you_set_in_the_normal_helldivers_2_(graphics,_audio,_display,_gameplay)_into_this_profile,_and_your_key_bindings_from_steam_if_you_like._a_new_profile_gets_them_once,_when_it_is_first_played;_import_again_after_changing_them_in_the_normal_game._the_profile's_own_settings_are_kept,_so_undo_import_takes_them_back._progress,_saves_and_loadouts_are_not_touched." xml:space="preserve">
+    <value>把你正式版《绝地潜兵2》里设置的选项（画面、音频、显示、玩法）复制进这份档案，也可以一并导入 Steam 的按键绑定。新档案在首次游玩时导入一次；在正式版里改过之后可再次导入。档案自身的设置会保留，“撤销导入”可将其还原。进度、存档和配装不受影响。</value>
+  </data>
+  <data name="copy_sudo_commands" xml:space="preserve">
+    <value>复制 sudo 命令</value>
+  </data>
+  <data name="crash_dump" xml:space="preserve">
+    <value>崩溃转储</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="deployment" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="deal_seaf_allies_across_the_planets" xml:space="preserve">
+    <value>在行星间分配 SEAF 盟军</value>
+  </data>
+  <data name="deal_subfactions_across_the_planets" xml:space="preserve">
+    <value>在行星间分配子阵营</value>
+  </data>
+  <data name="discord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="experience" xml:space="preserve">
+    <value>经验</value>
+  </data>
+  <data name="experimental" xml:space="preserve">
+    <value>实验性</value>
+  </data>
+  <data name="each_planet_gets_one_of_its_enemy's_subfactions_or_none,_from_the_seed:_half_of_each_enemy's_planets_have_none._off,_planets_keep_the_frozen_war's._illuminate_planets_always_have_one_(their_squads_need_it)." xml:space="preserve">
+    <value>每颗行星按种子获得一个敌方子阵营或不获得：敌方行星半数没有。关：行星保持冻结战况的原样。光能者的行星始终有（其小队需要）。</value>
+  </data>
+  <data name="each_weapon's_mastery_level_(0_=_never_used)._level_1_gives_its_default_attachments_and_every_level_up_to_the_one_set_gives_what_it_unlocks._weapons_added_by_mods_follow_the_weapon_they_copy._saved_into_the_profile_for_the_next_session." xml:space="preserve">
+    <value>每件武器的精通等级（0 = 从未使用）。1 级解锁默认配件，其后每一级都会解锁对应内容。模组添加的武器沿用其复制对象的等级。会保存进档案，供下次会话使用。</value>
+  </data>
+  <data name="end_these_processes" xml:space="preserve">
+    <value>结束这些进程</value>
+  </data>
+  <data name="engine_log" xml:space="preserve">
+    <value>引擎日志</value>
+  </data>
+  <data name="every_planet_but_super_earth_is_a_liberation_campaign_you_can_drop_on._planets_super_earth_holds_in_the_frozen_war_go_to_the_enemy_whose_front_lies_that_way_from_super_earth,_so_each_faction_holds_about_a_third_of_the_galaxy._planets_get_their_enemy's_subfactions_(predator_strain,_jet_brigade...)_and_seaf_allies,_and_cyberstan's_megafactories_can_be_attacked._built_from_the_frozen_war,_so_it_is_the_same_on_every_pc_and_needs_no_internet._applies_to_the_next_session." xml:space="preserve">
+    <value>除超级地球外，每颗行星都是可空投的解放战役。冻结战况中超级地球持有的行星划归其战线朝向的敌方，使三大阵营各占约三分之一银河。行星获得敌方的子阵营（掠食者变种、喷气旅...）和 SEAF 盟军，Cyberstan 的巨型工厂可以攻打。基于冻结战况生成，每台电脑一致，无需联网。下次会话生效。</value>
+  </data>
+  <data name="every_weapon_to_level" xml:space="preserve">
+    <value>所有武器设为等级</value>
+  </data>
+  <data name="follow_the_live_galactic_war" xml:space="preserve">
+    <value>跟随实时银河战争</value>
+  </data>
+  <data name="friends_always_reach_your_backend._on:_your_public_lobby_is_listed_on_the_galactic_map_for_hellforge_players_who_are_not_your_friends,_and_you_can_join_theirs._off:_friends_only." xml:space="preserve">
+    <value>好友始终能连到你的后端。开：你的公开大厅会列在银河地图上，供非好友的 HellForge 玩家查找，你也可以加入他们的。关：仅限好友。</value>
+  </data>
+  <data name="galactic_war" xml:space="preserve">
+    <value>银河战争</value>
+  </data>
+  <data name="game_files" xml:space="preserve">
+    <value>游戏文件</value>
+  </data>
+  <data name="game_settings" xml:space="preserve">
+    <value>游戏设置</value>
+  </data>
+  <data name="get_the_supported_build_from_steam" xml:space="preserve">
+    <value>从 STEAM 获取受支持的版本</value>
+  </data>
+  <data name="helldiver" xml:space="preserve">
+    <value>绝地潜兵</value>
+  </data>
+  <data name="hellforge_is_an_independent_fan_project,_not_affiliated_with_or_endorsed_by_arrowhead_game_studios_or_sony_interactive_entertainment._helldivers_is_a_trademark_of_sony_interactive_entertainment." xml:space="preserve">
+    <value>HellForge 是独立的爱好者项目，与 Arrowhead Game Studios 或 Sony Interactive Entertainment 无从属或认可关系。HELLDIVERS 是 Sony Interactive Entertainment 的商标。</value>
+  </data>
+  <data name="hellforge_runs_helldivers_2_against_a_local_backend_on_this_computer_instead_of_the_official_servers." xml:space="preserve">
+    <value>HellForge 让《绝地潜兵2》连接本机上的本地后端，而不是官方服务器。</value>
+  </data>
+  <data name="hellforge's_frozen_war" xml:space="preserve">
+    <value>HellForge 冻结战况</value>
+  </data>
+  <data name="import_from_the_last_sync" xml:space="preserve">
+    <value>从上次同步导入</value>
+  </data>
+  <data name="installation" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="inventory" xml:space="preserve">
+    <value>库存</value>
+  </data>
+  <data name="idle" xml:space="preserve">
+    <value>空闲</value>
+  </data>
+  <data name="import_from_helldivers_2" xml:space="preserve">
+    <value>从《绝地潜兵2》导入</value>
+  </data>
+  <data name="import_game_settings_and_saves_from_an_earlier_hellforge_setup_on_this_pc" xml:space="preserve">
+    <value>导入本机早先 HellForge 安装的游戏设置和存档</value>
+  </data>
+  <data name="items_in_the_profile" xml:space="preserve">
+    <value>档案中的物品</value>
+  </data>
+  <data name="keep_playing" xml:space="preserve">
+    <value>继续游玩</value>
+  </data>
+  <data name="key_bindings_too" xml:space="preserve">
+    <value>一并导入按键绑定</value>
+  </data>
+  <data name="launch_options" xml:space="preserve">
+    <value>启动选项</value>
+  </data>
+  <data name="live_backend_requests_for_the_current_session._2xx_in_green,_501_(not_implemented_yet)_in_red." xml:space="preserve">
+    <value>当前会话的后端请求实况。2xx 显示为绿色，501（尚未实现）显示为红色。</value>
+  </data>
+  <data name="lobby_and_session_through_steam_friends" xml:space="preserve">
+    <value>大厅和会话走 Steam 好友</value>
+  </data>
+  <data name="local_helldivers_2" xml:space="preserve">
+    <value>本地版《绝地潜兵2》</value>
+  </data>
+  <data name="local_playfab" xml:space="preserve">
+    <value>本地 PlayFab</value>
+  </data>
+  <data name="local_session" xml:space="preserve">
+    <value>本地会话</value>
+  </data>
+  <data name="multiplayer" xml:space="preserve">
+    <value>联机</value>
+  </data>
+  <data name="mods" xml:space="preserve">
+    <value>模组</value>
+  </data>
+  <data name="new_profile" xml:space="preserve">
+    <value>新建档案</value>
+  </data>
+  <data name="name,_e.g._my-run" xml:space="preserve">
+    <value>名称，例如 my-run</value>
+  </data>
+  <data name="new_profile_2" xml:space="preserve">
+    <value>新建档案</value>
+  </data>
+  <data name="new-player_intro_progress" xml:space="preserve">
+    <value>新手介绍进度</value>
+  </data>
+  <data name="not_now" xml:space="preserve">
+    <value>暂不</value>
+  </data>
+  <data name="onboarding_flags" xml:space="preserve">
+    <value>新手引导标记</value>
+  </data>
+  <data name="onboarding_state" xml:space="preserve">
+    <value>新手引导状态</value>
+  </data>
+  <data name="options" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="off:_the_session_has_no_route_out._on:_it_opens_udp_to_valve's_steam_relay_servers_only,_from_the_list_valve_publishes_for_helldivers_2,_so_steam_networking_can_carry_co-op;_tcp_and_every_other_destination_stay_refused._needs_passt_(the_pasta_command)_and_python3._applies_to_the_next_session." xml:space="preserve">
+    <value>关：会话没有任何对外通路。开：仅对 Valve 为《绝地潜兵2》公布的中继服务器列表开放 UDP，让 Steam 网络承载联机；TCP 和其他所有目的地仍被拒绝。需要 passt（pasta 命令）和 python3。下次会话生效。</value>
+  </data>
+  <data name="one_number_deals_both:_the_same_seed_gives_the_same_planets_every_time,_so_if_you_dislike_the_layout,_roll_another._in_co-op_the_host's_war_decides." xml:space="preserve">
+    <value>一个数字同时决定两者：相同种子每次得到相同的行星布局，不满意就再摇一次。联机时以房主的战况为准。</value>
+  </data>
+  <data name="open_a_github_issue" xml:space="preserve">
+    <value>在 GitHub 提交 issue</value>
+  </data>
+  <data name="open_mods_folder" xml:space="preserve">
+    <value>打开模组文件夹</value>
+  </data>
+  <data name="open_profile_folder" xml:space="preserve">
+    <value>打开档案文件夹</value>
+  </data>
+  <data name="open_project_folder" xml:space="preserve">
+    <value>打开项目文件夹</value>
+  </data>
+  <data name="open_session_logs" xml:space="preserve">
+    <value>打开会话日志</value>
+  </data>
+  <data name="open_the_steam_console" xml:space="preserve">
+    <value>打开 Steam 控制台</value>
+  </data>
+  <data name="paths" xml:space="preserve">
+    <value>路径</value>
+  </data>
+  <data name="play" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="play_with_strangers" xml:space="preserve">
+    <value>与陌生玩家联机</value>
+  </data>
+  <data name="prefix_backup" xml:space="preserve">
+    <value>前缀备份</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>档案</value>
+  </data>
+  <data name="proton_version" xml:space="preserve">
+    <value>PROTON 版本</value>
+  </data>
+  <data name="pause_copying" xml:space="preserve">
+    <value>暂停复制</value>
+  </data>
+  <data name="play_with_steam_friends_who_also_run_hellforge:_your_backend_hosts_your_game's_lobby_and_session_and_talks_to_theirs_through_steam_(friends_only)._friends_need_the_same_gameplay_mods_(see_mods)._both_switches_are_needed_and_apply_to_the_next_session." xml:space="preserve">
+    <value>和同样使用 HellForge 的 Steam 好友联机：你的后端承载游戏的大厅和会话，并通过 Steam 与好友的后端通信（仅限好友）。好友需要相同的玩法模组（见“模组”页）。两个开关都要打开，下次会话生效。</value>
+  </data>
+  <data name="play_with_strangers_2" xml:space="preserve">
+    <value>与陌生玩家联机</value>
+  </data>
+  <data name="points_the_game's_playfab_login_and_profile_calls_at_the_local_backend_instead_of_playfabapi.com._the_copied_game_stays_blocked_from_the_internet_either_way." xml:space="preserve">
+    <value>把游戏的 PlayFab 登录和档案请求指向本地后端，而不是 playfabapi.com。无论开关如何，副本游戏都保持断网。</value>
+  </data>
+  <data name="randomise" xml:space="preserve">
+    <value>随机</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="replaces_the_copy's_playfab_party_and_lobby_dlls_with_hellforge_stand-ins_for_the_session;_they_never_reach_playfab_and_talk_to_friends'_backends_through_steam_networking._every_call_is_logged_to_the_session_folder." xml:space="preserve">
+    <value>会话期间用 HellForge 的替代件替换副本的 PlayFab Party 和 Lobby DLL：它们绝不连接 PlayFab，而是通过 Steam 网络与好友后端通信。每次调用都记录到会话文件夹。</value>
+  </data>
+  <data name="restore_and_replace_the_prefix" xml:space="preserve">
+    <value>还原并替换前缀</value>
+  </data>
+  <data name="restore_backup" xml:space="preserve">
+    <value>恢复备份</value>
+  </data>
+  <data name="restore_prefix..." xml:space="preserve">
+    <value>还原前缀...</value>
+  </data>
+  <data name="review_import" xml:space="preserve">
+    <value>查看导入</value>
+  </data>
+  <data name="run_the_game_sandboxed" xml:space="preserve">
+    <value>在沙箱中运行游戏</value>
+  </data>
+  <data name="sandbox" xml:space="preserve">
+    <value>沙箱</value>
+  </data>
+  <data name="session" xml:space="preserve">
+    <value>会话</value>
+  </data>
+  <data name="ship_name" xml:space="preserve">
+    <value>舰船名</value>
+  </data>
+  <data name="system" xml:space="preserve">
+    <value>系统</value>
+  </data>
+  <data name="save_crash_report" xml:space="preserve">
+    <value>保存崩溃报告</value>
+  </data>
+  <data name="save_levels" xml:space="preserve">
+    <value>保存等级</value>
+  </data>
+  <data name="save_logs_to_desktop" xml:space="preserve">
+    <value>保存日志到桌面</value>
+  </data>
+  <data name="save_the_whole_proton_prefix_(hellforge,_its_profiles_and_mods,_the_game_copy_and_steam's_depots)_to_one_archive,_or_put_a_saved_one_back._archives_are_standard_tar_files:_.tar.zst_when_zstd_is_installed,_otherwise_.tar.gz._hellforge_refuses_while_a_session_or_another_launcher_is_running." xml:space="preserve">
+    <value>把整个 Proton 前缀（HellForge、其档案与模组、游戏副本和 Steam 仓库）保存为一个归档，或把归档还原回来。归档是标准 tar 文件：装有 zstd 时为 .tar.zst，否则为 .tar.gz。会话或另一启动器运行时 HellForge 会拒绝操作。</value>
+  </data>
+  <data name="seed" xml:space="preserve">
+    <value>种子</value>
+  </data>
+  <data name="session_running" xml:space="preserve">
+    <value>会话运行中</value>
+  </data>
+  <data name="set_all" xml:space="preserve">
+    <value>全部设满</value>
+  </data>
+  <data name="set_up_hellforge" xml:space="preserve">
+    <value>安装 HellForge</value>
+  </data>
+  <data name="settings_and_about" xml:space="preserve">
+    <value>设置与关于</value>
+  </data>
+  <data name="setup_copies_helldivers_2_from_your_own_steam_library_into_this_folder_(about_24_gb)_and_blocks_that_copy_from_the_internet._your_normal_game_and_steam_stay_as_they_are._keep_steam_running_and_signed_in." xml:space="preserve">
+    <value>安装会把《绝地潜兵2》从你自己的 Steam 库复制到此文件夹（约 24 GB），并让该副本断开外网。正式版游戏和 Steam 保持原样。请让 Steam 保持运行并已登录。</value>
+  </data>
+  <data name="ship_name_word_indices" xml:space="preserve">
+    <value>舰船名词汇索引</value>
+  </data>
+  <data name="shortcut_in_the_start_menu" xml:space="preserve">
+    <value>开始菜单快捷方式</value>
+  </data>
+  <data name="shortcut_on_the_desktop" xml:space="preserve">
+    <value>桌面快捷方式</value>
+  </data>
+  <data name="start_steamcmd" xml:space="preserve">
+    <value>启动 SteamCMD</value>
+  </data>
+  <data name="start_setup" xml:space="preserve">
+    <value>开始安装</value>
+  </data>
+  <data name="steam_account_name_(the_name_you_sign_in_with)" xml:space="preserve">
+    <value>Steam 账户名（登录所用的名字）</value>
+  </data>
+  <data name="stop_and_close" xml:space="preserve">
+    <value>停止并关闭</value>
+  </data>
+  <data name="strangers'_games_send_yours_data_you_cannot_check:_a_modified_game_can_lie_about_its_mods,_and_a_flaw_in_the_game's_network_code_could_let_it_run_code_on_your_pc._turn_this_on_only_if_you_accept_that_risk._it_applies_within_a_few_seconds,_also_during_a_session." xml:space="preserve">
+    <value>陌生人的游戏会向你的游戏发送你无法核验的数据：被修改过的游戏可以谎报其模组，游戏网络代码的漏洞也可能让它在你的电脑上执行代码。只有在接受这一风险时才打开。几秒内生效，会话进行中也不例外。</value>
+  </data>
+  <data name="sync_inventory" xml:space="preserve">
+    <value>同步库存</value>
+  </data>
+  <data name="template" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="troubleshooting" xml:space="preserve">
+    <value>故障排查</value>
+  </data>
+  <data name="takes_effect_from_the_next_session._stats_mods,_data_mods_and_code_mods_that_declare_they_can_change_live_switch_while_the_game_runs,_on_the_mods_page_and_when_you_join_a_friend_with_other_mods._everything_else_still_restarts,_and_a_mod_that_adds_weapons_often_will._off:_every_change_waits_for_a_restart." xml:space="preserve">
+    <value>下次会话起生效。统计、数据和声明支持热切换的代码模组，会在游戏运行时于“模组”页切换；加入使用其他模组的好友会话时同样适用。其余改动仍需重启，添加武器的模组多半也是。关：所有改动等重启。</value>
+  </data>
+  <data name="the_linux_sandbox_is_available_when_this_pc_passes_the_self-test_for_this_hellforge_build_and_kernel._a_sandboxed_session_runs_the_game_in_its_own_wine_prefix_and_a_read-only_filesystem_view,_and_stops_rather_than_running_unsandboxed." xml:space="preserve">
+    <value>本机通过此 HellForge 构建与内核的自检后，Linux 沙箱即可使用。沙箱会话在独立的 Wine 前缀和只读文件系统视图中运行游戏，宁可中止也不会脱离沙箱运行。</value>
+  </data>
+  <data name="the_game_runs_at_windows'_low_integrity_level:_code_running_inside_it_(a_mod,_or_code_that_a_crafted_file_or_another_player's_game_got_it_to_run)_cannot_write_your_files,_change_other_programs_or_start_any._steam_reaches_the_game_through_hellforge's_steam_broker,_which_passes_only_the_calls_the_game_needs._the_game_has_no_steam_overlay_then_(chat,_steam's_invite_dialog,_screenshots);_invitations_from_the_game's_social_menu_still_work._without_the_overlay_there_is_no_steam_input_either:_a_steam_controller,_the_steam_deck's_controls_and_other_controllers_that_work_only_through_steam_input_do_not_work_sandboxed,_and_the_session_says_so._xbox_controllers_work._applies_to_the_next_session." xml:space="preserve">
+    <value>游戏以 Windows 低完整性级别运行：其中运行的代码（模组，或被恶意文件、他人游戏诱发的代码）无法写你的文件、修改或启动其他程序。Steam 通过 HellForge 的 Steam 中介访问游戏，只放行游戏所需的调用。此时游戏没有 Steam 覆盖层（聊天、Steam 邀请框、截图）；游戏社交菜单的邀请仍然可用。没有覆盖层也没有 Steam Input：Steam 手柄、Steam Deck 的控制和仅靠 Steam Input 工作的手柄在沙箱中不可用，会话会有提示。Xbox 手柄可用。下次会话生效。</value>
+  </data>
+  <data name="this_hellforge_was_built_without_the_steam_bridge,_so_the_game_cannot_run_sandboxed." xml:space="preserve">
+    <value>这个 HellForge 构建没有包含 Steam 桥，游戏无法在沙箱中运行。</value>
+  </data>
+  <data name="total_xp" xml:space="preserve">
+    <value>总经验</value>
+  </data>
+  <data name="undo_import" xml:space="preserve">
+    <value>撤销导入</value>
+  </data>
+  <data name="uninstall_hellforge..." xml:space="preserve">
+    <value>卸载 HellForge...</value>
+  </data>
+  <data name="uninstall_and_delete_everything" xml:space="preserve">
+    <value>卸载并删除全部</value>
+  </data>
+  <data name="uninstall_removes_hellforge's_network_block_(windows_asks_for_permission)_and_its_shortcuts,_then_deletes_this_installation's_folder_once_the_launcher_has_closed._your_normal_helldivers_2_and_steam_are_not_touched." xml:space="preserve">
+    <value>卸载会移除 HellForge 的网络拦截（Windows 会请求许可）和快捷方式，待启动器关闭后删除本次安装的文件夹。你的正式版《绝地潜兵2》和 Steam 不受影响。</value>
+  </data>
+  <data name="use_default" xml:space="preserve">
+    <value>恢复默认</value>
+  </data>
+  <data name="weapon_levels" xml:space="preserve">
+    <value>武器等级</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="e.g._--use-d3d11" xml:space="preserve">
+    <value>例如 --use-d3d11</value>
+  </data>
+  <data name="a_microsoft_runtime_the_game_needs_is_missing." xml:space="preserve">
+    <value>缺少游戏所需的 Microsoft 运行时。</value>
+  </data>
+  <data name="a_game,_anti-cheat_or_session_process_is_still_running." xml:space="preserve">
+    <value>仍有游戏、反作弊或会话进程在运行。</value>
+  </data>
+  <data name="account_sync_is_finishing:_it_keeps_the_normal_helldivers_2_connected_until_you_close_it." xml:space="preserve">
+    <value>账号同步正在收尾：在关闭前它会保持正式版《绝地潜兵2》连接。</value>
+  </data>
+  <data name="add_the_crash_dump?" xml:space="preserve">
+    <value>附加崩溃转储？</value>
+  </data>
+  <data name="always_synced:_" xml:space="preserve">
+    <value>始终同步：</value>
+  </data>
+  <data name="applied_when_the_profile_is_first_created" xml:space="preserve">
+    <value>在档案首次创建时应用</value>
+  </data>
+  <data name="approve_the_windows_prompt_to_install_the_network_block." xml:space="preserve">
+    <value>请在 Windows 提示中批准安装网络拦截。</value>
+  </data>
+  <data name="approve_the_windows_prompt_to_place_a_network_block_for_this_session." xml:space="preserve">
+    <value>请在 Windows 提示中批准为本次会话设置网络拦截。</value>
+  </data>
+  <data name="asked_once:_the_network_block_keeps_the_copied_game_off_the_internet._later_sessions_need_no_prompt." xml:space="preserve">
+    <value>只询问一次：网络拦截让副本游戏断开外网。之后的会话不再提示。</value>
+  </data>
+  <data name="backup_cancelled;_the_partial_archive_was_deleted." xml:space="preserve">
+    <value>已取消备份；不完整的归档已删除。</value>
+  </data>
+  <data name="block_the_copy_from_the_internet" xml:space="preserve">
+    <value>拦截副本的外网连接</value>
+  </data>
+  <data name="brings_your_own_helldivers_2_account_into_this_profile._warbonds,_superstore_items_and_dlc_gear_you_bought_always_follow_your_latest_sync;_everything_else_is_imported_only_as_you_choose,_and_the_profile_is_backed_up_first._super_credits_are_never_imported_or_usable._sync_opens_the_normal_game_through_steam;_log_in_and_pass_the_title_screen._on_linux_the_first_sync_asks_once_to_install_a_small_root-owned_helper,_through_the_desktop's_password_dialog;_until_the_normal_game_exits,_two_marked_/etc/hosts_lines_point_its_server_name_at_this_pc_and_a_one-day_certificate_is_trusted_only_in_helldivers_2's_proton_prefix._both_are_removed_when_it_exits." xml:space="preserve">
+    <value>把你自己的《绝地潜兵2》账号带入这份档案。你购买的战争债券、超商店商品和 DLC 装备始终跟随最近一次同步；其余内容只在勾选后导入，且导入前会先备份档案。超级货币永远不会被导入或使用。同步会通过 Steam 启动正式版游戏：登录并过一次标题画面即可。Linux 上首次同步会通过桌面密码对话框请求一次，安装一个 root 所有的小辅助程序；在正式版游戏退出前，/etc/hosts 中两行标注的条目会把其服务器名指向本机，一张一天有效的证书仅在《绝地潜兵2》的 Proton 前缀中受信任。游戏退出后两者都会移除。</value>
+  </data>
+  <data name="build_mods" xml:space="preserve">
+    <value>构建模组</value>
+  </data>
+  <data name="building_mods_that_ship_their_sources,_then_checking_the_copied_game." xml:space="preserve">
+    <value>构建附带源码的模组，然后检查游戏副本。</value>
+  </data>
+  <data name="building_the_shader_cache_(first_start_only,_this_can_take_a_few_minutes)..." xml:space="preserve">
+    <value>正在构建着色器缓存（仅首次启动，可能需要几分钟）...</value>
+  </data>
+  <data name="cancel_preparation" xml:space="preserve">
+    <value>取消准备</value>
+  </data>
+  <data name="cancelled_before_launch." xml:space="preserve">
+    <value>启动前已取消。</value>
+  </data>
+  <data name="check_again" xml:space="preserve">
+    <value>重新检查</value>
+  </data>
+  <data name="checking_the_backup_and_unpacking_it_beside_the_prefix..." xml:space="preserve">
+    <value>正在检查备份并将其解包到前缀旁...</value>
+  </data>
+  <data name="checking_the_copied_game_against_its_pinned_hashes." xml:space="preserve">
+    <value>正在按固定的哈希校验游戏副本。</value>
+  </data>
+  <data name="choose_a_proton_version_first._setup_finds_the_supported_game_files,_confirms_steam_ownership,_then_copies_the_game_if_needed_and_checks_the_linux_network_namespace." xml:space="preserve">
+    <value>先选择一个 Proton 版本。安装程序会查找受支持的游戏文件、确认 Steam 所有权，再按需复制游戏并检查 Linux 网络命名空间。</value>
+  </data>
+  <data name="choose_a_folder_for_the_backup." xml:space="preserve">
+    <value>为备份选择一个文件夹。</value>
+  </data>
+  <data name="clean_up" xml:space="preserve">
+    <value>清理</value>
+  </data>
+  <data name="cleanup_failed." xml:space="preserve">
+    <value>清理失败。</value>
+  </data>
+  <data name="close_helldivers_2,_then_press_play_again." xml:space="preserve">
+    <value>关闭《绝地潜兵2》后再按“开始”。</value>
+  </data>
+  <data name="close_these_first:_" xml:space="preserve">
+    <value>先关闭这些：</value>
+  </data>
+  <data name="closing_the_game_and_the_local_backend..." xml:space="preserve">
+    <value>正在关闭游戏和本地后端...</value>
+  </data>
+  <data name="compiling_mods_(3_of_5)..." xml:space="preserve">
+    <value>正在编译模组（3/5）...</value>
+  </data>
+  <data name="confirm_you_own_the_game" xml:space="preserve">
+    <value>确认你拥有该游戏</value>
+  </data>
+  <data name="continue" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="continue_setup" xml:space="preserve">
+    <value>继续安装</value>
+  </data>
+  <data name="copied" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="copy_the_game_into_this_folder" xml:space="preserve">
+    <value>把游戏复制到此文件夹</value>
+  </data>
+  <data name="could_not_check_the_download:_" xml:space="preserve">
+    <value>无法检查下载：</value>
+  </data>
+  <data name="could_not_read_the_mods_folder:_" xml:space="preserve">
+    <value>无法读取模组文件夹：</value>
+  </data>
+  <data name="could_not_start_the_session_runner." xml:space="preserve">
+    <value>无法启动会话运行器。</value>
+  </data>
+  <data name="create_shortcuts" xml:space="preserve">
+    <value>创建快捷方式</value>
+  </data>
+  <data name="download_complete._copying_it_into_this_installation..." xml:space="preserve">
+    <value>下载完成。正在复制到本次安装...</value>
+  </data>
+  <data name="end_it_on_the_play_page,_then_press_play_again." xml:space="preserve">
+    <value>在“开始”页结束它，然后再按“开始”。</value>
+  </data>
+  <data name="ending_the_session..." xml:space="preserve">
+    <value>正在结束会话...</value>
+  </data>
+  <data name="enter_your_steam_account_name:_the_name_you_sign_in_with_(letters,_digits_and_underscores),_not_your_" xml:space="preserve">
+    <value>输入你的 Steam 账户名：登录所用的名字（字母、数字和下划线），而不是你的</value>
+  </data>
+  <data name="find_helldivers_2_in_steam" xml:space="preserve">
+    <value>在 Steam 中找到《绝地潜兵2》</value>
+  </data>
+  <data name="getting_steamcmd_from_valve_and_checking_its_signature..." xml:space="preserve">
+    <value>正在从 Valve 获取 SteamCMD 并校验签名...</value>
+  </data>
+  <data name="getting_steamcmd_from_valve..." xml:space="preserve">
+    <value>正在从 Valve 获取 SteamCMD...</value>
+  </data>
+  <data name="hellforge_cannot_start_inside_this_container." xml:space="preserve">
+    <value>HellForge 无法在此容器内启动。</value>
+  </data>
+  <data name="import_earlier_game_data" xml:space="preserve">
+    <value>导入早先的游戏数据</value>
+  </data>
+  <data name="install_account_sync_helper?" xml:space="preserve">
+    <value>安装账号同步辅助程序？</value>
+  </data>
+  <data name="inventory_sync_is_running._play_once_it_finishes." xml:space="preserve">
+    <value>库存同步进行中，完成后即可游玩。</value>
+  </data>
+  <data name="it_keeps_the_copied_game_off_the_internet_until_the_session_ends." xml:space="preserve">
+    <value>它让副本游戏断开外网，直到会话结束。</value>
+  </data>
+  <data name="its_own_cleanup_may_not_have_finished._check_the_session_logs_before_playing_again." xml:space="preserve">
+    <value>其自身的清理可能未完成。再次游玩前请检查会话日志。</value>
+  </data>
+  <data name="launching" xml:space="preserve">
+    <value>启动中</value>
+  </data>
+  <data name="launching_the_game..." xml:space="preserve">
+    <value>正在启动游戏...</value>
+  </data>
+  <data name="looking_for_installed_proton_versions..." xml:space="preserve">
+    <value>正在查找已安装的 Proton 版本...</value>
+  </data>
+  <data name="mods_load_in_installations_made_with_hellforge-setup,_from_the_installation's_mods_folder." xml:space="preserve">
+    <value>模组从 HellForge-Setup 所装安装目录的 mods 文件夹加载。</value>
+  </data>
+  <data name="multiplayer_needs_local_playfab." xml:space="preserve">
+    <value>联机需要本地 PlayFab。</value>
+  </data>
+  <data name="network_block" xml:space="preserve">
+    <value>网络拦截</value>
+  </data>
+  <data name="nothing_was_started." xml:space="preserve">
+    <value>没有启动任何内容。</value>
+  </data>
+  <data name="on_linux,_use_the_native_launcher_to_uninstall_hellforge." xml:space="preserve">
+    <value>在 Linux 上用原生启动器卸载 HellForge。</value>
+  </data>
+  <data name="pause_download" xml:space="preserve">
+    <value>暂停下载</value>
+  </data>
+  <data name="preparing_the_session..." xml:space="preserve">
+    <value>正在准备会话...</value>
+  </data>
+  <data name="press_play_to_verify_the_game_files_and_launch_the_game." xml:space="preserve">
+    <value>按“开始”校验游戏文件并启动游戏。</value>
+  </data>
+  <data name="press_stop_or_close_the_game_to_end_the_session." xml:space="preserve">
+    <value>按“停止”或关闭游戏以结束会话。</value>
+  </data>
+  <data name="profile,_console_and_settings_still_work_on_this_system." xml:space="preserve">
+    <value>档案、控制台和设置在此系统上仍可用。</value>
+  </data>
+  <data name="ready_to_play" xml:space="preserve">
+    <value>可以游玩</value>
+  </data>
+  <data name="ready._steam_must_be_running_and_signed_in." xml:space="preserve">
+    <value>就绪。Steam 必须在运行并已登录。</value>
+  </data>
+  <data name="removing_the_account_sync_helper_through_the_desktop's_password_dialog..." xml:space="preserve">
+    <value>正在通过桌面的密码对话框移除账号同步辅助程序...</value>
+  </data>
+  <data name="removing_the_network_block:_windows_asks_for_permission..." xml:space="preserve">
+    <value>正在移除网络拦截：Windows 会请求许可...</value>
+  </data>
+  <data name="running" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="running._steam_input_can't_reach_the_sandboxed_game." xml:space="preserve">
+    <value>运行中。Steam Input 无法访问沙箱中的游戏。</value>
+  </data>
+  <data name="session_did_not_stop" xml:space="preserve">
+    <value>会话未停止</value>
+  </data>
+  <data name="session_ended." xml:space="preserve">
+    <value>会话已结束。</value>
+  </data>
+  <data name="session_stopped" xml:space="preserve">
+    <value>会话已停止</value>
+  </data>
+  <data name="signed_in._the_download's_progress_shows_under_game_files." xml:space="preserve">
+    <value>已登录。下载进度显示在“游戏文件”下。</value>
+  </data>
+  <data name="start_steamcmd_again" xml:space="preserve">
+    <value>再次启动 SteamCMD</value>
+  </data>
+  <data name="starting_the_copied_game_against_the_local_backend." xml:space="preserve">
+    <value>让副本游戏连接本地后端启动。</value>
+  </data>
+  <data name="steamcmd_has_downloaded_the_build._checking_it_and_moving_it_into_this_folder..." xml:space="preserve">
+    <value>SteamCMD 已下载该版本。正在校验并移入此文件夹...</value>
+  </data>
+  <data name="steamcmd_is_running..." xml:space="preserve">
+    <value>SteamCMD 运行中...</value>
+  </data>
+  <data name="steamcmd_is_updating_itself..." xml:space="preserve">
+    <value>SteamCMD 正在自更新...</value>
+  </data>
+  <data name="steamcmd_updates_itself_from_valve_the_first_time;_this_takes_a_minute." xml:space="preserve">
+    <value>SteamCMD 首次运行会从 Valve 自更新，需要一分钟。</value>
+  </data>
+  <data name="steamcmd:_" xml:space="preserve">
+    <value>SteamCMD：</value>
+  </data>
+  <data name="still_running:_" xml:space="preserve">
+    <value>仍在运行：</value>
+  </data>
+  <data name="stop_steamcmd" xml:space="preserve">
+    <value>停止 SteamCMD</value>
+  </data>
+  <data name="stop_the_session_(or_setup)_first." xml:space="preserve">
+    <value>先停止会话（或安装）。</value>
+  </data>
+  <data name="stopping_session" xml:space="preserve">
+    <value>正在停止会话</value>
+  </data>
+  <data name="stopping:_closing_the_game..." xml:space="preserve">
+    <value>正在停止：关闭游戏...</value>
+  </data>
+  <data name="stored_on_this_computer_and_served_by_the_local_backend." xml:space="preserve">
+    <value>存储在本机，由本地后端提供。</value>
+  </data>
+  <data name="the_proton_prefix_was_not_offered_for_deletion;_nothing_was_removed." xml:space="preserve">
+    <value>未提供删除 Proton 前缀的选项；什么都没有移除。</value>
+  </data>
+  <data name="the_game_cannot_start_without_it." xml:space="preserve">
+    <value>没有它游戏无法启动。</value>
+  </data>
+  <data name="the_game_crashed." xml:space="preserve">
+    <value>游戏崩溃了。</value>
+  </data>
+  <data name="the_game_seems_stuck_in_the_cryo_pod." xml:space="preserve">
+    <value>游戏似乎卡在冷冻舱里。</value>
+  </data>
+  <data name="the_launch_options_cannot_be_used." xml:space="preserve">
+    <value>启动选项无法使用。</value>
+  </data>
+  <data name="the_sandboxed_game_reaches_steam_through_hellforge's_steam_broker,_which_is_starting." xml:space="preserve">
+    <value>沙箱中的游戏通过 HellForge 的 Steam 中介访问 Steam，该中介正在启动。</value>
+  </data>
+  <data name="the_session_did_not_stop_and_could_not_be_ended." xml:space="preserve">
+    <value>会话未停止且无法被结束。</value>
+  </data>
+  <data name="the_session_did_not_stop_in_time_and_could_not_be_ended:_" xml:space="preserve">
+    <value>会话未及时停止且无法结束：</value>
+  </data>
+  <data name="the_session_did_not_stop_in_time,_so_it_was_ended_before_closing." xml:space="preserve">
+    <value>会话未及时停止，已在关闭前被强制结束。</value>
+  </data>
+  <data name="the_session_did_not_stop;_hellforge_ended_it." xml:space="preserve">
+    <value>会话未自行停止；HellForge 已将其结束。</value>
+  </data>
+  <data name="the_session_ended_without_finishing_cleanup." xml:space="preserve">
+    <value>会话结束时清理未完成。</value>
+  </data>
+  <data name="the_session_runner_exited_before_starting." xml:space="preserve">
+    <value>会话运行器未及启动即退出。</value>
+  </data>
+  <data name="this_can_happen_on_the_first_launch_of_a_new_installation._press_stop,_then_play_again:_the_next_launch_goes_through." xml:space="preserve">
+    <value>新安装首次启动时可能出现。按“停止”后再按“开始”：下一次启动即可通过。</value>
+  </data>
+  <data name="this_session_wrote_a_crash_dump._a_dump_is_the_game's_memory_as_it_crashed:_hellforge_" xml:space="preserve">
+    <value>本次会话写入了崩溃转储。转储是游戏崩溃时的内存：HellForge </value>
+  </data>
+  <data name="try_again" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="type_your_password_in_the_steamcmd_window;_it_goes_to_valve's_own_tool,_not_hellforge._if_steam_asks_for_" xml:space="preserve">
+    <value>在 SteamCMD 窗口中输入密码；它交给 Valve 自家的工具，而非 HellForge。如果 Steam 要求</value>
+  </data>
+  <data name="uninstall_removes_this_hellforge_installation,_its_desktop_shortcut_and_the_removed_shell_installer's_leftovers_when_they_are_found,_after_the_launcher_closes._the_proton_prefix_is_left_unless_this_installer_made_it,_in_which_case_the_confirmation_also_offers_to_delete_it._steam's_depot_download_is_a_separate_choice,_off_by_default._steam,_your_game_and_your_proton_versions_are_left_intact." xml:space="preserve">
+    <value>卸载会在启动器关闭后移除本次 HellForge 安装、其桌面快捷方式以及找到的已卸 shell 安装器残留。Proton 前缀会保留，除非它由此安装器创建——那时确认框会附带提供删除选项。Steam 的仓库下载是单独的选项，默认关闭。Steam、你的游戏和 Proton 版本都不受影响。</value>
+  </data>
+  <data name="uninstall_stopped:_" xml:space="preserve">
+    <value>卸载已停止：</value>
+  </data>
+  <data name="uninstall_this_installation" xml:space="preserve">
+    <value>卸载本次安装</value>
+  </data>
+  <data name="verify_files" xml:space="preserve">
+    <value>校验文件</value>
+  </data>
+  <data name="verifying_game_files..." xml:space="preserve">
+    <value>正在校验游戏文件...</value>
+  </data>
+  <data name="waiting_for_steam..." xml:space="preserve">
+    <value>等待 Steam...</value>
+  </data>
+  <data name="windows_blocked_hellforge's_session_runner." xml:space="preserve">
+    <value>Windows 拦截了 HellForge 的会话运行器。</value>
+  </data>
+  <data name="building_stratagem_compendium_from_its_sources." xml:space="preserve">
+    <value>正在从源码构建战略配备手册。</value>
+  </data>
+  <data name="experimental._during_a_sync_the_normal_game_shows_&quot;could_not_connect_to_easy_anti_cheat_network&quot;_after_the_login_and_closes_itself._the_sync_is_finished_by_then,_so_this_does_not_stop_it;_close_the_game_if_it_stays_open._we_are_looking_into_the_cause." xml:space="preserve">
+    <value>实验性：同步期间正式版游戏会在登录后显示“无法连接到 Easy Anti Cheat 网络”并自行关闭。此时同步已经完成，不受影响；若游戏一直未关，手动关掉即可。我们正在调查原因。</value>
+  </data>
+  <data name="options_for_the_game's_command_line,_as_in_steam's_launch_options:_--use-d3d11_starts_it_with_directx_11,_for_one._steam's_&quot;%command%_--use-d3d11&quot;_works_too._hellforge's_own_options_come_first._applies_to_the_next_session." xml:space="preserve">
+    <value>游戏的命令行选项，同 Steam 的启动选项：例如 --use-d3d11 即以 DirectX 11 启动。Steam 的“%command% --use-d3d11”写法也可以。HellForge 自身的选项在最前。下次会话生效。</value>
+  </data>
+  <data name="run_the_launcher_from_a_hellforge_installation_or_the_hellforge_repository." xml:space="preserve">
+    <value>请从 HellForge 的安装目录或 HellForge 仓库运行启动器。</value>
+  </data>
+  <data name="starts_the_game_with_its_own_log_switched_on_(--log-to-file)_and_copies_that_log_into_the_session's_logs,_so_&quot;save_logs_to_desktop&quot;_includes_it._helps_find_why_a_join_or_connection_fails._applies_to_the_next_session." xml:space="preserve">
+    <value>以游戏自带日志开关（--log-to-file）启动游戏，并把该日志复制进会话日志，“保存日志到桌面”就会包含它。有助于排查联机或连接失败。下次会话生效。</value>
+  </data>
+  <data name="the_game_window_stays_black_until_it_is_done._later_starts_are_quick._press_stop_or_close_the_game_to_end_the_session." xml:space="preserve">
+    <value>完成前游戏窗口保持黑屏。之后的启动会很快。按“停止”或关闭游戏以结束会话。</value>
+  </data>
+</root>

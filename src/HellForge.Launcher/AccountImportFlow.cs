@@ -4,6 +4,7 @@ using System.Text.Json;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -118,7 +119,7 @@ public partial class MainWindow
         importProfile = profile;
         var settings = AccountImportSettings.Load(AccountImportSettings.PathIn(profile.Folder));
         var sides = preview.GetProperty("categories");
-        ImportPremiumText.Text = "Always synced: " + preview.GetProperty("premium").GetString() + " you own. Super Credits are never imported.";
+        ImportPremiumText.Text = Loc.S("Always synced: ") + preview.GetProperty("premium").GetString() + " you own. Super Credits are never imported.";
         ImportRows.Children.Clear();
         importRows.Clear();
         var table = new Grid { ColumnDefinitions = new ColumnDefinitions("1.3*,*,*,Auto") };

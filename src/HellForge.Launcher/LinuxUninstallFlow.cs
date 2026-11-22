@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -16,7 +17,7 @@ public partial class MainWindow
     async Task<bool> RemoveCaptureHelperForUninstall(string installRoot)
     {
         if (!LinuxCapture.HelperInstalled()) return true;
-        UninstallText.Text = "Removing the Account Sync helper through the desktop's password dialog...";
+        UninstallText.Text = Loc.S("Removing the Account Sync helper through the desktop's password dialog...");
         LinuxCapture.HelperSetupResult removed;
         try { removed = await Task.Run(() => LinuxCapture.RemoveHelper(installRoot)); }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException or InvalidOperationException
@@ -25,7 +26,7 @@ public partial class MainWindow
             removed = new(false, false, true, error.Message);
         }
         if (removed.Succeeded) return true;
-        UninstallText.Text = "Uninstall stopped: " + removed.Message;
+        UninstallText.Text = Loc.S("Uninstall stopped: ") + removed.Message;
         UninstallButton.IsEnabled = true;
         return false;
     }
@@ -52,7 +53,7 @@ public partial class MainWindow
             {
                 if (plan.PrefixDeletion is not { Offered: true } offered)
                 {
-                    UninstallText.Text = "The Proton prefix was not offered for deletion; nothing was removed.";
+                    UninstallText.Text = Loc.S("The Proton prefix was not offered for deletion; nothing was removed.");
                     UninstallButton.IsEnabled = true;
                     return;
                 }

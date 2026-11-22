@@ -12,6 +12,7 @@ using Avalonia.Media.Immutable;
 using Avalonia.Platform.Storage;
 using Avalonia.Threading;
 using Shape = Avalonia.Controls.Shapes.Path;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -28,7 +29,7 @@ enum Phase { Idle, Busy, Attention, Running, Ended, Failed }
 public partial class MainWindow : Window
 {
     const int MaxLogLines = 2000;
-    static readonly string[] StepNames = ["Build mods", "Verify files", "Network block", "Launching", "Running"];
+    static readonly string[] StepNames = [Loc.S("Build mods"), Loc.S("Verify files"), Loc.S("Network block"), Loc.S("Launching"), Loc.S("Running")];
     const int BuildStep = 0, VerifyStep = 1, NetworkStep = 2, LaunchStep = 3, RunStep = 4;
 
     // HellForge's colours (App.axaml): its icon's red for steps done and actions, the editor's gold for work under way.
@@ -115,6 +116,16 @@ public partial class MainWindow : Window
         ConfirmStop.Click += (_, _) => confirm?.TrySetResult(true);
         ConfirmCancel.Click += (_, _) => confirm?.TrySetResult(false);
         poll.Tick += (_, _) => Refresh();
+        // The window's language (Localization/Loc.cs): the dropdown switches every localized control at once.
+        var languageNames = new Dictionary<string, string> { ["en"] = "English", ["zh-CN"] = "中文（简体）" };
+        LanguageCombo.ItemsSource = Loc.Available.Select(l => languageNames.TryGetValue(l, out var shown) ? shown : l).ToArray();
+        LanguageCombo.SelectedIndex = Math.Max(0, Loc.Available.ToList().IndexOf(Loc.Language));
+        LanguageCombo.SelectionChanged += (_, _) =>
+            Loc.SetLanguage(Loc.Available[Math.Clamp(LanguageCombo.SelectedIndex, 0, Loc.Available.Count - 1)]);
+        // Texts whose quotes cannot live inside a markup extension, set here instead (Localization/Loc.cs).
+        LaunchOptionsHint.Text = Loc.S("Options for the game's command line, as in Steam's Launch Options: --use-d3d11 starts it with DirectX 11, for one. Steam's \"%command% --use-d3d11\" works too. HellForge's own options come first. Applies to the next session.");
+        EngineLogHint.Text = Loc.S("Starts the game with its own log switched on (--log-to-file) and copies that log into the session's logs, so \"Save logs to Desktop\" includes it. Helps find why a join or connection fails. Applies to the next session.");
+        SyncWarning.Text = Loc.S("Experimental. During a sync the normal game shows \"Could not connect to Easy Anti Cheat network\" after the login and closes itself. The sync is finished by then, so this does not stop it; close the game if it stays open. We are looking into the cause.");
         LocalPlayFabBox.IsChecked = ProfileStore.LoadLocalPlayFab(paths);
         LocalPlayFabBox.IsCheckedChanged += (_, _) => ProfileStore.SaveLocalPlayFab(paths, LocalPlayFabBox.IsChecked == true);
         SdkShimsBox.IsChecked = ProfileStore.LoadSdkShims(paths);
@@ -170,7 +181,7 @@ public partial class MainWindow : Window
                 if (int.TryParse(Environment.GetEnvironmentVariable("HELLFORGE_LAUNCHER_SHOT_PAGE"), out var page) && page is >= 1 and <= 5)
                     Nav.SelectedIndex = page - 1;
                 RenderSteps(BuildStep, false, 0.4);
-                SetStatus("Compiling mods (3 of 5)...", Phase.Busy, "Building Stratagem Compendium from its sources.");
+                SetStatus(Loc.S("Compiling mods (3 of 5)..."), Phase.Busy, Loc.S("Building Stratagem Compendium from its sources."));
                 BootProgress.IsVisible = true;
                 BootProgress.Value = 400;
                 await Task.Delay(1500);
@@ -192,8 +203,8 @@ public partial class MainWindow : Window
         VersionText.Text = $"HellForge {HellForge.Core.AppVersion.Text}\nHELLDIVERS 2 build {HellForge.Core.SupportedBuild.Current.BuildId}";
         if (SessionRunner.IsSupported)
         {
-            SetStatus("Ready. Steam must be running and signed in.", Phase.Idle,
-                "Press PLAY to verify the game files and launch the game.");
+            SetStatus(Loc.S("Ready. Steam must be running and signed in."), Phase.Idle,
+                Loc.S("Press PLAY to verify the game files and launch the game."));
             // Smart App Control blocks HellForge's unsigned programs: said before the first PLAY, not only when it fails.
             if (HellForge.Core.SmartAppControl.Warning(HellForge.Core.SmartAppControl.Current) is { } appControl)
             {
@@ -205,7 +216,7 @@ public partial class MainWindow : Window
         {
             PlatformNote.Text = SessionRunner.UnsupportedMessage;
             PlatformNote.IsVisible = true;
-            SetStatus(SessionRunner.UnsupportedMessage, Phase.Idle, "Profile, console and settings still work on this system.");
+            SetStatus(SessionRunner.UnsupportedMessage, Phase.Idle, Loc.S("Profile, console and settings still work on this system."));
         }
         RenderSteps(-1, false);
         UpdateButton();
@@ -239,7 +250,7 @@ public partial class MainWindow : Window
     void PlayClicked()
     {
         if (runner.IsRunning) RequestStop();
-        else if (SyncBusy) SetStatus("Inventory sync is running. Play once it finishes.", Phase.Idle);
+        else if (SyncBusy) SetStatus(Loc.S("Inventory sync is running. Play once it finishes."), Phase.Idle);
         else if (!installingRuntimes && VisualCppRuntimes.Needed().Count > 0) _ = InstallRuntimesThenStart();
         else if (!installingRuntimes) Start();
     }
@@ -257,7 +268,7 @@ public partial class MainWindow : Window
         {
             var downloads = paths.InstallRoot != null ? new InstallLayout(paths.InstallRoot).Temp : Path.Combine(Path.GetTempPath(), "HellForge");
             problem = await VisualCppRuntimes.EnsureAsync(downloads, "press PLAY again.",
-                detail => Dispatcher.UIThread.Post(() => SetStatus(detail, Phase.Busy, "The game cannot start without it.")));
+                detail => Dispatcher.UIThread.Post(() => SetStatus(detail, Phase.Busy, Loc.S("The game cannot start without it."))));
         }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException) { problem = VisualCppRuntimes.Problem("press PLAY again.") + " (" + error.Message + ")"; }
         finally
@@ -265,7 +276,7 @@ public partial class MainWindow : Window
             installingRuntimes = false;
             UpdateButton();
         }
-        if (problem != null) SetStatus("A Microsoft runtime the game needs is missing.", Phase.Failed, failure: problem);
+        if (problem != null) SetStatus(Loc.S("A Microsoft runtime the game needs is missing."), Phase.Failed, failure: problem);
         else Start();
     }
 
@@ -306,7 +317,7 @@ public partial class MainWindow : Window
         try { gameOptions = HellForge.Core.GameLaunchOptions.Parse(LaunchOptionsBox.Text); }
         catch (InvalidDataException error)
         {
-            SetStatus("The launch options cannot be used.", Phase.Failed, failure: error.Message + " (Settings, Launch options)");
+            SetStatus(Loc.S("The launch options cannot be used."), Phase.Failed, failure: error.Message + " (Settings, Launch options)");
             return;
         }
         if (gameOptions.Count > 0) Append("Launch options: " + HellForge.Core.GameLaunchOptions.CommandLine(gameOptions), LauncherLine);
@@ -326,17 +337,17 @@ public partial class MainWindow : Window
         catch (System.ComponentModel.Win32Exception error) when (HellForge.Core.SmartAppControl.IsBlock(error.NativeErrorCode))
         {
             runLookupPending = false;
-            SetStatus("Windows blocked HellForge's session runner.", Phase.Failed, failure: HellForge.Core.SmartAppControl.BlockedMessage(paths.Session, appControl));
+            SetStatus(Loc.S("Windows blocked HellForge's session runner."), Phase.Failed, failure: HellForge.Core.SmartAppControl.BlockedMessage(paths.Session, appControl));
             return;
         }
         catch (Exception error) when (error is System.ComponentModel.Win32Exception or InvalidOperationException or PlatformNotSupportedException)
         {
             runLookupPending = false;
-            SetStatus("Could not start the session runner.", Phase.Failed, failure: error.Message);
+            SetStatus(Loc.S("Could not start the session runner."), Phase.Failed, failure: error.Message);
             return;
         }
         RenderSteps(BuildStep, false);
-        SetStatus("Preparing the session...", Phase.Busy, "Building mods that ship their sources, then checking the copied game.");
+        SetStatus(Loc.S("Preparing the session..."), Phase.Busy, Loc.S("Building mods that ship their sources, then checking the copied game."));
         UpdateButton();
     }
 
@@ -359,21 +370,21 @@ public partial class MainWindow : Window
         // A finished sync's capture still forwards the normal game until it closes; ending it would cut the game off.
         if (SyncCaptureId != null)
         {
-            SetStatus("Account Sync is finishing: it keeps the normal HELLDIVERS 2 connected until you close it.", Phase.Attention,
-                "Close HELLDIVERS 2, then press PLAY again.");
+            SetStatus(Loc.S("Account Sync is finishing: it keeps the normal HELLDIVERS 2 connected until you close it."), Phase.Attention,
+                Loc.S("Close HELLDIVERS 2, then press PLAY again."));
             return false;
         }
         if (ShowLeftoverProcesses())
         {
-            SetStatus("A game, anti-cheat or session process is still running.", Phase.Attention,
-                "End it on the play page, then press PLAY again.");
+            SetStatus(Loc.S("A game, anti-cheat or session process is still running."), Phase.Attention,
+                Loc.S("End it on the play page, then press PLAY again."));
             return false;
         }
         // Without Local PlayFab the game's own lobby search would list vanilla players' Steam lobbies: the session runner
         // refuses multiplayer then, and so does the launcher, with the switch to change.
         if (SdkShimsBox.IsChecked == true && LocalPlayFabBox.IsChecked != true)
         {
-            SetStatus("Multiplayer needs Local PlayFab.", Phase.Failed, failure: "Turn on Experiments > Local PlayFab (or turn off the PlayFab SDK stand-ins) and press PLAY again.");
+            SetStatus(Loc.S("Multiplayer needs Local PlayFab."), Phase.Failed, failure: "Turn on Experiments > Local PlayFab (or turn off the PlayFab SDK stand-ins) and press PLAY again.");
             return false;
         }
         return true;
@@ -494,7 +505,7 @@ public partial class MainWindow : Window
         if (stopRequested)
         {
             RenderSteps(-1, false);
-            SetStatus("Cancelled before launch.", Phase.Idle);
+            SetStatus(Loc.S("Cancelled before launch."), Phase.Idle);
         }
         else
         {
@@ -511,7 +522,7 @@ public partial class MainWindow : Window
         var containerRefusal = paths.InstallRoot == null ? null : SessionRunner.LinuxContainerRefusal(paths.InstallRoot);
         if (containerRefusal != null)
         {
-            SetStatus("HellForge cannot start inside this container.", Phase.Failed, failure: containerRefusal);
+            SetStatus(Loc.S("HellForge cannot start inside this container."), Phase.Failed, failure: containerRefusal);
             return;
         }
         var failureLogs = paths.InstallRoot == null ? "Sessions run in installations made with HellForge-Setup."
@@ -520,7 +531,7 @@ public partial class MainWindow : Window
                     " for Bash/Proton output and " + Path.Combine(paths.InstallRoot, "logs", "session-runner.log") +
                     " for errors after the Windows session runner starts."
                 : "See " + Path.Combine(paths.InstallRoot, "logs", "session-runner.log") + " for why.";
-        SetStatus("The session runner exited before starting.", Phase.Failed, failureLogs,
+        SetStatus(Loc.S("The session runner exited before starting."), Phase.Failed, failureLogs,
             exitCode is { } code ? $"The launch process exited with code {code}." : null);
     }
 
@@ -573,28 +584,28 @@ public partial class MainWindow : Window
             case "preparing": ShowPreparing(); break;
             case "awaiting_network_block_install":
                 RenderSteps(NetworkStep, false);
-                if (!stopRequested) SetStatus("Approve the Windows prompt to install the network block.", Phase.Attention,
-                    "Asked once: the network block keeps the copied game off the internet. Later sessions need no prompt.");
+                if (!stopRequested) SetStatus(Loc.S("Approve the Windows prompt to install the network block."), Phase.Attention,
+                    Loc.S("Asked once: the network block keeps the copied game off the internet. Later sessions need no prompt."));
                 break;
             case "awaiting_windows_firewall_consent":
                 RenderSteps(NetworkStep, false);
-                if (!stopRequested) SetStatus("Approve the Windows prompt to place a network block for this session.", Phase.Attention,
-                    "It keeps the copied game off the internet until the session ends.");
+                if (!stopRequested) SetStatus(Loc.S("Approve the Windows prompt to place a network block for this session."), Phase.Attention,
+                    Loc.S("It keeps the copied game off the internet until the session ends."));
                 break;
             case "awaiting_steam_broker":
                 RenderSteps(LaunchStep, false);
-                if (!stopRequested) SetStatus("Waiting for Steam...", Phase.Busy, "The sandboxed game reaches Steam through HellForge's Steam broker, which is starting.");
+                if (!stopRequested) SetStatus(Loc.S("Waiting for Steam..."), Phase.Busy, Loc.S("The sandboxed game reaches Steam through HellForge's Steam broker, which is starting."));
                 break;
             case "patching":
                 RenderSteps(LaunchStep, false);
-                if (!stopRequested) SetStatus("Launching the game...", Phase.Busy, "Starting the copied game against the local backend.");
+                if (!stopRequested) SetStatus(Loc.S("Launching the game..."), Phase.Busy, Loc.S("Starting the copied game against the local backend."));
                 break;
             case "observing": ShowObserving(state); break;
             case "observed": ShowObserved(state, stopped); break;
             case "failed": ShowFailed(state, stopped); break;
             case "cleanup_failed":
                 FailCurrentStep();
-                SetStatus("Cleanup failed.", Phase.Failed, "", "Cleanup failed. Check the session logs before playing again.");
+                SetStatus(Loc.S("Cleanup failed."), Phase.Failed, "", "Cleanup failed. Check the session logs before playing again.");
                 break;
         }
     }
@@ -603,7 +614,7 @@ public partial class MainWindow : Window
     {
         if (!stopRequested && ShowModBuilds(out var built)) { RenderSteps(BuildStep, false, built); return; }
         RenderSteps(VerifyStep, false);
-        if (!stopRequested) SetStatus("Verifying game files...", Phase.Busy, "Checking the copied game against its pinned hashes.");
+        if (!stopRequested) SetStatus(Loc.S("Verifying game files..."), Phase.Busy, Loc.S("Checking the copied game against its pinned hashes."));
     }
 
     void ShowObserving(JsonElement state)
@@ -612,14 +623,14 @@ public partial class MainWindow : Window
         if (stopRequested) return;
         // No shader cache yet: the game builds it behind a black screen before it asks the backend for anything.
         if (seasonPassUtc == null && !reachedShip && ShaderCache.Building(state))
-            SetStatus("Building the shader cache (first start only, this can take a few minutes)...", Phase.Running,
-                "The game window stays black until it is done. Later starts are quick. Press STOP or close the game to end the session.");
+            SetStatus(Loc.S("Building the shader cache (first start only, this can take a few minutes)..."), Phase.Running,
+                Loc.S("The game window stays black until it is done. Later starts are quick. Press STOP or close the game to end the session."));
         else if (!reachedShip && DateTime.UtcNow - seasonPassUtc > IntroStallAfter)
-            SetStatus("The game seems stuck in the cryo pod.", Phase.Attention,
-                "This can happen on the first launch of a new installation. Press STOP, then PLAY again: the next launch goes through.");
+            SetStatus(Loc.S("The game seems stuck in the cryo pod."), Phase.Attention,
+                Loc.S("This can happen on the first launch of a new installation. Press STOP, then PLAY again: the next launch goes through."));
         else if (SteamInputNote.Of(state) is { } controllers)
-            SetStatus("Running. Steam Input can't reach the sandboxed game.", Phase.Attention, controllers);
-        else SetStatus("Running", Phase.Running, "Press STOP or close the game to end the session.");
+            SetStatus(Loc.S("Running. Steam Input can't reach the sandboxed game."), Phase.Attention, controllers);
+        else SetStatus(Loc.S("Running"), Phase.Running, Loc.S("Press STOP or close the game to end the session."));
     }
 
     void ShowObserved(JsonElement state, bool stopped)
@@ -628,11 +639,11 @@ public partial class MainWindow : Window
         // the game closed its window and kept running: the session runner ended it (QuitWatch) and finished as after STOP
         var stuck = state.TryGetProperty("stuckQuitting", out _)
             ? "The game closed its window but did not exit, so HellForge ended it and finished the session as usual. " : "";
-        if (!stopped) SetStatus("Ending the session...", Phase.Busy);
+        if (!stopped) SetStatus(Loc.S("Ending the session..."), Phase.Busy);
         else if (ShowCrashEnding()) return;
-        else if (stopKilled) SetStatus("The session did not stop; HellForge ended it.", Phase.Ended,
+        else if (stopKilled) SetStatus(Loc.S("The session did not stop; HellForge ended it."), Phase.Ended,
             stuck + Cleanup(state) + "Its own cleanup may not have finished. Check the session logs before playing again.");
-        else SetStatus("Session ended.", Phase.Ended, stuck + Cleanup(state) + "Press PLAY to start another session.");
+        else SetStatus(Loc.S("Session ended."), Phase.Ended, stuck + Cleanup(state) + "Press PLAY to start another session.");
     }
 
     void ShowFailed(JsonElement state, bool stopped)
@@ -643,8 +654,8 @@ public partial class MainWindow : Window
             problem.ValueKind == JsonValueKind.String && !string.IsNullOrWhiteSpace(problem.GetString());
         GameRepairButton.IsVisible = canRepair;
         if (stopped && stopKilled)
-            SetStatus("The session did not stop; HellForge ended it.", Phase.Ended,
-                "Its own cleanup may not have finished. Check the session logs before playing again.",
+            SetStatus(Loc.S("The session did not stop; HellForge ended it."), Phase.Ended,
+                Loc.S("Its own cleanup may not have finished. Check the session logs before playing again."),
                 failure.Length > 0 ? failure : null);
         else
             SetStatus(stopped ? "Session failed." : "Session failed. Cleaning up...", Phase.Failed,
@@ -661,13 +672,13 @@ public partial class MainWindow : Window
         GameRepairButton.IsVisible = canRepair;
         if (stopKilled)
         {
-            SetStatus("The session did not stop; HellForge ended it.", Phase.Ended,
+            SetStatus(Loc.S("The session did not stop; HellForge ended it."), Phase.Ended,
                 canRepair ? "The bad file is named here. Check and repair verifies and replaces it." :
                     "Its own cleanup may not have finished. Check the session logs before playing again.",
                 failure is { Length: > 0 } ? failure : null);
             return;
         }
-        SetStatus("The session ended without finishing cleanup.", Phase.Ended,
+        SetStatus(Loc.S("The session ended without finishing cleanup."), Phase.Ended,
             canRepair ? "The bad file is named here. Check and repair verifies and replaces it." :
                 "The session runner exited before writing completedUtc. Check the session logs before playing again.",
             failure is { Length: > 0 } ? failure : null);
@@ -706,7 +717,7 @@ public partial class MainWindow : Window
         if (profilePathText != null) profilePathText.Text = profile.Folder;
         TemplateText.Text = profile.Template;
         TemplateBadge.IsVisible = profile.IsDev;
-        TemplateCaption.Text = "Applied when the profile is first created";
+        TemplateCaption.Text = Loc.S("Applied when the profile is first created");
         ImportSettingsStatus.Text = "";
         ShowProfile();
         UpdateSettingsImport();
@@ -763,7 +774,7 @@ public partial class MainWindow : Window
             return;
         }
         ShowWeaponLevels(data);
-        ProfileNote.Text = "Stored on this computer and served by the local backend.";
+        ProfileNote.Text = Loc.S("Stored on this computer and served by the local backend.");
         InventoryText.Text = data.TryGetProperty("inventory", out var inventory) && inventory.ValueKind == JsonValueKind.Object &&
             inventory.TryGetProperty("items", out var items) && items.ValueKind == JsonValueKind.Array
             ? items.GetArrayLength().ToString("N0", CultureInfo.CurrentCulture) : "0";
@@ -1063,8 +1074,8 @@ public partial class MainWindow : Window
     async Task ConfirmCloseAsync()
     {
         if (ConfirmOverlay.IsVisible) return;
-        ConfirmTitle.Text = "Session running";
-        ConfirmText.Text = "A play session is running. Stop it and close the game?";
+        ConfirmTitle.Text = Loc.S("Session running");
+        ConfirmText.Text = Loc.S("A play session is running. Stop it and close the game?");
         (ConfirmCancel.Content, ConfirmStop.Content) = ("Keep playing", "Stop and close"); // the crash report's question uses them too
         ConfirmButtons.IsVisible = true;
         ConfirmOverlay.IsVisible = true;
@@ -1074,8 +1085,8 @@ public partial class MainWindow : Window
             ConfirmOverlay.IsVisible = false;
             return;
         }
-        ConfirmTitle.Text = "Stopping session";
-        ConfirmText.Text = "Closing the game and the local backend...";
+        ConfirmTitle.Text = Loc.S("Stopping session");
+        ConfirmText.Text = Loc.S("Closing the game and the local backend...");
         ConfirmButtons.IsVisible = false;
         RequestStop();
         // Give the script time to stop the game and restore its logs; the game's job ends with the script anyway.
@@ -1085,14 +1096,14 @@ public partial class MainWindow : Window
             try
             {
                 runner.Kill();
-                ConfirmTitle.Text = "Session stopped";
-                ConfirmText.Text = "The session did not stop in time, so it was ended before closing.";
+                ConfirmTitle.Text = Loc.S("Session stopped");
+                ConfirmText.Text = Loc.S("The session did not stop in time, so it was ended before closing.");
             }
             catch (Exception error)
             {
                 // The process may have gone between the check and the kill, or this user may not be allowed to kill it.
-                ConfirmTitle.Text = "Session did not stop";
-                ConfirmText.Text = "The session did not stop in time and could not be ended: " + error.Message + " Closing anyway.";
+                ConfirmTitle.Text = Loc.S("Session did not stop");
+                ConfirmText.Text = Loc.S("The session did not stop in time and could not be ended: ") + error.Message + " Closing anyway.";
             }
             // Leave the outcome on screen for a moment before the window closes.
             await Task.Delay(TimeSpan.FromSeconds(1));

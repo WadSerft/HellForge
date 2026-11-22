@@ -2,6 +2,7 @@ using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Media;
 using HellForge.Core;
+using HellForge.Launcher.Localization;
 
 namespace HellForge.Launcher;
 
@@ -38,7 +39,7 @@ public partial class MainWindow
     {
         SyncCard.IsVisible = InventorySync.FindCaptureProxy(paths.InstallRoot) != null;
         if (NativeLinux)
-            SyncDescription.Text = "Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. On Linux the first sync asks once to install a small root-owned helper, through the desktop's password dialog; until the normal game exits, two marked /etc/hosts lines point its server name at this PC and a one-day certificate is trusted only in HELLDIVERS 2's Proton prefix. Both are removed when it exits.";
+            SyncDescription.Text = Loc.S("Brings your own HELLDIVERS 2 account into this profile. Warbonds, Superstore items and DLC gear you bought always follow your latest sync; everything else is imported only as you choose, and the profile is backed up first. Super Credits are never imported or usable. Sync opens the normal game through Steam; log in and pass the title screen. On Linux the first sync asks once to install a small root-owned helper, through the desktop's password dialog; until the normal game exits, two marked /etc/hosts lines point its server name at this PC and a one-day certificate is trusted only in HELLDIVERS 2's Proton prefix. Both are removed when it exits.");
         SyncButton.Click += async (_, _) => await StartSync();
         PlaySyncButton.Click += async (_, _) => await StartSync();
         PlayReviewButton.Click += (_, _) => Nav.SelectedIndex = 1;
@@ -93,7 +94,7 @@ public partial class MainWindow
         var leftover = InventorySync.HasLeftoverRedirect();
         SyncButton.Content = leftover ? "Clean up" : "Sync Inventory";
         if (!leftover) return;
-        PlaySyncButton.Content = "Clean up";
+        PlaySyncButton.Content = Loc.S("Clean up");
         SetSyncStatus("An earlier sync did not finish: the normal game cannot reach its servers until you clean up.", Orange);
     }
 
@@ -240,7 +241,7 @@ public partial class MainWindow
         SyncButton.IsEnabled = false;
         try
         {
-            ConfirmTitle.Text = "Install Account Sync helper?";
+            ConfirmTitle.Text = Loc.S("Install Account Sync helper?");
             ConfirmText.Text = LinuxCapture.HelperInstallDescription(installRoot) + "\n\nIt is needed because: " + need;
             (ConfirmCancel.Content, ConfirmStop.Content) = ("Cancel", "Install");
             ConfirmButtons.IsVisible = true;
