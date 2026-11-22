@@ -37,7 +37,7 @@ jobs:
       - name: Zip the payload and build the patch setup around it
         shell: pwsh
         run: |
-          $payload = 'artifacts/payload.zip'
+          $payload = Join-Path $env:GITHUB_WORKSPACE 'artifacts/payload.zip'
           Compress-Archive -Path @(
               'artifacts/patch/HellForge.Launcher.dll', 'artifacts/patch/HellForge.Core.dll', 'artifacts/patch/HellForge.SteamDownload.dll',
               'artifacts/patch/HellForge.Launcher.exe', 'artifacts/patch/HellForge.Launcher.deps.json', 'artifacts/patch/HellForge.Launcher.runtimeconfig.json',
