@@ -86,7 +86,7 @@ public partial class MainWindow
         ImportBox.IsVisible = Directory.Exists(Path.Combine(EarlierGameData, "profiles")) || File.Exists(Path.Combine(EarlierGameData, "user_settings.config"));
         InstallCard.IsVisible = true;
         InstallText.Text = $"{Privacy.Scrub(install.Root)}  ·  HELLDIVERS 2 build {SupportedBuild.Current.BuildId}";
-        if (!SupportedBuild.Current.IsComplete(install.Game)) EnterSetup(repair: false);
+        if (!SupportedBuild.Current.IsComplete(install.Game) && !SupportedBuild.Current.GameExeMatches(install.Game)) EnterSetup(repair: false);
     }
 
     void EnterSetup(bool repair, string? reason = null)
@@ -514,7 +514,8 @@ public partial class MainWindow
         // taken from Steam, whose library may hold another build by now - the copy is what runs, and Check and repair
         // can refresh it. Steam itself is still asked to prove ownership of the game on the next step.
         SetRow(SetupStep.Find, null, "Checking this installation's game copy...", running: true);
-        if (await Task.Run(() => build.IsComplete(install.Game) && build.Verify(install.Game).Count == 0))
+        if (await Task.Run(() => build.IsComplete(install.Game) && build.Verify(install.Game).Count == 0) ||
+            await Task.Run(() => build.GameExeMatches(install.Game)))
         {
             SetRow(SetupStep.Find, true, $"Supported build {build.BuildId} already verified in {Privacy.Scrub(install.Game)}");
             return new(build, SteamLocator.SteamRoot(install) ?? "", null, false, false, FromVerifiedCopy: true);
