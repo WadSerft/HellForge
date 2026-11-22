@@ -169,9 +169,21 @@ public partial class MainWindow
             // When downloading from Steam, that comes first, so the supported build's steam_api64.dll is there for the
             // ownership check (the newer build's DLL may not work with the probe).
             if (found.FromSteamServers) { step = SetupStep.Copy; await SteamDownloadStep(install, found); }
-            var steamApi = SteamApiPath(install, found);
-            step = SetupStep.Ownership;
-            await OwnershipStep(install, steamApi);
+            if (found.FromVerifiedCopy)
+            {
+                // This fork: a verified copy never asks Steam for ownership either - Steam need not be running or
+                // signed in. The marker also tells the session runner (PlaySession) to skip its check; delete the
+                // file to have both ask again.
+                await Task.Run(() => File.WriteAllText(Path.Combine(install.Root, "skip-ownership-check"), ""));
+                SignInCard.IsVisible = false;
+                SetRow(SetupStep.Ownership, true, "Steam ownership check skipped (verified game copy; Steam need not be running).");
+            }
+            else
+            {
+                var steamApi = SteamApiPath(install, found);
+                step = SetupStep.Ownership;
+                await OwnershipStep(install, steamApi);
+            }
             if (!found.FromSteamServers) { step = SetupStep.Copy; await CopyStep(install, found); }
             step = SetupStep.NetworkBlock;
             await NetworkBlockStep(install);

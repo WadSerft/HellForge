@@ -619,6 +619,15 @@ sealed partial class PlaySession(PlayOptions options)
     // again for the second check too, as before. Either way the session's result says which it was.
     void Ownership(string steamApi, string evidence)
     {
+        // This fork: an installation made through the verified-copy path writes this marker in setup, asking that
+        // Steam never be contacted for ownership (Steam need not be running or signed in). Delete the file to ask again.
+        if (File.Exists(Path.Combine(install.Root, "skip-ownership-check")))
+        {
+            result["ownershipCheck"] = "skipped";
+            result["ownershipConfirmedUtc"] = DateTime.UtcNow.ToString("o");
+            Say("Steam ownership: skipped (skip-ownership-check is in the installation; delete it to ask Steam again).");
+            return;
+        }
         if (!options.FullOwnershipCheck && !fullOwnershipCheckRan)
         {
             var (record, why) = SteamOwnershipRecord.Reusable(install);
