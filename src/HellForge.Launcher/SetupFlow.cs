@@ -143,7 +143,8 @@ public partial class MainWindow
 
     // The game found for setup: the supported build, Steam's root, Steam's installed game (or null), whether Steam's
     // console download holds it, and whether setup downloads it from Steam's servers (copying what Game holds).
-    sealed record SetupSource(SupportedBuild Build, string SteamRoot, SteamGame? Game, bool FromDepots, bool FromSteamServers);
+    sealed record SetupSource(SupportedBuild Build, string SteamRoot, SteamGame? Game, bool FromDepots, bool FromSteamServers,
+        bool FromVerifiedCopy = false);
 
     async Task RunSetup()
     {
@@ -496,8 +497,17 @@ public partial class MainWindow
         if (await VisualCppRuntimes.EnsureAsync(install.Temp, "start setup again.",
                 detail => Dispatcher.UIThread.Post(() => SetRow(SetupStep.Find, null, detail, running: true))) is { } runtimes)
             throw new SetupStopped(runtimes);
-        SetRow(SetupStep.Find, null, "Looking in your Steam libraries...", running: true);
         var build = SupportedBuild.Current;
+        // This installation's own copy, complete and verified (Linux's FindLinuxGame checks the same first): nothing is
+        // taken from Steam, whose library may hold another build by now - the copy is what runs, and Check and repair
+        // can refresh it. Steam itself is still asked to prove ownership of the game on the next step.
+        SetRow(SetupStep.Find, null, "Checking this installation's game copy...", running: true);
+        if (await Task.Run(() => build.IsComplete(install.Game) && build.Verify(install.Game).Count == 0))
+        {
+            SetRow(SetupStep.Find, true, $"Supported build {build.BuildId} already verified in {Privacy.Scrub(install.Game)}");
+            return new(build, SteamLocator.SteamRoot(install) ?? "", null, false, false, FromVerifiedCopy: true);
+        }
+        SetRow(SetupStep.Find, null, "Looking in your Steam libraries...", running: true);
         var steamRoot = SteamLocator.SteamRoot(install) ?? throw new SetupStopped("Steam is not installed on this PC. Install Steam and HELLDIVERS 2, then start setup again.");
         SteamGame? game;
         string? unusable = null;
@@ -584,7 +594,7 @@ public partial class MainWindow
     }
 
     // The steam_api64.dll the ownership check uses: the downloaded copy, Steam's depot download, or the installed game.
-    static string SteamApiPath(InstallLayout install, SetupSource found) => found.FromSteamServers
+    static string SteamApiPath(InstallLayout install, SetupSource found) => found.FromVerifiedCopy || found.FromSteamServers
         ? Path.Combine(install.Game, "bin", "steam_api64.dll")
         : found.FromDepots
             ? SteamDepotDownload.Locate(found.SteamRoot, found.Build, found.Build.Files.Single(f => f.Path == "bin/steam_api64.dll"))
@@ -631,6 +641,12 @@ public partial class MainWindow
     // Copies the game into the installation (from Steam's installed game or its depot download), each file verified.
     async Task CopyStep(InstallLayout install, SetupSource found)
     {
+        if (found.FromVerifiedCopy)
+        {
+            SignInCard.IsVisible = false;
+            SetRow(SetupStep.Copy, true, $"The verified game copy is kept as it is: {found.Build.Files.Count} files, nothing downloaded from Steam.");
+            return;
+        }
         SetRow(SetupStep.Copy, null, "Copying and verifying the game files...", running: true);
         await CopyGame(found.FromDepots ? null : found.Game!.Report.Source, found.SteamRoot, install);
         var copied = $"{found.Build.Files.Count} files ({found.Build.TotalBytes / 1e9:0.0} GB), each verified against Steam's hashes.";
